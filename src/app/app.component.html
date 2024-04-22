@@ -1,0 +1,15 @@
+<header>
+  <app-header *ngIf="dashboardUser"></app-header>
+</header>
+
+<body>
+  <router-outlet></router-outlet>
+</body>
+
+<footer *ngIf="dashboardUser">
+  <app-footer></app-footer>
+</footer>
+
+<span>
+  <p-toast></p-toast>
+</span>

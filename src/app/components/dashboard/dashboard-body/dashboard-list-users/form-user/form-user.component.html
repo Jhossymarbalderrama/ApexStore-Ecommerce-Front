@@ -1,0 +1,124 @@
+<!-- Main modal -->
+<div id="crud-modal-user"
+    class="modal hidden h-screen w-full fixed left-0 top-0 flex justify-center items-center bg-black bg-opacity-50">
+    <div class="relative">
+        <!-- Modal content -->
+        <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+            <!-- Modal header -->
+            <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600">
+                <h2 class="text-2xl font-semibold">User Registration</h2>
+
+                <button type="button" title="close" (click)="closeModal()"
+                    class="text-black-400 bg-red-400 hover:bg-red-300 hover:text-red-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-red-700 dark:hover:text-white">
+                    <i class="fa-solid fa-xmark"></i>
+                    <span class="sr-only">Close</span>
+                </button>
+            </div>
+
+            <div class="min-w-md mx-auto bg-white rounded p-6 shadow-md">
+                <!-- Modal body -->
+                <form [formGroup]="formUser" id="formUser" enctype="multipart/form-data">
+
+                    <div class="grid grid-cols-3 gap-2 mb-4 w-full">
+
+                        <div class="col-span-1 sm:col-span-1">
+                            <label for="id" class="flex items-center text-gray-700 text-sm font-semibold mb-2">
+                                <i class="fa-solid fa-id-card mr-2"></i> Id
+                            </label>
+                            <input [value]="dataForm?.item?.id" [readOnly]="formReadOnly" class="form-control" formControlName="id" type="number" id="id" name="id" placeholder="id"
+                                class="w-full px-3 py-2 border rounded bg-gray-300 focus:outline-none focus:border-blue-500"
+                                [readOnly]="true">
+                        </div>
+
+                        <div class="col-span-1 sm:col-span-2">
+                            <label for="username" class="flex items-center text-gray-700 text-sm font-semibold mb-2">
+                                <i class="fa-solid fa-user mr-2"></i> Username
+                            </label>
+                            <input [value]="dataForm?.item?.username" [readOnly]="formReadOnly" class="form-control" formControlName="username" type="email" id="username" name="username" placeholder="username"
+                                 class="w-full px-3 py-2 border rounded  focus:outline-none focus:border-blue-500"
+                                required>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 gap-1 mb-4 w-full">
+                        <div class="col-span-1 sm:col-span-1">
+                            <label for="password" class="flex items-center text-gray-700 text-sm font-semibold mb-2">
+                                <i class="fa-solid fa-lock mr-2"></i> Password
+                            </label>
+                            <input [value]="dataForm?.item?.password" [readOnly]="formReadOnly"class="form-control" formControlName="password" type="password" id="password" name="password" placeholder="password"
+                                 class="w-full px-3 py-2 border rounded  focus:outline-none focus:border-blue-500"
+                                required>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-2 gap-2 mb-4 w-full">
+                        <div class="col-span-3 sm:col-span-1">
+                            <label for="firstname" class="flex items-center text-gray-700 text-sm font-semibold mb-2">
+                                <i class="fa-solid fa-user-tag mr-2"></i> Firstname
+                            </label>
+                            <input [value]="dataForm?.item?.firstname" [readOnly]="formReadOnly" class="form-control" formControlName="firstname" type="text" id="firstname" name="firstname" placeholder="firstname"
+                                 class="w-full px-3 py-2 border rounded  focus:outline-none focus:border-blue-500"
+                                required>
+                        </div>
+                        <div class="col-span-3 sm:col-span-1">
+                            <label for="lastname" class="flex items-center text-gray-700 text-sm font-semibold mb-2">
+                                <i class="fa-solid fa-user-tag mr-2"></i> Lastname
+                            </label>
+                            <input [value]="dataForm?.item?.lastname" [readOnly]="formReadOnly" class="form-control" formControlName="lastname" type="text" id="lastname" name="lastname" placeholder="lastname"
+                                 class="w-full px-3 py-2 border rounded  focus:outline-none focus:border-blue-500"
+                                required>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-3 gap-4 mb-4">
+                        <div class="col-span-3 sm:col-span-1">
+                            <label for="type_user" class="flex items-center text-gray-700 text-sm font-semibold mb-2">
+                                <i class="fa-solid fa-briefcase mr-2"></i> Type user
+                            </label>
+                            <input [value]="dataForm?.item?.type_user" [readOnly]="formReadOnly" class="form-control" formControlName="type_user" type="text" id="type_user" name="type_user" placeholder="type user"
+                                 class="w-full px-3 py-2 border rounded  focus:outline-none focus:border-blue-500"
+                                required>
+                        </div>
+
+                        <div class="col-span-3 sm:col-span-1">
+                            <label for="state" class="flex items-center text-gray-700 text-sm font-semibold mb-2">
+                                <i class="fa-solid fa-person-circle-question mr-2"></i> State
+                            </label>
+                            <input [value]="dataForm?.item?.state" [readOnly]="formReadOnly" class="form-control" formControlName="state" type="text" id="state" name="state" placeholder="state"
+                                 class="w-full px-3 py-2 border rounded  focus:outline-none focus:border-blue-500">
+                        </div>
+
+                        <div class="col-span-3 sm:col-span-1">
+                            <label for="role" class="flex items-center text-gray-700 text-sm font-semibold mb-2">
+                                <i class="fa-solid fa-briefcase mr-2"></i> Role
+                            </label>
+                            <input [value]="dataForm?.item?.role" [readOnly]="formReadOnly" class="form-control" formControlName="role" type="text" id="role" name="role" placeholder="role"
+                                class="w-full px-3 py-2 border rounded bg-gray-300 focus:outline-none focus:border-blue-500"
+                                [readOnly]="true">
+                        </div>
+                    </div>
+
+                    <div class="flex justify-end">
+                        <button (click)="formAction()" type="submit" *ngIf="!disableBtnAction"
+                            class="bg-green-500 text-white px-20 py-2 rounded hover:bg-green-700">
+                            <i class="fas fa-check-circle mr-2"></i> {{this.dataForm?.action == 0 ? 'Add Product' : 'Update Product' }}
+                        </button>
+
+                        <button (click)="formAction()" type="submit" *ngIf="disableBtnAction && dataForm?.action == 2"
+                            class="bg-red-500 text-white px-20 py-2 rounded hover:bg-red-700">
+                            <i class="fa-solid fa-trash mr-2"></i> Eliminar Usuario
+                        </button>
+
+                        <button (click)="closeModal()"
+                            class="text-white inline-flex items-center focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-10 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 ml-3"
+                            [ngClass]="dataForm?.action==2 ? 'bg-green-500 hover:bg-green-600' : 'bg-red-500 hover:bg-red-600'">
+                            Cancel
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<app-delete-user [idUser]="this.dataForm?.item?.id" (idUserDelete)="eliminarUserList($event)"></app-delete-user>

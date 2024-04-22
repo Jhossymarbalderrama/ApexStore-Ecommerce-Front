@@ -1,0 +1,71 @@
+<section class="bg-gray-300 py-20 flex items-center justify-center">
+
+    <div class="bg-white p-8 rounded-xl shadow-xl w-5/6 sm:w-3/4 md:w-3/4 lg:w-1/2 xl:w-1/4">
+      <h2 class="text-2xl font-semibold mb-4 text-center">Registrarse</h2>
+  
+      <span *ngIf="registerState" class="text-center mx-auto">
+        <h4 class="text-success font-bold mb-4">😀 ¡Usuario registrado! 🎉</h4>
+      </span>
+  
+      <form [formGroup]="formRegister" id="formRegister" (ngSubmit)="onRegister()">
+        <div class="mb-4">
+          <label for="email" class="block text-sm font-bold text-gray-600">Correo Electrónico</label>
+          <div class="relative">
+            <input formControlName="username" type="email" id="username" name="username"
+              class="form-control mt-1 p-2 w-full border rounded-md focus:outline-none focus:border-blue-500"
+              placeholder="ejemplo@gmail.com">
+            <i class="absolute top-4 right-3 text-gray-500 fas fa-envelope"></i>
+  
+            <div *ngIf="username.invalid && (username.dirty || username.touched)" class="text-danger">
+              <span *ngIf="username.errors?.['required']">User name is required</span>
+            </div>
+          </div>
+        </div>
+  
+        <div class="mb-4">
+          <label for="password" class="block text-sm font-bold text-gray-600">Contraseña</label>
+          <div class="relative">
+            <input formControlName="password" type="password" id="password" name="password"
+              class="form-control mt-1 p-2 w-full border rounded-md focus:outline-none focus:border-blue-500"
+              placeholder="micontraseña123">
+            <i class="absolute top-4 right-3 text-gray-500 fas fa-lock"></i>
+  
+            <div *ngIf="password.invalid && (password.dirty || password.touched)" class="text-danger">
+              <span *ngIf="password.errors?.['required']">Password is required</span>
+            </div>
+          </div>
+        </div>
+  
+        <div class="mb-4">
+          <label for="confirmPassword" class="block text-sm font-bold text-gray-600">Confirmar Contraseña</label>
+          <div class="relative">
+            <input formControlName="confirmPassword" type="password" id="confirmPassword" name="confirmPassword"
+              class="form-control mt-1 p-2 w-full border rounded-md focus:outline-none focus:border-blue-500"
+              placeholder="micontraseña123">
+            <i class="absolute top-4 right-3 text-gray-500 fas fa-lock"></i>
+  
+            <div *ngIf="confirmPassword.invalid && (confirmPassword.dirty || confirmPassword.touched)"
+              class="text-danger">
+              <span *ngIf="confirmPassword.errors?.['required']">Confirm password is required</span>
+            </div>
+  
+            <div *ngIf="confirmPassword.valid && (confirmPassword.dirty || confirmPassword.touched)"
+              class="text-danger">
+              <span *ngIf="confirmPassword.value != password.value">Incorrect password</span>
+            </div>
+          </div>
+        </div>
+  
+        <div class="flex flex-col items-center justify-center">
+          <button type="submit" class="bg-green-500 hover:bg-green-700 text-white p-2 rounded-md w-full ">
+            <i class="mr-2 fas fa-user-plus"></i> Registrar
+          </button>
+          <a [routerLink]="'/login'" class="text-blue-500 mt-4 hover:underline">
+            <i class="mr-2 fas fa-sign-in-alt"></i> Ir a Iniciar Sesión
+          </a>
+        </div>
+      </form>
+    </div>
+  
+  </section>
+  

@@ -1,0 +1,123 @@
+<body class="bg-gray-300 p-8">
+
+    <div class="container mx-auto p-4 bg-white shadow-md rounded-md">
+        <!-- Título de la sección -->
+        <h2 class="text-2xl font-semibold mb-4">Administrador de Usuarios</h2>
+
+        <div class="flex justify-end my-3">
+            <button (click)="showModal(action.ADD)"
+                class="bg-green-500 text-white px-4 py-2 rounded-md flex items-center">
+                <i class="fas fa-plus-circle mr-2"></i>
+                Agregar Usuario
+            </button>
+        </div>
+
+        <div class="flex items-center justify-between mb-4">
+            <div class="flex items-center space-x-4">
+                <label for="showProducts" class="text-gray-700 font-semibold">Cantidad de Usuarios:</label>
+                <select [(ngModel)]="cantElementPagination" id="showProducts"
+                    class="border border-gray-300 rounded-md p-1">
+                    <option value="10">10</option>
+                    <option value="20">20</option>
+                    <option value="50">50</option>
+                </select>
+            </div>
+
+            <div class="flex items-center space-x-4">
+                <div class="mb-4 flex items-center space-x-4">
+
+                    <div class="relative">
+                        <input type="text" placeholder="Correo electrónico "
+                            class="font-semibold py-2 px-3 rounded-md border focus:outline-none focus:ring focus:border-blue-100"
+                            [(ngModel)]='filterEmail'>
+                        <span class="absolute right-3 top-1/2 transform -translate-y-1/2">
+                            <!-- <i class="fa-solid fa-box-archive text-gray-600"></i> -->
+                            <i class="fa-solid fa-envelope text-gray-600"></i>
+                        </span>
+                    </div>
+
+                    <button (click)="clearFilters()"
+                        class="font-semibold bg-blue-500 text-white py-2 px-8 rounded-md focus:outline-none hover:bg-blue-600">
+                        <!-- <i class="fas fa-search text-white-600 pr-2"></i> -->
+                        <i class="fa-solid fa-filter text-white-600 pr-2"></i>
+                        Limpiar
+                    </button>
+                </div>
+            </div>
+
+        </div>
+
+        <table class="min-w-full bg-gray-300 border border-gray-300 rounded-md overflow-hidden text-left">
+            <thead class="bg-gray-400">
+                <tr class="text-left">
+                    <!-- <th class="py-2 px-4 border-b"></th> -->
+                    <th class="py-2 px-4 border-b">ID</th>
+                    <th class="py-2 px-4 border-b">User Name</th>
+                    <!-- <th class="py-2 px-4 border-b">Firstname</th>
+        <th class="py-2 px-4 border-b">Lastname</th> -->
+                    <th class="py-2 px-4 border-b">Role</th>
+                    <th class="py-2 px-4 border-b">Type User</th>
+                    <th class="py-2 px-4 border-b">State</th>
+                    <th class="py-2 px-4 border-b actions">Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+
+                <tr class="hover:bg-gray-50" *ngFor="let usr of obtenerElementosDePagina()">
+                    <!-- <td class="py-2 px-4 border-b"><input type="checkbox"></td> -->
+                    <td style="text-shadow: 2px 2px #000000ce;"class="py-2 px-4 border-b bg-gray-600 font-bold text-white">{{usr.id}}</td>
+                    <td class="py-2 px-4 border-b font-semibold">{{usr.username}}</td>
+                    <!-- <td class="py-2 px-4 border-b">{{usr.firstname}}</td>
+        <td class="py-2 px-4 border-b">{{usr.lastname}}</td> -->
+                    <td style="text-shadow: 2px 2px #000000ce;" class="py-2 px-4 border-b bg-gray-600">
+                        <span [ngClass]="usr.role == 'ADMIN' ? 'text-red-500': 'text-blue-400'">
+                            {{usr.role}}
+                        </span>
+                    </td>
+                    <td class="py-2 px-4 border-b">{{usr.type_user}}</td>
+                    <td style="text-shadow: 2px 2px #000000ce;" class="py-2 px-4 border-b bg-gray-600 font-bold">
+                        <span [ngClass]="usr.state == 'Activo' ? 'text-green-400':'text-red-500'">
+                            <i class="fa-solid fa-circle text-xs"></i>
+                            {{usr.state}}
+                        </span>
+                    </td>
+                    <td class="border-b actions bg-white text-center">
+                        <button (click)="showModal(action.VIEW,usr)"
+                            class="text-blue-500 hover:text-blue-900 focus:outline-none mr-3">
+                            <i class="fa-solid fa-eye"></i>
+                        </button>
+                        <button class="text-yellow-500 hover:text-yellow-700 focus:outline-none text-lg mr-3"
+                            (click)="showModal(action.PUT,usr)">
+                            <i class="fas fa-pencil-alt"></i>
+                        </button>
+                        <button class="text-red-500 hover:text-red-700 focus:outline-none  text-lg"
+                            (click)="showModal(action.DEL,usr)">
+                            <i class="fas fa-trash"></i>
+                        </button>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+        <div class="flex justify-center mt-4">
+            <div class="flex">
+                <a class="py-2 px-4 border border-gray-300 rounded-l cursor-pointer"
+                    [style.pointer-events]="paginationView === 1 ? 'none' : 'auto'"
+                    (click)="cambiarPagina(paginationView - 1)">Anterior</a>
+                <ng-container *ngFor="let pagina of obtenerRangoDePaginas()">
+                    <a class="py-2 px-4 border-t border-b border-gray-300 cursor-pointer"
+                        [ngClass]="{'bg-blue-500 text-white': pagina === paginationView}"
+                        (click)="cambiarPagina(pagina)">{{ pagina
+                        }}</a>
+                </ng-container>
+                <a class="py-2 px-4 border border-gray-300 cursor-pointer"
+                    [style.pointer-events]="paginationView === obtenerRangoDePaginas().length ? 'none' : 'auto'"
+                    (click)="cambiarPagina(paginationView + 1)">Siguiente</a>
+            </div>
+        </div>
+
+        <app-form-user #crudFormUser (refreshListUsers)="refreshList($event)" (idUserDelete)="eliminarUserList($event)"
+            (refreshUserUpdate)="refreshUserUpdate($event)">
+        </app-form-user>
+    </div>
+</body>

@@ -1,0 +1,45 @@
+
+        <div
+            class="flex flex-col items-center border-b bg-white py-4 sm:flex-row sm:px-10 lg:px-20 xl:px-32">
+            <a href="#" class="text-2xl lg:text-3xl font-bold text-gray-800">Datos de Envio</a>
+            <div class="mt-4 py-2 text-xs sm:mt-0 sm:ml-auto sm:text-base">
+                <div class="relative">
+                    <ul class="relative flex w-full items-center justify-between lg:space-x-3">
+                        <li class="flex items-center space-x-3 text-left hover:cursor-pointer">
+                            <a routerLink="/dashboard/shopping-cart" class="flex flex-row space-x-2">
+                                <span
+                                    class="text-xs flex h-5 w-5 lg:h-6 lg:w-6 items-center justify-center rounded-full bg-emerald-400 font-semibold text-white ring ring-emerald-500 ring-offset-2">1</span>
+                                <span class="font-semibold text-emerald-600">Carrito de Compra</span>
+                            </a>
+                        </li>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-gray-400" fill="none"
+                            viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+                        </svg>
+                        <li class="flex items-center space-x-3 text-left  cursor-pointer">
+                            <a routerLink="/dashboard/payment-form" class="flex flex-row space-x-2">
+                                <span
+                                    class="text-xs flex h-5 w-5 lg:h-6 lg:w-6 items-center justify-center rounded-full bg-gray-400 font-semibold text-white">2
+                                </span>
+                                <span class="font-semibold text-gray-900">Datos de Envio</span>
+                            </a>
+                        </li>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-gray-400" fill="none"
+                            viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+                        </svg>
+                        <li class="flex items-center space-x-3 text-left">
+                            <a class="flex flex-row space-x-2 cursor-default">
+                                <span
+                                    class=" text-xs flex h-5 w-5 lg:h-6 lg:w-6 items-center justify-center rounded-full bg-gray-400 font-semibold text-white">3</span>
+                                <span class="font-semibold text-gray-500">Pago</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="px-4 sm:px-10 lg:px-20 xl:px-32 py-5">
+            <app-cart-info></app-cart-info>
+        </div>

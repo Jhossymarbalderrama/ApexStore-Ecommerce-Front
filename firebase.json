@@ -1,0 +1,9 @@
+{
+  "hosting": [
+    {
+      "target": "e-commerce",
+      "source": ".",
+      "frameworksBackend": {}
+    }
+  ]
+}

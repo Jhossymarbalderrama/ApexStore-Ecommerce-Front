@@ -1,0 +1,44 @@
+Paginas Dashboard
+
+Home: 
+            *En proceso
+Profile:
+            * Info de Usuario
+            * Edith Info
+Shopping Cart:
+            * Vista de Productos
+            * Eliminacion de Prod Carrito
+            * Pagar:
+                * Form Payment
+Products (ADM): 
+            * Grid Products:
+                        * Alta
+                        * Baja
+                        * Modificacion
+                        * Fitros:
+                                * Nombre
+                                * Categoria
+Store: 
+            * List Product:
+            * Filtros:
+                    * Nombre
+                    * Categoria
+Shopping History: "VENTAS FINALIZADAS Y ENTRAGADAS" 
+            * En proceso
+Articles (ADM):
+            * En Proceso
+Orders (ADM): "LISTA DE ORDENES PARA CAMBIAR DE ESTADO EL PEDIDO DEL PRODUCTO"
+            * En Proceso
+List Users (ADM):
+            * Grid Products:
+                        * Alta
+                        * Baja
+                        * Modificacion
+                        * View
+                        * Fitros:
+                                * En Proceso   
+Analytics (ADM):
+            * En proceso                                    
+Contact:
+        * En proceso
+        

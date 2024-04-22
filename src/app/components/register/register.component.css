@@ -1,0 +1,32 @@
+section{
+    background: linear-gradient(to top, #000000b2, #0000001f), url('../../../assets/img/background/5053309.jpg');
+    background-size: cover;
+    background-position: 0% 0%;
+    background-repeat: no-repeat;    
+}
+
+label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #4a5568;
+}
+
+input {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #cbd5e0;
+    border-radius: 0.25rem;
+}
+
+button {
+    color: #fff;
+    padding: 0.5rem;
+    border-radius: 0.25rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+
+span{
+    font-size: small;
+}

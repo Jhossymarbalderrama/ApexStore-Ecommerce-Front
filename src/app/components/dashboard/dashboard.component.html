@@ -1,0 +1,14 @@
+<div id="menu-dashboard" class="text-white px-4 py-2 menu-dashboard" (click)="toggleMenu()">
+  <i id="icon-user-shield" class="fa-solid fa-user-shield text-2xl text-white block" title="abrir"></i>
+  <i id="icon-close" class="fa-solid fa-xmark mx-1 text-2xl hidden text-white" title="cerrar"></i>
+</div>
+
+<div class="flex h-screen overflow-hidden">  
+  <div id="offCanvas" class="lg:w-1/6 h-full hidden lg:block">
+    <app-dashboard-menu></app-dashboard-menu>
+  </div>
+
+  <div id="dashboard" class="w-full lg:w-5/6 overflow-y-auto">
+    <app-dashboard-body></app-dashboard-body>
+  </div>
+</div>

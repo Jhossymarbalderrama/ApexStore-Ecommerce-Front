@@ -1,0 +1,84 @@
+<div class="block lg:block bg-menu text-white flex flex-col pt-5 w-full h-full pl-10 lg:pl-5 flex-grow overflow-y-auto">
+
+    <div class="mb-6 pr-10 flex items-center justify-center w-56 lg:w-full">
+        <img src="https://qph.cf2.quoracdn.net/main-qimg-64797fe2d59d9be91f093d86008048a6-pjlq" alt="Imagen de perfil"
+            class="object-cover rounded-md transition-transform transform-gpu cursor-pointer my-2">
+    </div>
+
+    <p class="text-md font-semibold text-response mb-6">Panel de Usuario</p>
+
+    <div class="mb-4">
+        <a routerLink="/dashboard/home" id='home' class="flex items-center text-white">
+            <i class="fas fa-home mr-4"></i>
+            <span class="text-xs lg:text-xs font-bold" routerLinkActive="text-color-site">Home</span>
+        </a>
+    </div>
+
+    <div class="mb-4">
+        <a routerLink="/dashboard/profile" id='profile' class="flex items-center text-white">
+            <i class="fas fa-user mr-4"></i>
+            <span class="text-xs lg:text-xs font-bold" routerLinkActive="text-color-site">Mi Perfil</span>
+        </a>
+    </div>
+
+    <div class="mb-4">
+        <a routerLink="/dashboard/shopping-cart" id='shopping-cart' class="flex items-center text-white">
+            <i class="fa-solid fa-cart-shopping mr-4"></i>
+            <span class="text-xs lg:text-xs font-bold" routerLinkActive="text-color-site">Carrito</span>
+        </a>
+    </div>
+
+    <div class="mb-4" *ngIf="this.AuthService.svADM">
+        <a routerLink="/dashboard/products" id='products' class="flex items-center text-white">
+            <i class="fas fa-box mr-4"></i>
+            <span class="text-xs lg:text-xs font-bold" routerLinkActive="text-color-site">Productos </span>
+            <span class="text-red-500 text-xs pl-1">(ADM)</span>
+        </a>
+    </div>
+
+    <div class="mb-4">
+        <a routerLink="/dashboard/store" id='store' class="flex items-center text-white">
+            <i class="fa-solid fa-store mr-4"></i>
+            <span class="text-xs lg:text-xs font-bold" routerLinkActive="text-color-site">Tienda</span>
+        </a>
+    </div>
+
+    <div class="mb-4">
+        <a routerLink="/dashboard/shopping-history" id='shopping-history' class="flex items-center text-white">
+            <i class="fa-solid fa-boxes-packing mr-4"></i>
+            <span class="text-xs lg:text-xs font-bold" routerLinkActive="text-color-site">Historial de compras</span>
+        </a>
+    </div>
+
+    <div class="mb-4" *ngIf="this.AuthService.svADM">
+        <a routerLink="/dashboard/articles" id='articles' class="flex items-center text-white">
+            <i class="fas fa-newspaper mr-4"></i>
+            <span class="text-xs lg:text-xs font-bold" routerLinkActive="text-color-site">Articulos</span>
+            <span class="text-red-500 text-xs pl-1">(ADM)</span>
+        </a>
+    </div>
+
+    <div class="mb-4" *ngIf="this.AuthService.svADM">
+        <a routerLink="/dashboard/orders" id='orders' class="flex items-center text-white">
+            <i class="fa-solid fa-clipboard-list mr-4"></i>
+            <span class="text-xs lg:text-xs font-bold" routerLinkActive="text-color-site">Ordenes</span>
+            <span class="text-red-500 text-xs pl-1">(ADM)</span>
+        </a>
+    </div>
+
+    <div class="mb-4" *ngIf="this.AuthService.svADM">
+        <a routerLink="/dashboard/list-users" id='list-users' class="flex items-center text-white">
+            <i class="fa-solid fa-address-book mr-4"></i>
+            <span class="text-xs lg:text-xs font-bold" routerLinkActive="text-color-site">Usuarios</span>
+            <span class="text-red-500 text-xs pl-1">(ADM)</span>
+        </a>
+    </div>
+
+    <div class="mb-4" *ngIf="this.AuthService.svADM">
+        <a routerLink="/dashboard/analytics" id='analytics' class="flex items-center text-white">
+            <i class="fa-solid fa-chart-pie mr-4"></i>
+            <span class="text-xs lg:text-xs font-bold" routerLinkActive="text-color-site">Estadisticas</span>
+            <span class="text-red-500 text-xs pl-1">(ADM)</span>
+        </a>
+    </div>
+</div>
