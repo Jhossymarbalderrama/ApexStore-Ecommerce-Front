@@ -7,10 +7,11 @@ header {
     box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.5);
 }
 
+/* * NAV BAR */
 .navbar-solid{
     position: fixed;
-    transition: 0.5s all ease;
-    background-color: #f5f5f5ec !important;
+    transition: 0.3s all ease;
+    background-color: #f5f5f5e7 !important; /*f5f5f5ec*/
     color: black;
 }
 
