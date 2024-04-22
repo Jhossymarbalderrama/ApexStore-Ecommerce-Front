@@ -1,12 +1,10 @@
 <!-- Main modal -->
 <div id="delete-modal-user"
-    class="modal h-screen w-full fixed left-0 top-0 flex justify-center items-center bg-black bg-opacity-50 hidden">
+    class="modal h-screen w-full fixed left-0 top-0 flex justify-center items-center bg-black bg-opacity-50 hidden z-30">
     <div class="relative p-4 w-full max-w-md max-h-full">
-        <!-- Modal content -->
         <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
-            <!-- Modal header -->
             <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600">
-                <h2 class="text-2xl font-semibold">User Delete</h2>
+                <h2 class="text-2xl font-semibold">Eliminar Usuario</h2>
                 <button type="button" title="close" (click)="closeModal()"
                     class="text-black-400 bg-red-400 hover:bg-red-300 hover:text-red-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-red-700 dark:hover:text-white"
                     >
@@ -17,7 +15,7 @@
             <!-- Modal body -->
             <div class="min-w-md mx-auto bg-white rounded py-6 px-2 shadow-md">
                 <div class="flex justify-center">
-                    <h1 class="text-black-400 font-bold" style="font-size: 18px;">¿Esta seguro que quiere <a class="text-red-400">eliminar al Usuario</a>?</h1>
+                    <h1 class="text-black-400 text-center" style="font-size: 18px;">¿Esta seguro que quiere <a class="text-red-400 font-bold">eliminar al Usuario</a>?</h1>
                 </div>
                 <div class="flex justify-center mt-5">
                     <button type="submit" (click)="deleteUser()"

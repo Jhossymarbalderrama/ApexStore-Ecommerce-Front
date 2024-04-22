@@ -1,8 +1,8 @@
 
 <section class="text-gray-800 body-font overflow-hidden bg-gray-100">
   <div class="container px-5 pt-12 pb-12 mx-auto">
-    <div class="lg:w-4/5 mx-auto flex flex-wrap">
-      <img alt="ecommerce" class="bg-white lg:w-1/2 w-full lg:h-auto h-64 object-cover object-center rounded-lg shadow-md p-3"
+    <div class="lg:w-4/5 mx-auto flex flex-wrap"> 
+      <img alt="ecommerce" class="bg-white lg:w-1/2 w-100 lg:h-auto h-64 object-cover object-center rounded-lg shadow-md p-3"
         [src]="_currentImg ? _currentImg : 'https://dummyimage.com/400x400'" [alt]="_product?.name">
 
       <div class="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">
@@ -46,7 +46,7 @@
       </div>
 
       <div class="lg:w-7/6 flex flex-wrap mt-5" *ngFor="let itemImg of _product?.img">
-        <img
+        <img 
           class="bg-white h-24 w-auto object-cover object-center border border-gray-300 hover:border-gray-500 rounded-lg mr-4 mb-4 p-2 cursor-pointer"
           [src]="itemImg ? itemImg : 'https://dummyimage.com/400x400'"
           (click)="handleChangeImg(itemImg)">

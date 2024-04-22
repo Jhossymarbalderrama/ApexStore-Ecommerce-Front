@@ -51,10 +51,10 @@ export class DashboardComponent implements OnInit {
 
   toggleMenu(): void {
     this.menuOpen = !this.menuOpen;
-    const offCanvas = document.getElementById('offCanvas');
-    const menuDashboard = document.getElementById('menu-dashboard');
-    const iconClose = document.getElementById('icon-close');
-    const iconUserShield = document.getElementById('icon-user-shield');
+    const offCanvas = document.getElementById('offCanvas'); // ! El Contenedor del Menu
+    const menuDashboard = document.getElementById('menu-dashboard'); // ! Menu Btn Toggle
+    const iconClose = document.getElementById('icon-close'); // ? Icon Close
+    const iconUserShield = document.getElementById('icon-user-shield'); // ? Icon ADM Shield
 
     if(this.menuOpen){
       // Cerrado

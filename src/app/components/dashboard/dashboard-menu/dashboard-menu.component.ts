@@ -14,8 +14,8 @@ export class DashboardMenuComponent {
   userIMG: string = '../../../../assets/img/dashboard/user.jpg'; // ! Sacar esto y poner la imagen que tiene el Usuario
 
   // * CONSTRUCTOR
-  constructor(private router: Router, public AuthService: AuthService) { 
-   
+  constructor(private router: Router, public AuthService: AuthService) {
+
   }
 
   // * METHODs
@@ -24,5 +24,24 @@ export class DashboardMenuComponent {
    */
   onProfile() {
     this.router.navigateByUrl('dashboard/profile');
+  }
+
+  navClose() {
+    const offCanvas = document.getElementById('offCanvas'); // ! El Contenedor del Menu
+    const menuDashboard = document.getElementById('menu-dashboard'); // ! Menu Btn Toggle
+    const iconClose = document.getElementById('icon-close'); // ? Icon Close
+    const iconUserShield = document.getElementById('icon-user-shield'); // ? Icon ADM Shield
+
+    // ? Cierro el Nav cuando voy a una ruta en el dashboard
+    offCanvas?.classList.remove('offcanvas');
+    offCanvas?.classList.remove('block');
+    offCanvas?.classList.add('hidden');
+    menuDashboard?.classList.remove('menu-dashboard-move');
+
+    // Icon
+    iconClose?.classList.remove('block');
+    iconClose?.classList.add('hidden');
+    iconUserShield?.classList.add('block');
+    iconUserShield?.classList.remove('hidden');
   }
 }

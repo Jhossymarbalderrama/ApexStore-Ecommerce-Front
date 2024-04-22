@@ -1,24 +1,22 @@
-<body class="bg-gray-300 p-8">
+<body class="bg-white md:bg-gray-400 p-0 pt-14 md:p-4 lg:pt-5 lg:p-4">
+  <div class="container mx-auto p-4 bg-white md:shadow-md md:rounded-md">
+    <h2 class="text-2xl font-semibold mb-4">Administrador de Órdenes</h2>
 
-  <div class="container mx-auto p-4 bg-white shadow-md rounded-md">
-    <h2 class="text-2xl font-semibold mb-4">Administrador de Artículos</h2>
-
-    <div class="flex items-center justify-between mb-4">
-      <div class="flex items-center space-x-4">
-        <label for="showProducts" class="text-gray-700 font-semibold">Cantidad de Usuarios:</label>
-        <select [(ngModel)]="cantElementPagination" id="showProducts" class="border border-gray-300 rounded-md p-1">
+    <div class="flex flex-col lg:flex-row lg:justify-between mb-2">
+      <div class="w-2/5 flex items-center space-y-4 space-x-4 lg:space-y-0 lg:space-x-4 order-2 lg:order-1">
+        <label for="showOrders" class="text-gray-700 font-semibold text-sm">Cantidad de Órdenes:</label>
+        <select [(ngModel)]="cantElementPagination" id="showOrders" class="border border-gray-300 rounded-md p-1">
           <option value="10">10</option>
           <option value="20">20</option>
           <option value="50">50</option>
         </select>
       </div>
 
-      <div class="flex items-center space-x-4">
-        <div class="mb-4 flex items-center space-x-4">
-
+      <div class="w-3/5 lg:w-auto flex flex-col lg:flex-row items-start lg:items-end lg:space-x-4  order-1 lg:order-2">
+        <div class="mb-4 lg:mb-0 flex flex-col lg:flex-row items-start lg:items-center lg:space-x-4 space-y-3 lg:space-y-0">
           <div class="relative">
             <input type="text" placeholder="Nombre"
-              class="font-semibold py-2 px-3 rounded-md border focus:outline-none focus:ring focus:border-blue-100"
+              class="w-80 lg:w-48 font-semibold text-xs py-2  px-3 rounded-md border focus:outline-none focus:ring focus:border-blue-100"
               [(ngModel)]='filterName'>
             <span class="absolute right-3 top-1/2 transform -translate-y-1/2">
               <i class="fa-solid fa-user-tag text-gray-600"></i>
@@ -26,8 +24,8 @@
           </div>
 
           <div class="relative">
-            <input type="text" placeholder="Direccion"
-              class="font-semibold py-2 px-3 rounded-md border focus:outline-none focus:ring focus:border-blue-100"
+            <input type="text" placeholder="Dirección"
+              class="w-80 lg:w-48 font-semibold text-xs py-2  px-3 rounded-md border focus:outline-none focus:ring focus:border-blue-100"
               [(ngModel)]='filterDireccion'>
             <span class="absolute right-3 top-1/2 transform -translate-y-1/2">
               <i class="fa-solid fa-map-location-dot text-gray-600"></i>
@@ -36,7 +34,7 @@
 
           <div class="relative">
             <input type="text" placeholder="Total pagado"
-              class="font-semibold py-2 px-3 rounded-md border focus:outline-none focus:ring focus:border-blue-100"
+              class="w-80 lg:w-48 font-semibold text-xs py-2  px-3 rounded-md border focus:outline-none focus:ring focus:border-blue-100"
               [(ngModel)]='filterTotalPagado'>
             <span class="absolute right-3 top-1/2 transform -translate-y-1/2">
               <i class="fa-solid fa-money-bills text-gray-600"></i>
@@ -44,9 +42,8 @@
           </div>
 
           <button (click)="clearFilters()"
-            class="font-semibold bg-blue-500 text-white py-2 px-8 rounded-md focus:outline-none hover:bg-blue-600">
-            <!-- <i class="fas fa-search text-white-600 pr-2"></i> -->
-            <i class="fa-solid fa-filter text-white-600 pr-2"></i>
+            class="font-semibold bg-blue-500 text-xs text-white py-3 px-2 xl:px-8 rounded-md focus:outline-none hover:bg-blue-600">
+            <i class="fa-solid fa-filter text-white-600 pr-1 xl:pr-2"></i>
             Limpiar
           </button>
         </div>
@@ -55,40 +52,31 @@
     </div>
 
     <table class="min-w-full bg-gray-300 border border-gray-300 rounded-md overflow-hidden text-left">
-      <thead class="bg-gray-400">
+      <thead class="bg-gray-400 text-left">
         <tr>
-          <!-- <th class="py-2 px-4 border-b"></th> -->
-          <th class="py-2 px-4 border-b">ID</th>
-          <!-- <th class="py-2 px-4 border-b">Email</th> -->
-          <th class="py-2 px-4 border-b">Nombre</th>
-          <th class="py-2 px-4 border-b">Dirección</th>
-          <th class="py-2 px-4 border-b">CP</th>
-          <!-- <th class="py-2 px-4 border-b">Method</th> -->
-          <th class="py-2 px-4 border-b actions">Total</th>
-          <th class="py-2 px-4 border-b actions">Fecha</th>
-          <th class="py-2 px-4 border-b">Estado</th>
-          <th class="py-2 px-4 border-b actions">Acciones</th>
+          <th class="py-1 px-2 lg:py-2 lg:px-4 border-b text-sm lg:text-md">ID</th>
+          <th class="py-1 px-2 lg:py-2 lg:px-4 border-b hidden md:table-cell text-sm lg:text-md">Nombre</th>
+          <th class="py-1 px-2 lg:py-2 lg:px-4 border-b hidden md:table-cell text-sm lg:text-md">Dirección</th>
+          <th class="py-1 px-2 lg:py-2 lg:px-4 border-b hidden md:table-cell text-sm lg:text-md">CP</th>
+          <th class="py-1 px-2 lg:py-2 lg:px-4 border-b hidden md:table-cell text-sm lg:text-md actions">Total</th>
+          <th class="py-1 px-2 lg:py-2 lg:px-4 border-b text-sm lg:text-md actions">Fecha</th>
+          <th class="py-1 px-2 lg:py-2 lg:px-4 border-b text-sm lg:text-md">Estado</th>
+          <th class="py-1 px-2 lg:py-2 lg:px-4 border-b text-sm lg:text-md actions">Acciones</th>
         </tr>
       </thead>
 
       <tbody>
-        <!-- Artículo 1: Laptop ASUS -->
         <tr *ngFor="let item of obtenerElementosDePagina()" class="hover:bg-gray-50">
-          <!-- <td class="py-2 px-4 border-b"><input type="checkbox"></td> -->
-          <td style="text-shadow: 2px 2px #000000ce;"class="py-2 px-4 border-b bg-gray-600 font-bold text-white">{{item.id}}</td>
+          <td style="text-shadow: 2px 2px #000000ce;"class="py-1 px-2 lg:py-2 lg:px-4 border-b bg-gray-600 font-bold text-white text-sm lg:text-md">{{item.id}}</td>
+          <td class="py-1 px-2 lg:py-2 lg:px-4 border-b text-sm lg:text-md hidden md:table-cell">{{item.name}}</td>
+          <td class="py-1 px-2 lg:py-2 lg:px-4 border-b text-sm lg:text-md hidden md:table-cell">{{item.address}}</td>
+          <td class="py-1 px-2 lg:py-2 lg:px-4 border-b text-sm lg:text-md hidden md:table-cell">{{item.cp}}</td>
 
-          <!-- <td class="py-2 px-4 border-b">{{item.email}}</td> -->
-          <td class="py-2 px-4 border-b">{{item.name}}</td>
-          <td class="py-2 px-4 border-b">{{item.address}}</td>
-          <td class="py-2 px-4 border-b">{{item.cp}}</td>
-          <!-- <td class="py-2 px-4 border-b">{{item.method}}</td> -->
-
-
-          <td style="text-shadow: 2px 2px #000000ce;" class="py-2 px-4 border-b font-bold text-green-400 bg-gray-600">
+          <td style="text-shadow: 2px 2px #000000ce;" class="py-1 px-2 lg:py-2 lg:px-4 border-b font-bold text-green-400 bg-gray-600 text-sm lg:text-md hidden md:table-cell">
             $ {{item.total}}
           </td>
-          <td class="py-2 px-4 border-b">{{item.date}}</td>
-          <td style="text-shadow: 2px 2px #000000ce;" class="py-2 px-4 border-b font-semibold bg-gray-600">
+          <td class="py-1 px-2 lg:py-2 lg:px-4 border-b text-sm lg:text-md">{{item.date}}</td>
+          <td style="text-shadow: 2px 2px #000000ce;" class="py-1 px-2 lg:py-2 lg:px-4 border-b font-semibold bg-gray-600 text-sm lg:text-md">
             <span *ngIf="item?.state == 'PENDIENTE'" class="text-orange-400">
               {{item?.state}}
             </span>
@@ -106,7 +94,7 @@
             </span>
           </td>
 
-          <td class="border-b actions bg-white text-center">
+          <td class="border-b actions bg-white text-center text-sm lg:text-md space-x-2">
             <button class="text-blue-500 hover:text-blue-900 focus:outline-none mr-3"
               (click)="showModal(action.VIEW, item)">
               <i class="fa-solid fa-eye"></i>

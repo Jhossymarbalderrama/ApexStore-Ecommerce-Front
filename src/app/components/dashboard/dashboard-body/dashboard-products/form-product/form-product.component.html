@@ -1,27 +1,20 @@
-<!-- Main modal -->
 <div id="crud-modal-product"
-    class="modal h-screen w-full fixed left-0 top-0 flex justify-center items-center bg-black bg-opacity-50 hidden">
-    <div class="relative m-20 p-10 w-full ">
-        <!-- Modal content -->
-        <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
-            <!-- Modal header -->
-            <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600">
-                <h2 class="text-2xl font-semibold">Product Registration</h2>
-
+    class="modal fixed left-0 top-0 flex md:justify-center md:items-center bg-black bg-opacity-50 w-full h-full md:h-full overflow-y-auto hidden z-30">
+    <div class="relative mx-auto max-w-4xl">
+        <div class="bg-white md:rounded-lg shadow-md dark:bg-gray-700">
+            <div class="flex items-center justify-between p-5 border-b rounded-t dark:border-gray-600">
+                <h2 class="text-2xl font-semibold">Formulario Producto</h2>
                 <button type="button" title="close" (click)="closeModal()"
-                    class="text-black-400 bg-red-400 hover:bg-red-300 hover:text-red-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-red-700 dark:hover:text-white">
+                    class="text-black-400 bg-red-400 hover:bg-red-300 hover:text-red-900 rounded-lg text-sm w-8 h-8 inline-flex justify-center items-center dark:hover:bg-red-700 dark:hover:text-white">
                     <i class="fa-solid fa-xmark"></i>
                     <span class="sr-only">Close</span>
                 </button>
             </div>
-
-            <div class="min-w-md mx-auto bg-white rounded p-6 shadow-md">
-                <!-- Modal body -->
+            <div class="p-6 overflow-y-auto">
                 <form [formGroup]="formProduct" id="formProduct" enctype="multipart/form-data">
-
-                    <div class="grid grid-cols-3 gap-4 mb-4">
-                        <div class="col-span-3 sm:col-span-1">
-                            <label for="name" class="flex items-center text-gray-600 text-sm font-semibold mb-2">
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
+                        <div>
+                            <label for="name" class="text-gray-600 text-sm font-semibold mb-2">
                                 <i class="fas fa-shopping-cart mr-2"></i> Product name
                             </label>
                             <input
@@ -29,14 +22,12 @@
                                 formControlName="name" type="text" id="name" name="name" placeholder="product name"
                                 [value]="dataForm?.item?.name" [readOnly]="dataForm?.action == 2"
                                 [ngClass]="disableBtnAction ? 'bg-gray-300' : 'bg-white' " required>
-
                             <div *ngIf="name.invalid && (name.dirty || name.touched)" class="text-danger text-sm">
                                 <span *ngIf="name.errors?.['required']">*Name is required</span>
                             </div>
                         </div>
-
-                        <div class="col-span-3 sm:col-span-1">
-                            <label for="category" class="flex items-center text-gray-600 text-sm font-semibold mb-2">
+                        <div>
+                            <label for="category" class="text-gray-600 text-sm font-semibold mb-2">
                                 <i class="fas fa-tags mr-2"></i> Category
                             </label>
                             <input
@@ -50,10 +41,8 @@
                                 <span *ngIf="category.errors?.['required']">*Category is required</span>
                             </div>
                         </div>
-
-                        <!-- STATE INPUT TEXT-->
-                        <div class="col-span-3 sm:col-span-1">
-                            <label for="state" class="flex items-center text-gray-600 text-sm font-semibold mb-2">
+                        <div>
+                            <label for="state" class="text-gray-600 text-sm font-semibold mb-2">
                                 <i class="fas fa-tags mr-2"></i> State
                             </label>
                             <input
@@ -66,10 +55,9 @@
                             </div>
                         </div>
                     </div>
-
-                    <div class="grid grid-cols-3 gap-4 mb-4">
-                        <div class="col-span-3 sm:col-span-1">
-                            <label for="price" class="flex items-center text-gray-600 text-sm font-semibold mb-2">
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
+                        <div>
+                            <label for="price" class="text-gray-600 text-sm font-semibold mb-2">
                                 <i class="fas fa-dollar-sign mr-2"></i> Price
                             </label>
                             <input
@@ -81,9 +69,8 @@
                                 <span *ngIf="price.errors?.['required']">*Price is required</span>
                             </div>
                         </div>
-
-                        <div class="col-span-3 sm:col-span-1">
-                            <label for="discount" class="flex items-center text-gray-600 text-sm font-semibold mb-2">
+                        <div>
+                            <label for="discount" class="text-gray-600 text-sm font-semibold mb-2">
                                 <i class="fas fa-percent mr-2"></i> Discount
                             </label>
                             <input
@@ -97,9 +84,8 @@
                                 <span *ngIf="discount.errors?.['required']">*Discount is required</span>
                             </div>
                         </div>
-
-                        <div class="col-span-3 sm:col-span-1">
-                            <label for="stock" class="flex items-center text-gray-600 text-sm font-semibold mb-2">
+                        <div>
+                            <label for="stock" class="text-gray-600 text-sm font-semibold mb-2">
                                 <i class="fas fa-cubes mr-2"></i> Stock
                             </label>
                             <input
@@ -112,11 +98,9 @@
                             </div>
                         </div>
                     </div>
-
-                    <div class="grid grid-cols-2 gap-4 mb-4">
-                        <div class="col-span-1">
-                            <label for="discharge_date"
-                                class="flex items-center text-gray-600 text-sm font-semibold mb-2">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                        <div>
+                            <label for="discharge_date" class="text-gray-600 text-sm font-semibold mb-2">
                                 <i class="fas fa-calendar-alt mr-2"></i> Discharge date
                             </label>
                             <input
@@ -124,15 +108,13 @@
                                 formControlName="discharge_date" type="date" id="discharge_date" name="discharge_date"
                                 [value]="dataForm?.item?.discharge_date" [readOnly]="dataForm?.action == 2"
                                 [ngClass]="disableBtnAction ? 'bg-gray-300' : 'bg-white' " required>
-
                             <div *ngIf="discharge_date.invalid && (discharge_date.dirty || discharge_date.touched)"
                                 class="text-danger text-sm">
                                 <span *ngIf="discharge_date.errors?.['required']">*Discharge date is required</span>
                             </div>
                         </div>
-
-                        <div class="col-span-1" *ngIf="dataForm?.action == 0">
-                            <label for="image" class="flex items-center text-gray-600 text-sm font-semibold mb-2">
+                        <div *ngIf="dataForm?.action == 0">
+                            <label for="image" class="text-gray-600 text-sm font-semibold mb-2">
                                 <i class="fas fa-image mr-2"></i> Image/s
                             </label>
                             <input
@@ -141,40 +123,32 @@
                                 (change)="onSaveFileLocal($event)" multiple accept="image/*"
                                 [ngClass]="disableBtnAction ? 'bg-gray-300' : 'bg-white' ">
                         </div>
-
                     </div>
-
-                    <div class="grid grid-cols-2 gap-4 mb-4">
-                        <div class="col-span-1">
-                            <label for="description" class="flex items-center text-gray-600 text-sm font-semibold mb-2">
-                                <i class="fas fa-align-left mr-2"></i> Description
-                            </label>
-                            <textarea
-                                class="form-control w-full px-3 py-2 border rounded focus:outline-none focus:border-blue-500"
-                                formControlName="description" id="description" name="description"
-                                placeholder="descriptión" [value]="dataForm?.item?.description"
-                                [readOnly]="dataForm?.action == 2"
-                                [ngClass]="disableBtnAction ? 'bg-gray-300' : 'bg-white' " required></textarea>
-                            <div *ngIf="description.invalid && (description.dirty || description.touched)"
-                                class="text-danger text-sm">
-                                <span *ngIf="description.errors?.['required']">*Description is required</span>
-                            </div>
-                        </div>
-
-                        <div class="grid grid-cols-3 gap-4 ">
-                            <div class="col-span-3 sm:col-span-1" *ngFor="let img of imgsListURLs">
-                                <img class="img-fluid" [src]="img" height="60%" width="60%">
-                            </div>
+                    <div class="mb-4">
+                        <label for="description" class="text-gray-600 text-sm font-semibold mb-2">
+                            <i class="fas fa-align-left mr-2"></i> Description
+                        </label>
+                        <textarea
+                            class="form-control w-full px-3 py-2 border rounded focus:outline-none focus:border-blue-500"
+                            formControlName="description" id="description" name="description" placeholder="descriptión"
+                            [value]="dataForm?.item?.description" [readOnly]="dataForm?.action == 2"
+                            [ngClass]="disableBtnAction ? 'bg-gray-300' : 'bg-white' " required></textarea>
+                        <div *ngIf="description.invalid && (description.dirty || description.touched)"
+                            class="text-danger text-sm">
+                            <span *ngIf="description.errors?.['required']">*Description is required</span>
                         </div>
                     </div>
-
+                    <div class="grid grid-cols-3 gap-4 mb-4">
+                        <div *ngFor="let img of imgsListURLs">
+                            <img class="img-fluid" [src]="img" height="60%" width="60%">
+                        </div>
+                    </div>
                     <div class="flex justify-end">
                         <button (click)="formAction()" *ngIf=" !disableBtnAction" name="submitButton" type="submit"
                             class="bg-green-500 text-white px-20 py-2 rounded hover:bg-green-700">
                             <i class="fas fa-check-circle mr-2"></i> {{this.dataForm?.action == 0 ? 'Add Product' :
                             'Update Product' }}
                         </button>
-
                         <button (click)="closeModal()"
                             class="text-white inline-flex items-center bg-red-500 hover:bg-red-600 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-10 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 ml-3">
                             Cancel
@@ -186,6 +160,175 @@
     </div>
 </div>
 
-
 <app-delete-product [idProduct]="this.dataForm?.item?.id"
     (idProductDelete)="eliminarProductList($event)"></app-delete-product>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--     
+    <div id="crud-modal-product"
+    class="modal h-full w-full fixed left-0 top-0 flex justify-center items-center bg-black bg-opacity-50 hidden">
+    <div class="relative mx-auto w-11/12 md:w-3/4 lg:w-2/3 xl:w-1/2 bg-white rounded-lg shadow-lg overflow-hidden">
+        <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t">
+            <h2 class="text-2xl font-semibold">Product Registration</h2>
+            <button type="button" title="close" (click)="closeModal()"
+                class="text-black-400 bg-red-400 hover:bg-red-300 hover:text-red-900 rounded-lg text-sm w-8 h-8 flex justify-center items-center focus:outline-none focus:ring-2 focus:ring-red-500">
+                <i class="fas fa-times"></i>
+                <span class="sr-only">Close</span>
+            </button>
+        </div>
+
+        <div class="p-6 md:p-8">
+            <form [formGroup]="formProduct" id="formProduct" enctype="multipart/form-data">
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-6">
+                    <div class="col-span-1">
+                        <label for="name" class="block text-gray-600 text-sm font-semibold mb-1">Product Name</label>
+                        <input formControlName="name" type="text" id="name" name="name"
+                            class="form-input w-full border-gray-300 rounded-md focus:border-blue-500"
+                            placeholder="Enter product name" [value]="dataForm?.item?.name" [readOnly]="dataForm?.action == 2"
+                            required>
+                        <div *ngIf="name.invalid && (name.dirty || name.touched)" class="text-red-500 text-xs mt-1">
+                            <span *ngIf="name.errors?.['required']">*Name is required</span>
+                        </div>
+                    </div>
+
+                    <div class="col-span-1">
+                        <label for="category" class="block text-gray-600 text-sm font-semibold mb-1">Category</label>
+                        <input formControlName="category" type="text" id="category" name="category"
+                            class="form-input w-full border-gray-300 rounded-md focus:border-blue-500"
+                            placeholder="Enter category" [value]="dataForm?.item?.category"
+                            [readOnly]="dataForm?.action == 2" required>
+                        <div *ngIf="category.invalid && (category.dirty || category.touched)"
+                            class="text-red-500 text-xs mt-1">
+                            <span *ngIf="category.errors?.['required']">*Category is required</span>
+                        </div>
+                    </div>
+
+                    <div class="col-span-1">
+                        <label for="state" class="block text-gray-600 text-sm font-semibold mb-1">State</label>
+                        <input formControlName="state" type="text" id="state" name="state"
+                            class="form-input w-full border-gray-300 rounded-md focus:border-blue-500"
+                            placeholder="Enter state" [value]="dataForm?.item?.state" [readOnly]="dataForm?.action == 2"
+                            required>
+                        <div *ngIf="state.invalid && (state.dirty || state.touched)" class="text-red-500 text-xs mt-1">
+                            <span *ngIf="state.errors?.['required']">*State is required</span>
+                        </div>
+                    </div>
+
+                    <div class="col-span-1">
+                        <label for="price" class="block text-gray-600 text-sm font-semibold mb-1">Price</label>
+                        <input formControlName="price" type="number" id="price" name="price"
+                            class="form-input w-full border-gray-300 rounded-md focus:border-blue-500"
+                            placeholder="Enter price" [value]="dataForm?.item?.price" [readOnly]="dataForm?.action == 2"
+                            required>
+                        <div *ngIf="price.invalid && (price.dirty || price.touched)" class="text-red-500 text-xs mt-1">
+                            <span *ngIf="price.errors?.['required']">*Price is required</span>
+                        </div>
+                    </div>
+
+                    <div class="col-span-1">
+                        <label for="discount" class="block text-gray-600 text-sm font-semibold mb-1">Discount</label>
+                        <input formControlName="discount" type="number" id="discount" name="discount"
+                            class="form-input w-full border-gray-300 rounded-md focus:border-blue-500"
+                            placeholder="Enter discount" [value]="dataForm?.item?.discount"
+                            [readOnly]="dataForm?.action == 2">
+                    </div>
+
+                    <div class="col-span-1">
+                        <label for="stock" class="block text-gray-600 text-sm font-semibold mb-1">Stock</label>
+                        <input formControlName="stock" type="number" id="stock" name="stock"
+                            class="form-input w-full border-gray-300 rounded-md focus:border-blue-500"
+                            placeholder="Enter stock" [value]="dataForm?.item?.stock" [readOnly]="dataForm?.action == 2"
+                            required>
+                        <div *ngIf="stock.invalid && (stock.dirty || stock.touched)" class="text-red-500 text-xs mt-1">
+                            <span *ngIf="stock.errors?.['required']">*Stock is required</span>
+                        </div>
+                    </div>
+
+                    <div class="col-span-1">
+                        <label for="discharge_date"
+                            class="block text-gray-600 text-sm font-semibold mb-1">Discharge Date</label>
+                        <input formControlName="discharge_date" type="date" id="discharge_date" name="discharge_date"
+                            class="form-input w-full border-gray-300 rounded-md focus:border-blue-500"
+                            [value]="dataForm?.item?.discharge_date" [readOnly]="dataForm?.action == 2"
+                            required>
+                        <div *ngIf="discharge_date.invalid && (discharge_date.dirty || discharge_date.touched)"
+                            class="text-red-500 text-xs mt-1">
+                            <span *ngIf="discharge_date.errors?.['required']">*Discharge date is required</span>
+                        </div>
+                    </div>
+
+                    <div class="col-span-1">
+                        <label for="image" class="block text-gray-600 text-sm font-semibold mb-1">Image/s</label>
+                        <input formControlName="img" type="file" id="image" name="image"
+                            class="form-input w-full border-gray-300 rounded-md focus:border-blue-500"
+                            (change)="onSaveFileLocal($event)" multiple accept="image/*">
+                    </div>
+                </div>
+
+                <div class="mb-6">
+                    <label for="description" class="block text-gray-600 text-sm font-semibold mb-1">Description</label>
+                    <textarea formControlName="description" id="description" name="description" rows="6"
+                        class="form-textarea w-full border-gray-300 rounded-md focus:border-blue-500"
+                        placeholder="Enter description" [value]="dataForm?.item?.description"
+                        [readOnly]="dataForm?.action == 2" required></textarea>
+                    <div *ngIf="description.invalid && (description.dirty || description.touched)"
+                        class="text-red-500 text-xs mt-1">
+                        <span *ngIf="description.errors?.['required']">*Description is required</span>
+                    </div>
+                </div>
+
+                <div class="flex justify-end">
+                    <button (click)="formAction()" *ngIf="!disableBtnAction" name="submitButton" type="submit"
+                        class="bg-green-500 text-white px-6 py-2 rounded hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500">
+                        <i class="fas fa-check-circle mr-2"></i> {{this.dataForm?.action == 0 ? 'Add Product' : 'Update Product' }}
+                    </button>
+
+                    <button (click)="closeModal()"
+                        class="text-white bg-red-500 px-6 py-2 rounded hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-red-500 ml-3">
+                        Cancel
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+<app-delete-product [idProduct]="this.dataForm?.item?.id"
+    (idProductDelete)="eliminarProductList($event)"></app-delete-product> -->
