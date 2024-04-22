@@ -1,10 +1,9 @@
-<<<<<<< HEAD
-# ApexStore-Ecommerce
-#BlackDev Apex Store Ecommerce
-=======
-# ECommerce
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.1.4.
+#  📦 ApexStore-Ecommerce (en desarrollo) 🛒
+### 🧑‍💻Blackjhossy 
+Proyecto generado con: [Angular CLI](https://github.com/angular/angular-cli) version 16.1.4.
+
+![image](https://github.com/Jhossymarbalderrama/ApexStore-Ecommerce-Front/assets/52534649/a09e02d6-b3d1-4bdc-9880-d23ce2829219)
 
 ## Development server
 
@@ -18,15 +17,4 @@ Run `ng generate component component-name` to generate a new component. You can 
 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
 
-## Running unit tests
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
->>>>>>> c9887e1f4e24086d6434677d07bc0c2ab53285e5
