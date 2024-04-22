@@ -1,9 +1,6 @@
 
-# ApexStore-Ecommerce
-#BlackDev Apex Store Ecommerce
-=======
-# ECommerce (en desarrollo)
-
+#  📦 ApexStore-Ecommerce (en desarrollo) 🛒
+### 🧑‍💻Blackjhossy 
 Proyecto generado con: [Angular CLI](https://github.com/angular/angular-cli) version 16.1.4.
 
 ![image](https://github.com/Jhossymarbalderrama/ApexStore-Ecommerce-Front/assets/52534649/a09e02d6-b3d1-4bdc-9880-d23ce2829219)
