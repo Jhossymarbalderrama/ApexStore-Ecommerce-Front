@@ -1,0 +1,45 @@
+<body class="font-sans bg-gray-300 min-h-screen flex items-center justify-center">
+
+    <!-- Formulario de contacto -->
+    <div class="bg-white px-8 py-8 rounded-lg shadow-md w-96">
+  
+      <!-- Título estilizado del formulario -->
+      <section class="mb-6">
+          <h2 class="text-3xl font-bold mb-4 text-center text-gray-800">¡Contáctanos!</h2>
+          <p class="text-sm">Para cualquier consulta o duda se encuentra este formulario de contacto a disposición.</p>
+      </section>
+      <!-- Formulario -->
+      <form action="#" method="post">
+  
+        <!-- Nombre completo con ícono -->
+        <div class="mb-4 flex items-center">
+          <i class="fas fa-user text-gray-500 mr-2"></i>
+          <input type="text" id="nombre" name="nombre" placeholder="Nombre Completo" class="p-2 w-full border-b-2 focus:outline-none focus:border-blue-500">
+        </div>
+  
+        <!-- Motivo con ícono -->
+        <div class="mb-4 flex items-center">
+          <i class="fas fa-info-circle text-gray-500 mr-2"></i>
+          <select id="motivo" name="motivo" class="p-2 w-full border-b-2 focus:outline-none focus:border-blue-500">
+            <option value="consulta">Consulta</option>
+            <option value="soporte">Soporte</option>
+            <option value="otro">Otro</option>
+          </select>
+        </div>
+  
+        <!-- Descripción con ícono -->
+        <div class="mb-4 flex items-center">
+          <i class="fas fa-align-left text-gray-500 mr-2"></i>
+          <textarea id="descripcion" name="descripcion" placeholder="Descripción" rows="4" class="p-2 w-full border-b-2 focus:outline-none focus:border-blue-500"></textarea>
+        </div>
+  
+        <!-- Botón de Enviar con ícono -->
+        <button type="submit" class="mt-4 w-full bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600 flex items-center justify-center">
+          <i class="fas fa-paper-plane mr-2"></i> Enviar
+        </button>
+  
+      </form>
+  
+    </div>
+  
+  </body>

@@ -1,0 +1,22 @@
+•	http://localhost:4200
+    o	Auth
+        	Login
+        	Register
+    o	API
+        	Product
+            •	List
+            •	Get
+                o	{id}
+            •	Add
+            •	Delete
+                o	{id}
+            •	Update
+        	User
+            •	List
+            •	Get
+                o	{id}
+                o	Detail
+                    	{username}
+            •	Delete
+                o	{id}
+            •	Update

@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "e-commerce-ac291": {
+      "hosting": {
+        "e-commerce": [
+          "e-commerce-ac291"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "e-commerce-ac291"
+  }
+}

@@ -1,0 +1,61 @@
+<div class="container mx-auto mt-8">
+    <h1 class="text-2xl font-semibold mb-4">Carrito de Compra</h1>
+
+    <div *ngIf="!tieneProductCart">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        <!-- Producto en el carrito -->
+            <div *ngFor="let product of CartService.products" class="bg-white p-4 shadow-md" >
+               <div class="flex justify-center">
+                <img [src]="product.img[0]  ? product.img[0]: 'https://dummyimage.com/400x400'" alt="Producto 1"
+                class="object-center aspect-square h-48 lg:h-auto lg:w-1/2 ">
+                <!-- class="lg:w-1/2 w-full lg:h-auto h-64 object-cover object-center aspect-square mb-4" -->
+               </div>
+                <h2 class="text-lg font-semibold mb-2">{{product.name}}</h2>
+                <h4 class="mb-2">{{product.description}}</h4>
+                <p class="text-gray-700 mb-2">
+                    <span class="text-green-600 font-semibold">
+                        ${{product.price - ((product.price * product.discount) / 100)}}
+                    </span>
+                    <span *ngIf="product.discount != 0" class="text-red-600">
+                        <span class="ml-2">
+                            <del>
+                                ${{ product?.price}}
+                            </del>
+                        </span>
+                        <span class="ml-1 font-semibold">
+                            {{product?.discount}}%
+                        </span>
+                    </span>
+                </p>
+                <button class="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600"
+                    (click)="deleteProduct(product)">Eliminar</button>
+            </div>
+        </div>
+        </div>
+        
+    <span *ngIf="tieneProductCart">
+        <p>No tiene agregado ningun producto a su carrito.</p>
+        <p>
+            <a (click)="onTienda()" class="text-blue-500 font-semibold" style="cursor: pointer;">
+                <i class="text-lg fa-solid fa-store mr-1"></i>click para ir a la tienda.
+            </a>
+        </p>
+    </span>
+    <div class="my-8">
+        <h2 class="text-xl font-semibold mb-4">Resumen de la Compra</h2>
+        <div class="flex justify-between items-center border-t border-b py-2">
+            <span class="font-semibold">Subtotal:</span>
+            <span>${{subtotal}}</span>
+        </div>
+        <div class="flex justify-between items-center py-2">
+            <span class="font-semibold">Total:</span>
+            <span>${{total}}</span>
+        </div>
+        <div class="flex justify-end">
+            <button (click)="buyProducts()" [disabled]="tieneProductCart" class="bg-green-500 text-white py-2 px-11 font-semibold rounded mt-4 cursor-pointer hover:bg-green-600">
+                <i class="fa-solid fa-credit-card mr-2"></i>
+                Pagar
+            </button>
+        </div>
+    </div>
+</div>

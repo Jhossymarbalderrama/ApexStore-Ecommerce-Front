@@ -1,0 +1,15 @@
+npm install apexcharts --save
+
+tipos de charts  = {
+  "line": "Línea",
+  "area": "Área",
+  "bar": "Barras",
+  "column": "Columnas",
+  "radar": "Radar",
+  "pie": "Circular",
+  "donut": "Dona",
+  "heatmap": "Heatmap",
+  "treemap": "Mapas de árbol",
+  "histogram": "Histograma",
+  "multiLine": "Gráfico de líneas múltiples"
+}

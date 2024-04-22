@@ -1,0 +1,13 @@
+Ubicacion          |   Background    |   Text Color
+------------------------------------------------------------
+header             |
+banners            |  #161616, #383838    |       white
+body               |    bg-white  | text-gray-600 
+body 2             |    bg-gray-200
+footer             |   bg-gray-300   |   text-gray-900
+footer copy        |     #1a1a1a     |   text-gray-200
+
+
+price   text-green-600
+discount text-red-600
+

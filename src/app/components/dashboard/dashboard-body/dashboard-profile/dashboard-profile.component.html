@@ -1,0 +1,63 @@
+<body class="bg-gray-300 p-8">
+  <div class="container mx-auto p-8 bg-white shadow-md rounded-md">
+    <h2 class="text-4xl font-bold mb-4">Mi Perfil</h2>
+
+    <div class="flex flex-wrap lg:flex-no-wrap">
+      <div class="w-full lg:w-2/5 lg:pr-4 order-1 lg:order-2 flex flex-col items-center">
+        <div class="mb-4">
+          <img src="https://qph.cf2.quoracdn.net/main-qimg-64797fe2d59d9be91f093d86008048a6-pjlq" alt="Imagen de perfil"
+            class="w-48 h-48 lg:w-64 lg:h-64 object-cover rounded-md transition-transform transform-gpu hover:scale-105 cursor-pointer">
+        </div>
+       
+        <button class="bg-yellow-400 hover:bg-yellow-500 text-white font-bold py-2 px-4 rounded"
+          (click)="showModal()">
+          <i class="text-lg fa-solid fa-pen-to-square"></i> Editar Perfil
+        </button>
+      </div>
+
+      <div class="w-full lg:w-3/5 lg:pl-4 order-2 lg:order-1">
+        <h3 class="text-xl font-semibold mb-4">Datos de Usuario</h3>
+        <div class="mb-4 flex">
+          <label class="w-full lg:w-1/5 text-left lg:text-right pr-4 text-gray-800 font-bold" for="username">
+            <i class="text-lg fas fa-user text-gray-600 mr-2"></i>Usuario:
+          </label>
+          <input id="username" type="text" [value]="this.AuthService.userData?.username" disabled
+            class="appearance-none border rounded w-full lg:w-4/5 py-2 px-3 bg-gray-100 text-gray-800 leading-tight focus:outline-none focus:shadow-outline font-semibold">
+        </div>
+        <div class="mb-4 flex">
+          <label class="w-full lg:w-1/5 text-left lg:text-right pr-4 text-gray-800 font-bold" for="firstname">
+            <i class="text-lg fa-solid fa-address-card text-gray-600 mr-2"></i>Nombre:
+          </label>
+          <input id="firstname" type="text" [value]="this.AuthService.userData?.firstname" disabled
+            class="appearance-none border rounded w-full lg:w-4/5 py-2 px-3 bg-gray-100 text-gray-800 leading-tight focus:outline-none focus:shadow-outline">
+        </div>
+        <div class="mb-4 flex">
+          <label class="w-full lg:w-1/5 text-left lg:text-right pr-4 text-gray-800 font-bold" for="lastname">
+            <i class="text-lg fa-solid fa-address-card text-gray-600 mr-2"></i>Apellido:
+          </label>
+          <input id="lastname" type="text" [value]="this.AuthService.userData?.lastname" disabled
+            class="appearance-none border rounded w-full lg:w-4/5 py-2 px-3 bg-gray-100 text-gray-800 leading-tight focus:outline-none focus:shadow-outline">
+        </div>
+        <div class="mb-4 flex">
+          <label class="w-full lg:w-1/5 text-left lg:text-right pr-4 text-gray-800 font-bold" for="state">
+            <i class="text-lg fa-solid fa-globe text-gray-600 mr-2"></i>Estado:
+          </label>
+          <input id="state" type="text" [value]="this.AuthService.userData?.state" disabled
+            class="appearance-none border rounded w-full lg:w-4/5 py-2 px-3 bg-gray-100 leading-tight focus:outline-none focus:shadow-outline font-bold"
+            [ngClass]="this.AuthService.userData?.state == 'Activo' ? 'text-green-500' : 'text-red-500'">
+        </div>
+        <div class="mb-4 flex">
+          <label class="w-full lg:w-1/5 text-left lg:text-right pr-4 text-gray-800 font-bold" for="role">
+            <i class="text-lg fa-solid fa-shield-halved text-gray-600 mr-2"></i>Rol:
+          </label>
+          <input id="role" type="text" [value]="this.AuthService.userData?.role" disabled
+            class="appearance-none border rounded w-full lg:w-4/5 py-2 px-3 bg-gray-100 leading-tight focus:outline-none focus:shadow-outline font-bold"
+            [ngClass]="this.AuthService.userData?.role == 'ADMIN' ? 'text-red-500' : 'text-blue-500'">
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <app-form-perfil (refreshData)='refreshData($event)'></app-form-perfil>
+</body>

@@ -1,0 +1,124 @@
+<body class="bg-gray-300 p-8">
+  <div class="container mx-auto p-4 bg-white shadow-md rounded-md">
+
+    <h2 class="text-2xl font-semibold mb-4">Administrador de Artículos</h2>
+
+    <div class="flex items-center justify-between mb-4">
+
+      <div class="flex items-center space-x-4">
+        <label for="showProducts" class="text-gray-700 font-semibold">Cantidad de Facturas:</label>
+        <select [(ngModel)]="cantElementPagination" id="showProducts" class="border border-gray-300 rounded-md p-1">
+          <option value="10">10</option>
+          <option value="20">20</option>
+          <option value="50">50</option>
+        </select>
+      </div>
+
+      <div class="flex items-center space-x-4">
+        <div class="mb-4 flex items-center space-x-4">
+          <div class="relative">
+            <input type="text" placeholder="Direccion"
+              class="font-semibold py-2 px-3 rounded-md border focus:outline-none focus:ring focus:border-blue-100"
+              [(ngModel)]='filterDireccion'>
+            <span class="absolute right-3 top-1/2 transform -translate-y-1/2">
+              <i class="fa-solid fa-map-location-dot text-gray-600"></i>
+            </span>
+          </div>
+          <button (click)="clearFilters()"
+            class="font-semibold bg-blue-500 text-white py-2 px-8 rounded-md focus:outline-none hover:bg-blue-600">
+            <i class="fa-solid fa-filter text-white-600 pr-2"></i>
+            Limpiar
+          </button>
+        </div>
+      </div>
+
+    </div>
+
+    <table class="min-w-full bg-gray-300 border border-gray-300 rounded-md overflow-hidden text-left">
+      <thead class="bg-gray-400">
+        <tr>
+
+          <th class="py-2 px-4 border-b">ID</th>
+          <th class="py-2 px-4 border-b">Nombre</th>
+          <th class="py-2 px-4 border-b">Dirección</th>
+          <th class="py-2 px-4 border-b">CP</th>
+          <th class="py-2 px-4 border-b actions">Total pagado</th>
+          <th class="py-2 px-4 border-b actions">Fecha</th>
+          <th class="py-2 px-4 border-b">Estado</th>
+          <th class="py-2 px-4 border-b actions">Acciones</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr>
+          <td></td>
+          <td><span *ngIf="!tieneFacturas" class="pl-4 text-red-500">
+              No se registran ninguna compra...
+            </span></td>
+        </tr>
+      </tbody>
+
+      <tbody *ngIf="tieneFacturas">
+        <tr *ngFor="let item of obtenerElementosDePagina()" class="hover:bg-gray-50">
+          <td style="text-shadow: 2px 2px #000000ce;"class="py-2 px-4 border-b bg-gray-600 font-bold text-white">{{item?.id}}</td>
+          <td class="py-2 px-4 border-b">{{item?.name}}</td>
+          <td class="py-2 px-4 border-b">{{item?.address}}</td>
+          <td class="py-2 px-4 border-b">{{item?.cp}}</td>
+
+          <td style="text-shadow: 2px 2px #000000ce;" class="py-2 px-4 border-b font-bold text-green-400 bg-gray-600">
+            $ {{item.total}}
+          </td>
+          <td class="py-2 px-4 border-b">{{item?.date}}</td>
+          <td style="text-shadow: 2px 2px #000000ce;" class="py-2 px-4 border-b font-semibold bg-gray-600">
+            <span *ngIf="item?.state == 'PENDIENTE'" class="text-orange-400">
+              {{item?.state}}
+            </span>
+            <span *ngIf="item?.state == 'DESPACHADO'" class="text-yellow-400">
+              {{item?.state}}
+            </span>
+            <span *ngIf="item?.state == 'ENVIADO'" class="text-green-400">
+              {{item?.state}}
+            </span>
+            <span *ngIf="item?.state == 'RECIBIDO'" class="text-blue-400">
+              {{item?.state}}
+            </span>
+            <span *ngIf="item?.state == 'CANCELADO'" class="text-red-500">
+              {{item?.state}}
+            </span>
+          </td>
+          <td class="border-b actions bg-white text-center">
+            <button class="text-blue-500 hover:text-blue-900 focus:outline-none mr-3"
+              (click)="showModal(action.VIEW, item)">
+              <i class="fa-solid fa-eye"></i>
+            </button>
+
+            <button *ngIf="item.state != 'CANCELADO'"
+              class="text-red-500 hover:text-red-700 focus:outline-none  text-lg" (click)="showModal(action.DEL,item)">
+              <i class="fas fa-trash"></i>
+            </button>
+          </td>
+        </tr>
+
+      </tbody>
+    </table>
+
+    <div *ngIf="listFacturas" class="flex justify-center mt-4">
+      <div class="flex">
+        <a class="py-2 px-4 border border-gray-300 rounded-l cursor-pointer"
+          [style.pointer-events]="paginationView === 1 ? 'none' : 'auto'"
+          (click)="cambiarPagina(paginationView - 1)">Anterior</a>
+        <ng-container *ngFor="let pagina of obtenerRangoDePaginas()">
+          <a class="py-2 px-4 border-t border-b border-gray-300 cursor-pointer"
+            [ngClass]="{'bg-blue-500 text-white': pagina === paginationView}" (click)="cambiarPagina(pagina)">{{ pagina
+            }}</a>
+        </ng-container>
+        <a class="py-2 px-4 border border-gray-300 cursor-pointer"
+          [style.pointer-events]="paginationView === obtenerRangoDePaginas().length ? 'none' : 'auto'"
+          (click)="cambiarPagina(paginationView + 1)">Siguiente</a>
+      </div>
+    </div>
+
+  </div>
+
+  <app-form-shop-history #modalDetailFactura (refreshList)="refreshListFacturas($event)"></app-form-shop-history>
+</body>

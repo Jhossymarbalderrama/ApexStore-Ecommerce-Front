@@ -1,0 +1,40 @@
+<!-- Main modal -->
+<div id="delete-modal-product"
+    class="modal h-screen w-full fixed left-0 top-0 flex justify-center items-center bg-black bg-opacity-50 hidden">
+    <div class="relative p-4 w-full max-w-md max-h-full">
+        <!-- Modal content -->
+        <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+            <!-- Modal header -->
+            <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600">
+                <h2 class="text-2xl font-semibold">Product Delete</h2>
+                <button type="button" title="close" (click)="closeModal()"
+                    class="text-black-400 bg-red-400 hover:bg-red-300 hover:text-red-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-red-700 dark:hover:text-white"
+                    >
+                    <i class="fa-solid fa-xmark"></i>
+                    <span class="sr-only">Close</span>
+                </button>
+            </div>
+            <!-- Modal body -->
+            <div class="min-w-md mx-auto bg-white rounded py-6 px-2 shadow-md">
+                <div class="flex justify-center">
+                    <h1 class="text-black-400 font-bold" style="font-size: 18px;">¿Esta seguro que quiere <a class="text-red-400">eliminar el producto</a>?</h1>
+                </div>
+                <div class="flex justify-center mt-5">
+                    <button type="submit" (click)="deleteProduct()"
+                        class="text-white inline-flex items-center bg-red-500 hover:bg-red-600 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-8 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                        <i class="fa-solid fa-floppy-disk mr-2"></i>
+                        Eliminar Producto
+                    </button>
+                    <button (click)="closeModal()"
+                        class="text-white inline-flex items-center bg-blue-500 hover:bg-blue-600 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 ml-3">
+                        Cancel
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+  

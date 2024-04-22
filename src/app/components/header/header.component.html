@@ -1,0 +1,189 @@
+<header class="text-gray-600 body-font" id="header">
+    <nav class="bg-white border-gray-200 dark:bg-gray-900">
+        <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+            <a class="flex items-center" [routerLink]="'/home'">
+                <i class="fa-solid fa-laptop-code md:text-4xl text-4xl text-color-site mr-3"></i>
+                <span
+                    class="self-center md:text-2xl text-lg  font-semibold whitespace-nowrap dark:text-white">ApexStore</span>
+            </a>
+
+            <!-- Menu Devices -->
+            <div class="flex">
+                <div class="flex md:order-2 md:space-x-0 rtl:space-x-reverse">
+
+                    <button type="button" (click)="navigateURL()" class="lg:hidden text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none 
+                focus:ring-blue-300 font-medium rounded-lg  sm:text-md text-xs px-4 py-1 text-center 
+                dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 mx-2 lg:mx-0"
+                        [ngClass]="this.loginServ._svCurrentUserLoginOn.value ? 'bg-red-600 hover:bg-red-500' : ' bg-color-site hover:bg-blue-500'">
+                        {{this.loginServ._svCurrentUserLoginOn.value ? 'Cerrar Sesión' : 'Iniciar sesión'}}
+                    </button>
+
+                    <button data-collapse-toggle="navbar-cta" type="button" class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg lg:hidden 
+                    hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 
+                    dark:hover:bg-gray-700 dark:focus:ring-gray-800" aria-controls="navbar-cta" aria-expanded="false">
+                        <span class="sr-only">Open main menu</span>
+                        <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+                            viewBox="0 0 17 14">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M1 1h15M1 7h15M1 13h15" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Menu Desktop -->
+            <div class="hidden lg:block w-full lg:flex lg:w-auto lg:order-1 mt-2" id="navbar-cta">
+
+                <app-nav></app-nav>
+
+                <div class="separator mr-5 hidden lg:block"></div>
+
+                <button (click)="navigateURL()"
+                    class="p-1 px-3 py-2 focus:outline-none rounded-lg sm:text-md text-sm  font-medium hidden lg:block"
+                    style="color: white; margin-top: -6px;"
+                    [ngClass]="this.loginServ._svCurrentUserLoginOn.value ? 'bg-red-600 hover:bg-red-500' : ' bg-color-site hover:bg-blue-500'">
+                    {{this.loginServ._svCurrentUserLoginOn.value ? 'Cerrar Sesión' : 'Iniciar sesión'}}
+                </button>
+
+                <div class="flex justify-end mt-4 md:mt-0">
+                    <div class="px-3" *ngIf="this.loginServ._svCurrentUserLoginOn.value" (click)="onDashboard()"
+                        style="cursor: pointer;margin-top: -8px;" title="Mi perfil">
+                        <div class="w-10 h-10 bg-gray-200 rounded-full overflow-hidden">
+                            <img src="../../../assets/img/dashboard/user.jpg" alt="Perfil"
+                                class="w-full h-full object-cover">
+                        </div>
+                    </div>
+
+                    <div class="flex justify-items-end text-end" style="margin-top: -3px;">
+                        <a class="ml-0 mt-2 md:ml-4 md:mt-1 "
+                            [ngClass]="cartServ.cart_cant_product == 0 ? 'view-none' : 'view-info-cart'"
+                            (click)="viewInfoCart()">
+                            <i class="fa-solid fa-cart-shopping text-lg"></i>
+                            <span *ngIf="cartServ.cart_cant_product != 0"
+                                [ngClass]="cartServ.cart_cant_product == 0 ? 'cart-df' : 'cart' "
+                                style="font-weight: bold;">
+                                ({{cartServ.cart_cant_product}})
+                            </span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <!-- <hr class="h-px bg-gray-200 border-0 dark:bg-gray-700"> -->
+</header>
+
+
+<!-- <nav class="bg-white border-gray-500 dark:bg-gray-900">
+    <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+        <a class="flex items-center" [routerLink]="'/home'">
+            <i class="fa-solid fa-laptop-code text-4xl text-color-site mr-1"></i>
+            <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">ApexStore</span>
+        </a>
+
+        <div class="hidden w-full md:hidden lg:block md:w-auto" id="navbar-default">
+            <app-nav></app-nav>
+        </div>
+        
+        <div class="flex">          
+
+            <div class="separator mr-5 sm:hidden hidden lg:block"></div>
+
+            <button (click)="navigateURL()"
+                class="p-1 px-3 focus:outline-none rounded text-base  font-medium hidden lg:block"
+                style="color: white; margin-top: -3px;"
+                [ngClass]="this.loginServ._svCurrentUserLoginOn.value ? 'bg-red-600 hover:bg-red-500' : ' bg-blue-600 hover:bg-blue-500'">
+                {{this.loginServ._svCurrentUserLoginOn.value ? 'Cerrar Sesión' : 'Iniciar sesión'}}
+            </button>
+
+            <div class="flex items-center space-x-2 pl-3" *ngIf="this.loginServ._svCurrentUserLoginOn.value"
+                (click)="onDashboard()" style="cursor: pointer;">
+                <div class="w-8 h-8 bg-gray-200 rounded-full overflow-hidden">
+                    <img src="../../../assets/img/dashboard/user.jpg" alt="Perfil" class="w-full h-full object-cover">
+                </div>
+            </div>
+
+            <button data-collapse-toggle="navbar-default" type="button" class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm 
+            text-gray-500 rounded-lg 
+            md:block lg:hidden
+            hover:bg-gray-100 focus:outline-none 
+            focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700
+             dark:focus:ring-gray-600" aria-controls="navbar-default" aria-expanded="false">
+                <span class="sr-only">Open main menu</span>
+                <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+                    viewBox="0 0 17 14">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M1 1h15M1 7h15M1 13h15" />
+                </svg>
+            </button>
+
+            <a class="ml-0 mt-2 lg:ml-4 lg:mt-1" [ngClass]="cartServ.cart_cant_product == 0 ? 'view-none' : 'view-info-cart'"
+                (click)="viewInfoCart()">
+                <i class="fa-solid fa-cart-shopping text-lg"></i>
+                <span *ngIf="cartServ.cart_cant_product != 0"
+                    [ngClass]="cartServ.cart_cant_product == 0 ? 'cart-df' : 'cart' " style="font-weight: bold;">
+                    ({{cartServ.cart_cant_product}})
+                </span>
+            </a>
+        </div>
+    </div>
+</nav>
+<hr class="h-px bg-gray-200 border-0 dark:bg-gray-700">
+ -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 
+    <header class="text-gray-600 body-font" id="header">
+    <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
+        <a class="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0" [routerLink]="'/home'">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round"
+                stroke-linejoin="round" stroke-width="2" class="w-10 h-10 text-white p-2 bg-indigo-500 rounded-full"
+                viewBox="0 0 24 24">
+                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+            </svg>
+            <span class="ml-3 text-2xl">ApexStore </span>
+
+        </a>
+
+        <nav class="md:ml-auto flex flex-wrap items-center text-base justify-center">
+            <app-nav></app-nav>
+        </nav>       
+
+
+        <div class="separator mr-5"></div>
+
+
+        <button (click)="navigateURL()"
+            class="inline-flex items-center bg-blue-600 border-0 py-1 px-3 focus:outline-none hover:bg-blue-500 rounded text-base mt-4 md:mt-0 font-medium"
+            style="color: white;"
+            [ngClass]="this.loginServ._svCurrentUserLoginOn.value ? 'bg-red-600 hover:bg-red-500' : ' bg-blue-600 hover:bg-blue-500'">
+            {{this.loginServ._svCurrentUserLoginOn.value ? 'Cerrar Sesión' : 'Iniciar sesión'}}  
+        </button>
+
+        <div class="flex items-center space-x-2 pl-3" *ngIf="this.loginServ._svCurrentUserLoginOn.value" (click)="onDashboard()" style="cursor: pointer;">
+            <div class="w-8 h-8 bg-gray-200 rounded-full overflow-hidden">
+              <img src="../../../assets/img/dashboard/user.jpg" alt="Perfil" class="w-full h-full object-cover">
+            </div>
+          </div>
+
+        <a class="ml-4" [ngClass]="cartServ.cart_cant_product == 0 ? 'view-none' : 'view-info-cart'" (click)="viewInfoCart()">
+            <i class="fa-solid fa-cart-shopping"></i>
+            <span *ngIf="cartServ.cart_cant_product != 0" [ngClass]="cartServ.cart_cant_product == 0 ? 'cart-df' : 'cart' " style="font-weight: bold;">
+                ({{cartServ.cart_cant_product}})
+            </span>
+        </a>
+    </div>
+</header> 
+-->

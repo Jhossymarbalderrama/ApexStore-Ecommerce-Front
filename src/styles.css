@@ -1,1 +1,86 @@
 /* You can add global styles to this file, and also import other style files */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import "primeng/resources/themes/lara-light-blue/theme.css";
+@import "primeng/resources/primeng.css";
+
+html{
+    scroll-behavior: smooth;
+}
+
+:root{
+    --color-site: #6875F5;
+}
+
+.text-color-site{
+    fill: var(--color-site);
+    color: var(--color-site);
+}
+
+.bg-color-site{
+    background: var(--color-site);
+}
+
+.txt-bld{
+    font-weight: bold;
+}
+
+.txt-bldr{
+    font-weight: bolder;
+}
+
+/* Style Texts Alerts */
+
+.text-danger{
+    color: #e00101;
+}
+
+.text-succes{
+    color: #00b800;
+}
+
+.text-warning{
+    color: #ff9100;
+}
+
+.text-info{
+    color: #00ccff;
+}
+
+
+/* Styles Buttons */
+.btn-animate{
+    cursor: pointer;
+}
+
+.btn-animate:hover{
+    transform: scale(1.2);
+    transition: 0.5s ease all;
+}
+
+.btn-animate:not(:hover){
+    transform: scale(1);
+    transform: 0.8s ease all;
+}
+
+.filter-drop-shadow-sm{
+    filter: drop-shadow(1px 1px black);
+}
+
+.filter-drop-shadow-md{
+    filter: drop-shadow(2px 2px black);
+}
+
+.filter-drop-shadow-lg{
+    filter: drop-shadow(4px 4px black);
+}
+
+.show-opacity{
+    opacity: 100%;
+}
+
+.hidden-opacity{
+    opacity: 0%;
+}

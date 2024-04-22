@@ -1,0 +1,58 @@
+header {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 19;
+    box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.5);
+}
+
+.navbar-solid{
+    position: fixed;
+    transition: 0.5s all ease;
+    background-color: #f5f5f5ec !important;
+    color: black;
+}
+
+.cart{
+    color: green;
+}
+
+.cart-df{
+    color: none;
+}
+
+.view-info-cart{
+    cursor: pointer;    
+}
+
+.view-info-cart:hover{
+    transform: scale(1.1);
+    transition: 0.7s all ease;
+}
+
+.view-info-cart:not(:hover){
+    transform: scale(1);
+    transition: 0.5s all ease;
+}
+
+.view-none{
+    cursor: default;
+}
+
+
+.truncate-text {
+    display: -webkit-box;
+    -webkit-box-orient: horizontal;
+    overflow: hidden;
+    -webkit-line-clamp: 1;
+    max-width: 40%;  
+    text-overflow: ellipsis; 
+    color: rgb(22, 22, 192);
+  }
+
+  .separator {
+    width: 2px; /* Ancho de la barra vertical */
+    height: 24px; /* Altura de la barra vertical, puedes ajustarla según sea necesario */
+    background-color: #ccc; /* Color gris de la barra vertical */
+  }

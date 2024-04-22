@@ -1,0 +1,39 @@
+
+ .mb-4>a:hover {
+     color: #6875F5;
+ }
+
+ .menu-view {
+     color: #6875F5;
+ }
+
+ /* Estilos para la línea horizontal */
+ .menu-view::after {
+     content: '';
+     display: block;
+     background-color: #6875F5;
+     height: 2px;
+     width: 100%;
+     position: absolute;
+     bottom: 0;
+     left: 0;
+     transform: scaleX(0);
+     /* Inicialmente invisible */
+     transform-origin: bottom left;
+     transition: transform 0.3s ease-in-out;
+ }
+
+ /* Estilos cuando el enlace está activo o en hover */
+ .menu-view:hover::after,
+ .menu-view.router-link-active::after {
+     transform: scaleX(1);
+     /* Hace visible la línea horizontal al pasar el ratón o cuando el enlace está activo */
+ }
+
+ .bg-menu {
+
+     background: #000000;
+    background: -webkit-linear-gradient(to top, #161616, #383838);
+    background: linear-gradient(to top, #161616, #383838);
+
+ }

@@ -1,0 +1,145 @@
+/* dashboard.component.css */
+.container {
+  background-color: #f3f4f6;
+}
+
+.rounded-full {
+  border-radius: 50%;
+}
+
+.text-xl {
+  font-size: 2rem;
+  /* Títulos más grandes */
+}
+
+.font-bold {
+  font-weight: bold;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-gray-600 {
+  color: #4b5563;
+}
+
+.text-lg {
+  font-size: 1.25rem;
+  /* Texto más grande */
+}
+
+.font-medium {
+  font-weight: 500;
+}
+
+
+
+/* Estilos para el carrito de compra */
+.bg-white {
+  background-color: #fff;
+}
+
+.rounded-lg {
+  border-radius: 1rem;
+  /* Esquinas más redondeadas */
+}
+
+.shadow-md {
+  box-shadow: 0 4px 10px -2px rgba(0, 0, 0, 0.1), 0 2px 6px -1px rgba(0, 0, 0, 0.06);
+}
+
+.overflow-hidden {
+  overflow: hidden;
+}
+
+.object-cover {
+  object-fit: cover;
+}
+
+/* Estilos para los detalles del producto */
+.p-4 {
+  padding: 1.5rem;
+  /* Más espacio interno */
+}
+
+.text-gray-600 {
+  color: #6b7280;
+  /* Color de texto más oscuro */
+}
+
+/* Ajustes para precios */
+.text-lg {
+  font-size: 1.75rem;
+  /* Texto más grande para precios */
+}
+
+/* Estilos para el fondo del contenedor de productos */
+.mb-8 {
+  margin-bottom: 2.5rem;
+  /* Mayor separación entre secciones */
+}
+
+/* Ajustes para la separación entre productos */
+.p-4 {
+  padding: 2rem;
+  /* Más espacio entre productos */
+}
+
+/* Agregar sombra y escala al hacer hover en los productos */
+.hover\:scale-105:hover {
+  transform: scale(1.05);
+}
+
+.hover\:shadow-md:hover {
+  box-shadow: 0 10px 20px -4px rgba(0, 0, 0, 0.2), 0 6px 12px -2px rgba(0, 0, 0, 0.1);
+}
+
+.menu-dashboard {
+  position: absolute;
+  top: 6rem;
+  left: 0.6rem;
+  /* width: 100%; */
+  z-index: 18;
+  background-color: var(--color-site);
+  border: 1px solid #575757bd;
+  box-shadow: 0 0 20px -10px black;
+  border-radius: 10px;
+  padding: 8px 8px;
+  cursor: pointer;
+  transition: 1s all ease;
+}
+
+.menu-dashboard:hover {
+  transform: scale(1.1);
+  transition: 0.3s all ease;
+}
+
+.menu-dashboard-move {
+  position: absolute !important;
+  background-color: red;
+  top: 6rem !important;
+  /* left: 68vw !important; */
+  left: 16rem !important;
+  transition: 1s all ease;
+  z-index: 20;
+}
+
+.offcanvas {
+  /* z-index: 10000 !important; */
+}
+
+#offCanvas {
+  position: relative;
+  height: 100vh;
+  z-index: 23;  
+}
+
+@media screen and (max-width: 1023px) {
+  #offCanvas {
+    position: absolute;
+    height: 100vh;
+    z-index: 23;
+    overflow-y: hidden;
+  }
+}
