@@ -9,6 +9,7 @@ import { DeliveryService } from 'src/app/services/delivery.service';
 import { FacturacionService } from 'src/app/services/facturacion.service';
 import { MessageService } from 'primeng/api';
 import { ToastService } from 'src/app/services/toast.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-payment-form',
@@ -90,7 +91,8 @@ export class PaymentFormComponent implements OnInit {
     private AuthService: AuthService,
     private FacturacionService: FacturacionService,
     private DeliveryService: DeliveryService,
-    private ToastService: ToastService
+    private ToastService: ToastService,
+    private Router: Router
   ) {
     if (this.AuthService.userData == null || this.AuthService.userData == undefined) {
       this.AuthService.svGetUserData();
@@ -149,10 +151,16 @@ export class PaymentFormComponent implements OnInit {
         date: ""
       } as any;
 
+      this.ToastService.showOverlay = true;
+
       this.FacturacionService.svAltaFacturacion(facturacionRequest, products).subscribe(
         () => {
           this.formPayment.reset();
           this.CartService.svResetCart();
+          setTimeout(() => {
+            this.ToastService.showOverlay = false;
+            this.Router.navigateByUrl('/dashboard/shopping-history');      
+          }, 1000);
         }
       );
 

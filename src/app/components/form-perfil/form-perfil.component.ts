@@ -4,6 +4,7 @@ import { UserRequest } from 'src/app/interfaces/userRequest';
 import { User } from 'src/app/models/user';
 import { AuthService } from 'src/app/services/auth.service';
 import { LoginService } from 'src/app/services/login.service';
+import { ToastService } from 'src/app/services/toast.service';
 
 @Component({
   selector: 'app-form-perfil',
@@ -14,8 +15,6 @@ export class FormPerfilComponent implements OnInit {
 
   // * ATRIBUTOS
   @Output() refreshData = new EventEmitter<boolean>();
-
-  showOverlay: boolean = false;
 
   formPerfil: FormGroup = this.FormBuilder.group({
     'firstname': ['', Validators.required],
@@ -35,7 +34,8 @@ export class FormPerfilComponent implements OnInit {
   constructor(
     private FormBuilder: FormBuilder,
     private LoginService: LoginService,
-    private AuthService: AuthService
+    private AuthService: AuthService,
+    private ToastService: ToastService
   ) { }
 
   async ngOnInit(): Promise<void> {
@@ -63,7 +63,7 @@ export class FormPerfilComponent implements OnInit {
      */
     updateDataUser() {
       if (this.formPerfil.valid) {
-        this.showOverlay = true;
+        this.ToastService.showOverlay = true;
         let aux: UserRequest = {
           username: this.AuthService.userData?.username,
           password: this.AuthService.userData?.password,
@@ -81,7 +81,7 @@ export class FormPerfilComponent implements OnInit {
       }
   
       setTimeout(() => {
-        this.showOverlay = false;
+        this.ToastService.showOverlay = false;
         this.refreshData.emit(true);
         this.closeModal();
       }, 2000);

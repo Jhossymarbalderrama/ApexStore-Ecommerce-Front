@@ -2,6 +2,7 @@ import { Component, OnInit, HostListener, ElementRef } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
 import { LoginService } from './services/login.service';
 import { initFlowbite } from 'flowbite';
+import { ToastService } from './services/toast.service';
 
 @Component({
   selector: 'app-root',
@@ -12,7 +13,12 @@ export class AppComponent implements OnInit {
 
   public dashboardUser: boolean = false;
 
-  constructor(private router: Router, private LoginService: LoginService, private elementRef: ElementRef) {  
+  constructor(
+    private router: Router, 
+    private LoginService: LoginService, 
+    private elementRef: ElementRef,
+    public ToastService: ToastService
+  ) {  
 
     initFlowbite(); // * Flowbite components https://flowbite.com/
 

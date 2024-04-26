@@ -3,6 +3,7 @@ import { Component, EventEmitter, Output, ViewChild } from '@angular/core';
 import { Factura_State } from 'src/app/enums/Factura_State';
 import { FacturacionRequest } from 'src/app/interfaces/facturacionRequest';
 import { FacturacionService } from 'src/app/services/facturacion.service';
+import { ToastService } from 'src/app/services/toast.service';
 
 @Component({
   selector: 'app-form-shop-history',
@@ -22,7 +23,8 @@ export class FormShopHistoryComponent {
   public selectedState: string = this.stateDefault;
   public requiredSelect: boolean = false;
   constructor(
-    private FacturacionService: FacturacionService
+    private FacturacionService: FacturacionService,
+    private ToastService: ToastService
   ) {
 
   }
@@ -67,8 +69,13 @@ export class FormShopHistoryComponent {
       date: this.factura.date
     } as FacturacionRequest;
 
+    this.ToastService.showOverlay = true;
+
     this.FacturacionService.svCancelFactura(rqFactura).subscribe(res => {
+     setTimeout(() => {
       res ? this.refreshListFacturas(true) : this.refreshListFacturas(false);
+      this.ToastService.showOverlay = false;
+     }, 1000);
     });
 
     this.closeModal();
@@ -95,9 +102,13 @@ export class FormShopHistoryComponent {
         } as FacturacionRequest;
 
         rqFactura.state = valorSeleccionado;
+        this.ToastService.showOverlay = true;
 
         this.FacturacionService.svUpdateFactura(rqFactura).subscribe(res => {
-          res ? this.refreshListFacturas(true) : this.refreshListFacturas(false);
+          setTimeout(() => {
+            res ? this.refreshListFacturas(true) : this.refreshListFacturas(false);
+            this.ToastService.showOverlay = false;
+          }, 1000);
         });
 
         this.selectedState = this.stateDefault;

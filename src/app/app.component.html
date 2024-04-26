@@ -22,3 +22,8 @@
     </span>
   </a>
 </div>
+
+<div *ngIf="ToastService.showOverlay" class="spinner-container">
+  <div class="spinner"></div>
+  <div class="loading-text font-bold">Cargando...</div>
+</div>

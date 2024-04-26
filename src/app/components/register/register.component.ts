@@ -3,6 +3,7 @@ import { FormGroup , FormBuilder, Validator, Validators} from '@angular/forms';
 import { LoginRequest } from 'src/app/interfaces/loginRequest';
 import { User } from 'src/app/models/user';
 import { LoginService } from 'src/app/services/login.service';
+import { ToastService } from 'src/app/services/toast.service';
 
 @Component({
   selector: 'app-register',
@@ -18,7 +19,7 @@ export class RegisterComponent {
   'confirmPassword': ['',Validators.required],
   })
 
-  registerState: boolean = false;
+  // registerState: boolean = false;
 
   // * GETTERs and SETTERs
   get username(){
@@ -36,7 +37,8 @@ export class RegisterComponent {
   // * CONSTRUCTOR
   constructor(
     private FormBuilder : FormBuilder,
-    private LoginService: LoginService
+    private LoginService: LoginService,
+    private ToastService: ToastService
     ){
   }
 
@@ -51,7 +53,8 @@ export class RegisterComponent {
       let password = this.password.value;
       let confPassword = this.confirmPassword.value;
 
-      if(password == confPassword){                
+      if(password == confPassword){        
+        this.ToastService.showOverlay = true;        
         this.LoginService.svRegister({
           username:username,
           password: password
@@ -59,12 +62,17 @@ export class RegisterComponent {
           {
             next: (response) => {
               console.info(response);
-              this.registerState = true;
               this.formRegister.reset();
             },
             error: (errorData) => {
-              console.error(errorData);            
+              console.error(errorData);      
+              this.ToastService.showOverlay = false;      
+            }, complete: () => {
+              setTimeout(() => {
+                this.ToastService.showOverlay = false;
+              }, 1000);
             }
+
           }
         );
       }

@@ -6,6 +6,8 @@ import { MessageService } from 'primeng/api';
 })
 export class ToastService {
 
+  showOverlay: boolean = false; // ? Spinner Loading
+
   // * CONSTRUCTOR
   constructor(
     private MessageService: MessageService

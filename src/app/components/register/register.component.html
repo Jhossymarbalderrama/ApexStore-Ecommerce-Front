@@ -2,11 +2,7 @@
 
     <div class="bg-white p-8 rounded-xl shadow-xl w-5/6 sm:w-3/4 md:w-3/4 lg:w-1/2 xl:w-1/4">
       <h2 class="text-2xl font-semibold mb-4 text-center">Registrarse</h2>
-  
-      <span *ngIf="registerState" class="text-center mx-auto">
-        <h4 class="text-success font-bold mb-4">😀 ¡Usuario registrado! 🎉</h4>
-      </span>
-  
+    
       <form [formGroup]="formRegister" id="formRegister" (ngSubmit)="onRegister()">
         <div class="mb-4">
           <label for="email" class="block text-sm font-bold text-gray-600">Correo Electrónico</label>

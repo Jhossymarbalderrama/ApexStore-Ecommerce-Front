@@ -118,6 +118,42 @@ html{
     transform: translateY(-4px);
 }
 
+.spinner-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: rgba(102, 102, 102, 0.24); /* Fondo semitransparente blanco */
+    z-index: 9999; /* Valor alto para asegurar que esté por delante de otros elementos */
+  }
+  
+  .spinner {
+    border: 8px solid #387BF3;
+    border-top: 8px solid transparent;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 1s linear infinite;
+  }
+  
+  .loading-text {
+    margin-top: 10px;
+    font-size: 16px;
+    color: #387BF3;
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+  
+
+
 @media screen and (min-width: 1024px) {
     .back-to-top > span > i{
         width: 3vw;

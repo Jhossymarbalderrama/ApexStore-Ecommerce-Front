@@ -5,6 +5,7 @@ import { getDownloadURL, getStorage } from '@firebase/storage';
 import { CrudForm } from 'src/app/interfaces/crudForm';
 import { ProductRequest } from 'src/app/interfaces/productRequest';
 import { ProductService } from 'src/app/services/product.service';
+import { ToastService } from 'src/app/services/toast.service';
 
 @Component({
   selector: 'app-form-product',
@@ -83,7 +84,8 @@ export class FormProductComponent implements OnInit {
   constructor(
     private FormBuilder: FormBuilder,
     private ProductService: ProductService,
-    private storage: Storage
+    private storage: Storage,
+    private ToastService: ToastService
   ) { }
 
   ngOnInit(): void {
@@ -171,6 +173,7 @@ export class FormProductComponent implements OnInit {
     if (this.formProduct.invalid) {
       this.formProduct.markAllAsTouched();
     } else {
+      this.ToastService.showOverlay = true;
       let productRequest: ProductRequest = {
         name: this.formProduct.controls['name'].value,
         category: this.formProduct.controls['category'].value,
@@ -204,14 +207,20 @@ export class FormProductComponent implements OnInit {
         () => {
           this.ProductService.svAddProduct(productRequest).subscribe({
             next: (response) => {
-              this.refreshList(response);
-              this.closeModal();
+              setTimeout(() => {
+                this.refreshList(response);
+                this.ToastService.showOverlay = false;
+                this.closeModal();
+              }, 1000);
             }, error: (error) => {
               console.error(error);
             }
           });
         }
-      ).catch(error => console.log(error));
+      ).catch(error => {
+        console.log(error);
+        this.ToastService.showOverlay = false;
+      });
     }
   }
 
@@ -223,6 +232,7 @@ export class FormProductComponent implements OnInit {
     if (this.formProduct.invalid) {
       this.formProduct.markAllAsTouched();
     } else {
+      this.ToastService.showOverlay = true;
       let productRequest: ProductRequest = {
         id: this.dataForm?.item?.id,
         name: this.formProduct.controls['name'].value,
@@ -238,8 +248,11 @@ export class FormProductComponent implements OnInit {
 
       this.ProductService.svUpdateProduct(productRequest).subscribe({
         next: (response) => {
+          setTimeout(() => {
           this.refreshProduct(response);
+          this.ToastService.showOverlay = false;
           this.closeModal();
+          }, 1000);
         }, error: (error) => {
           console.error(error);
         }

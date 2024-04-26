@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { ProductService } from 'src/app/services/product.service';
+import { ToastService } from 'src/app/services/toast.service';
 
 @Component({
   selector: 'app-delete-product',
@@ -14,7 +15,8 @@ export class DeleteProductComponent implements OnInit{
 
   // * CONSTRUCTOR
   constructor(
-    private ProductService: ProductService
+    private ProductService: ProductService,
+    private ToastService: ToastService
   ){}
 
   ngOnInit(): void {}
@@ -29,11 +31,19 @@ export class DeleteProductComponent implements OnInit{
    */
   deleteProduct(){
     if(this.idProduct){
-      this.ProductService.svDeleteProduct(this.idProduct).subscribe();      
-      this.idProductDelete.emit(this.idProduct);
-      this.closeModal();
+      this.ToastService.showOverlay = true;
+      this.ProductService.svDeleteProduct(this.idProduct).subscribe(
+        ()=>{
+          setTimeout(() => {
+            this.idProductDelete.emit(this.idProduct);
+            this.ToastService.showOverlay = false;
+            this.closeModal();
+          }, 1000);
+        }
+      );      
     }else{
-      console.error("Error. No se puede eliminar un Producto con valor de id es: "+this.idProduct);      
+      console.error("Error. No se puede eliminar un Producto con valor de id es: "+this.idProduct);     
+      this.ToastService.showOverlay = false; 
     }
   }
 

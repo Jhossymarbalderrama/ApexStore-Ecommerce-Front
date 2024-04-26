@@ -9,6 +9,7 @@ import { FilterTotalFacturasPipe } from 'src/app/pipes/filter-total-facturas.pip
 import { Crud } from 'src/app/enums/Crud';
 import { CrudForm } from 'src/app/interfaces/crudForm';
 import { FormShopHistoryComponent } from '../dashboard-shopping-history/form-shop-history/form-shop-history.component';
+import { ToastService } from 'src/app/services/toast.service';
 
 @Component({
   selector: 'app-dashboard-orders',
@@ -39,7 +40,8 @@ export class DashboardOrdersComponent {
   // * CONSTRUCTOR
   constructor(
     private LoginService: LoginService,
-    private FacturacionService: FacturacionService
+    private FacturacionService: FacturacionService,
+    private ToastService: ToastService
   ) {
     // this.LoginService.checkTokenExpiration(); // ? Check Token Login     
     // this.FacturacionService.svListFacturas().subscribe( data => {

@@ -14,67 +14,73 @@ import { ToastService } from 'src/app/services/toast.service';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent implements OnInit{
+export class LoginComponent implements OnInit {
 
   // * ATRIBUTOS
   loginError: string | undefined;
-  
+  showOverlay: boolean = false; // ? Spinner Loading
+
   formLogin: FormGroup = this.FormBuilder.group({
     'username': ['jhossy@gmail.com', Validators.required],
     'password': ['jhossy', Validators.required]
   });
 
   // * GETTERs and SETTERs
-  get username(){
+  get username() {
     return this.formLogin.controls['username'];
   }
-  
-  get password(){
+
+  get password() {
     return this.formLogin.controls['password'];
   }
 
   // * CONSTRUCTOR
   constructor(
     private FormBuilder: FormBuilder,
-    private LoginService: LoginService  ,
+    private LoginService: LoginService,
     private Router: Router,
-    private ProductService:ProductService,
+    private ProductService: ProductService,
     private AuthService: AuthService,
     private ToastService: ToastService
-    ){
-      if(!this.ProductService.listProducts){
-        this.ProductService.svListProducts().subscribe();
-      }
+  ) {
+    if (!this.ProductService.listProducts) {
+      this.ProductService.svListProducts().subscribe();
+    }
   }
 
-  ngOnInit(){}
+  ngOnInit() { }
 
   // * METHODs
   //#region 
 
-  onLogin(){
-    if(this.formLogin.valid){
-      this.loginError = "";            
+  onLogin() {
+    if (this.formLogin.valid) {
+      this.loginError = "";
+      this.ToastService.showOverlay = true;
       this.LoginService.svLogin(this.formLogin.value as LoginRequest).subscribe({
         next: (userData) => {
           //Trae el Token
           // console.log("Logeado: ",userData);               
         },
-        error: (errorData) =>{
+        error: (errorData) => {
           console.error(errorData);
           this.loginError = errorData;
+          this.ToastService.showOverlay = false;
         },
         complete: () => {
-          this.Router.navigateByUrl('/dashboard/profile');
-          this.formLogin.reset();
+          setTimeout(() => {
+            this.formLogin.reset();
+            this.Router.navigateByUrl('/dashboard/profile');
+            this.ToastService.showOverlay = false;
+          }, 1000);
         }
       });
 
       this.AuthService.svDetailsUser(this.formLogin.get('username')?.value).subscribe();
-    }else{
-      this.formLogin.markAllAsTouched();      
+    } else {
+      this.formLogin.markAllAsTouched();
     }
-  }  
+  }
   //#endregion
 
 }
