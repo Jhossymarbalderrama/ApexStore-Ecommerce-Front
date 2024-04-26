@@ -3,7 +3,7 @@
 ### 🧑‍💻Blackjhossy 
 Proyecto generado con: [Angular CLI](https://github.com/angular/angular-cli) version 16.1.4.
 
-![image](https://github.com/Jhossymarbalderrama/ApexStore-Ecommerce-Front/assets/52534649/a09e02d6-b3d1-4bdc-9880-d23ce2829219)
+![image](https://github.com/Jhossymarbalderrama/ApexStore-Ecommerce-Front/assets/52534649/0bbe3175-4013-4a82-8996-6c9e47e14b58)
 
 ## Development server
 
