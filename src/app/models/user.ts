@@ -1,4 +1,5 @@
 import { Role } from "../enums/Role";
+import { StateUser } from "../enums/StateUser";
 
 export class User {
     private _id?: number;
@@ -6,19 +7,17 @@ export class User {
     private _password: string;
     private _firstname?: string;
     private _lastname?: string;
-    private _type_user?: string;
-    private _state?: string;
+    private _state?: StateUser;
     private _role?: Role;
 
 
-    constructor(username: string, password: string, id?:number, firstname?: string, lastname?: string,type_user?: string, state?: string, role?: Role){
+    constructor(username: string, password: string, id?:number, firstname?: string, lastname?: string, state?: StateUser, role?: Role){
         this._id = id;
         this._username = username;
         this._password = password;
         this._firstname = firstname;
         this._lastname = lastname;
-        this._type_user = type_user != '' ? 'USR' : 'ADM';
-        this._state = state != '' ? 'Activo' : 'Inactivo';
+        this._state = state;
         this._role = role;
         
     }
@@ -42,10 +41,6 @@ export class User {
     public get lastname(): any{
         return this._lastname;
     }   
-
-    public get type_user(): any{
-        return this._type_user;
-    }
 
     public get state(): any{
         return this._state;
@@ -75,11 +70,7 @@ export class User {
         this._lastname = lastname;
     }
 
-    public set type_user(type_user:string){
-        this._type_user = type_user;
-    }
-
-    public set state(state:string){
+    public set state(state:StateUser){
         this._state = state;
     }
 

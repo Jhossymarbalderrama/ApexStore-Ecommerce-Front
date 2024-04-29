@@ -21,29 +21,42 @@
                             <label for="id" class="flex items-center text-gray-700 text-sm font-semibold mb-2">
                                 <i class="fa-solid fa-id-card mr-2"></i> Id
                             </label>
-                            <input [value]="dataForm?.item?.id" [readOnly]="formReadOnly" class="form-control" formControlName="id" type="number" id="id" name="id" placeholder="id"
+                            <input [value]="dataForm?.item?.id" [readOnly]="formReadOnly" class="form-control"
+                                formControlName="id" type="number" id="id" name="id" placeholder="id"
                                 class="w-full px-3 py-2 border rounded bg-gray-300 focus:outline-none focus:border-blue-500"
                                 [readOnly]="true">
                         </div>
 
                         <div class="col-span-1 sm:col-span-2">
                             <label for="username" class="flex items-center text-gray-700 text-sm font-semibold mb-2">
-                                <i class="fa-solid fa-user mr-2"></i> Username
+                                <i class="fa-solid fa-user mr-2"></i> Email
                             </label>
-                            <input [value]="dataForm?.item?.username" [readOnly]="formReadOnly" class="form-control" formControlName="username" type="email" id="username" name="username" placeholder="username"
-                                 class="w-full px-3 py-2 border rounded  focus:outline-none focus:border-blue-500"
+                            <input [value]="dataForm?.item?.username" [readOnly]="formReadOnly" class="form-control"
+                                formControlName="username" type="email" id="username" name="username"
+                                placeholder="ejemplo@gmail.com"
+                                class="w-full px-3 py-2 border rounded  focus:outline-none focus:border-blue-500"
                                 required>
+
+                            <div *ngIf="username.invalid && (username.dirty || username.touched)" class="text-danger">
+                                <span *ngIf="username.errors?.['required']">*Email requerido</span>
+                            </div>
                         </div>
                     </div>
 
                     <div class="grid grid-cols-1 gap-1 mb-4 w-full">
                         <div class="col-span-1 sm:col-span-1">
                             <label for="password" class="flex items-center text-gray-700 text-sm font-semibold mb-2">
-                                <i class="fa-solid fa-lock mr-2"></i> Password
+                                <i class="fa-solid fa-lock mr-2"></i> Contraseña
                             </label>
-                            <input [value]="dataForm?.item?.password" [readOnly]="formReadOnly"class="form-control" formControlName="password" type="password" id="password" name="password" placeholder="password"
-                                 class="w-full px-3 py-2 border rounded  focus:outline-none focus:border-blue-500"
+                            <input [value]="dataForm?.item?.password" [readOnly]="formReadOnly" class="form-control"
+                                formControlName="password" type="password" id="password" name="password"
+                                placeholder="contraseña"
+                                class="w-full px-3 py-2 border rounded  focus:outline-none focus:border-blue-500"
                                 required>
+
+                            <div *ngIf="password.invalid && (password.dirty || password.touched)" class="text-danger">
+                                <span *ngIf="password.errors?.['required']">*Contraseña requerida</span>
+                            </div>
                         </div>
                     </div>
 
@@ -52,52 +65,62 @@
                             <label for="firstname" class="flex items-center text-gray-700 text-sm font-semibold mb-2">
                                 <i class="fa-solid fa-user-tag mr-2"></i> Firstname
                             </label>
-                            <input [value]="dataForm?.item?.firstname" [readOnly]="formReadOnly" class="form-control" formControlName="firstname" type="text" id="firstname" name="firstname" placeholder="firstname"
-                                 class="w-full px-3 py-2 border rounded  focus:outline-none focus:border-blue-500"
-                                required>
+                            <input [value]="dataForm?.item?.firstname" [readOnly]="formReadOnly" class="form-control"
+                                formControlName="firstname" type="text" id="firstname" name="firstname"
+                                placeholder="nombre"
+                                class="w-full px-3 py-2 border rounded  focus:outline-none focus:border-blue-500"
+                                >
                         </div>
                         <div class="col-span-3 sm:col-span-1">
                             <label for="lastname" class="flex items-center text-gray-700 text-sm font-semibold mb-2">
-                                <i class="fa-solid fa-user-tag mr-2"></i> Lastname
+                                <i class="fa-solid fa-user-tag mr-2"></i> Apellido
                             </label>
-                            <input [value]="dataForm?.item?.lastname" [readOnly]="formReadOnly" class="form-control" formControlName="lastname" type="text" id="lastname" name="lastname" placeholder="lastname"
-                                 class="w-full px-3 py-2 border rounded  focus:outline-none focus:border-blue-500"
-                                required>
+                            <input [value]="dataForm?.item?.lastname" [readOnly]="formReadOnly" class="form-control"
+                                formControlName="lastname" type="text" id="lastname" name="lastname"
+                                placeholder="apellido"
+                                class="w-full px-3 py-2 border rounded  focus:outline-none focus:border-blue-500"
+                                >
                         </div>
                     </div>
 
                     <div class="grid grid-cols-3 gap-4 mb-4">
-                        <div class="col-span-3 sm:col-span-1">
-                            <label for="type_user" class="flex items-center text-gray-700 text-sm font-semibold mb-2">
-                                <i class="fa-solid fa-briefcase mr-2"></i> Type user
-                            </label>
-                            <input [value]="dataForm?.item?.type_user" [readOnly]="formReadOnly" class="form-control" formControlName="type_user" type="text" id="type_user" name="type_user" placeholder="type user"
-                                 class="w-full px-3 py-2 border rounded  focus:outline-none focus:border-blue-500"
-                                required>
-                        </div>
 
-                        <div class="col-span-3 sm:col-span-1">
+                        <div class="col-span-3 sm:col-span-1" *ngIf="this.dataForm?.action != 0">
                             <label for="state" class="flex items-center text-gray-700 text-sm font-semibold mb-2">
                                 <i class="fa-solid fa-person-circle-question mr-2"></i> State
-                            </label>
-                            <input [value]="dataForm?.item?.state" [readOnly]="formReadOnly" class="form-control" formControlName="state" type="text" id="state" name="state" placeholder="state"
-                                 class="w-full px-3 py-2 border rounded  focus:outline-none focus:border-blue-500">
+                            </label>                            
+                                 <select name="stateUser" id="stateUser"  
+                                 formControlName="state" 
+                                 class="form-control w-full px-3 py-2  border rounded  focus:outline-none focus:border-blue-500"
+                                 [ngClass]="this.dataForm?.action != 1 ? 'bg-gray-300' : ''"
+                                 >
+                                 <option *ngFor="let state of statesUser" [value]="state" >
+                                     {{state}}
+                                 </option>
+                             </select>                             
                         </div>
 
-                        <div class="col-span-3 sm:col-span-1">
+                        <div class="col-span-3 sm:col-span-1" *ngIf="this.dataForm?.action != 0">
                             <label for="role" class="flex items-center text-gray-700 text-sm font-semibold mb-2">
                                 <i class="fa-solid fa-briefcase mr-2"></i> Role
                             </label>
-                            <input [value]="dataForm?.item?.role" [readOnly]="formReadOnly" class="form-control" formControlName="role" type="text" id="role" name="role" placeholder="role"
-                                class="w-full px-3 py-2 border rounded bg-gray-300 focus:outline-none focus:border-blue-500"
-                                [readOnly]="true">
+                                <select name="role" id="role"  
+                                 formControlName="role" 
+                                 class="form-control w-full px-3 py-2  border rounded  focus:outline-none focus:border-blue-500"
+                                 [ngClass]="this.dataForm?.action != 1 ? 'bg-gray-300' : ''"
+                                 >
+                                 <option *ngFor="let role of rolesUser" [value]="role" >
+                                     {{role}}
+                                 </option>
+                             </select>  
                         </div>
                     </div>
 
                     <div class="flex justify-end">
                         <button (click)="formAction()" type="submit" *ngIf="!disableBtnAction"
                             class="bg-green-500 text-white px-20 py-2 rounded hover:bg-green-700">
-                            <i class="fas fa-check-circle mr-2"></i> {{this.dataForm?.action == 0 ? 'Add Product' : 'Update Product' }}
+                            <i class="fas fa-check-circle mr-2"></i> {{this.dataForm?.action == 0 ? 'Agregar Usuario' :
+                            'Modificar Usuario' }}
                         </button>
 
                         <button (click)="formAction()" type="submit" *ngIf="disableBtnAction && dataForm?.action == 2"

@@ -21,11 +21,6 @@ export class DashboardAnalyticsComponent implements OnInit, OnDestroy {
   cantProductosTotal: number = 0;
   today = new Date();
 
-  dataChart: any = [
-    { name: 'Procesadores', data: [0, 120, 80, 160, 180, 200, 220, 240, 260, 280, 300, 320] },
-    { name: 'RAM', data: [80, 90, 100, 110, 120, 130, 140, 150, 160, 170, 180, 190] },
-    { name: 'Motherboards', data: [50, 55, 60, 65, 70, 75, 80, 85, 90, 95, 100, 105] },
-  ];
 
   
   // * CONSTRUCTOR

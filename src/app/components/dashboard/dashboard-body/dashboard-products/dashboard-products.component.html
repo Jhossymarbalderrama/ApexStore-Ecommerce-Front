@@ -66,10 +66,15 @@
         <tr *ngFor="let item of obtenerElementosDePagina()" class="hover:bg-gray-50" style="cursor: pointer;">
           <td style="text-shadow: 2px 2px #000000ce;"
             class="py-1 px-2 lg:py-2 lg:px-4 border-b bg-gray-600 font-bold text-white text-sm lg:text-md">{{item?.id}}</td>
-          <td class="flex justify-center border-b hidden lg:table-cell bg-white" align="center">
+          <!-- <td class="flex justify-center border-b hidden lg:table-cell bg-white" align="center">
             <img [src]="item.img[0] != '' ? item.img : 'https://via.placeholder.com/150'" alt="product"
               class="object-center aspect-square w-12">
-          </td>
+          </td> -->
+          <td class="flex justify-center border-b hidden lg:table-cell bg-white" align="center">
+            <img [src]="item.img[0] !== '' ? item.img : 'https://via.placeholder.com/150'"
+                alt="product" class="object-cover max-w-full max-h-full w-12 h-12">
+        </td>
+        
           <td class="py-1 px-2 lg:py-2 lg:px-4 border-b text-xs md:text-sm lg:text-md">{{item.name}}</td>
           <td class="py-1 px-2 lg:py-2 lg:px-4 border-b hidden md:table-cell text-sm lg:text-md">{{item.category}}</td>
           <td style="text-shadow: 2px 2px #000000ce;"

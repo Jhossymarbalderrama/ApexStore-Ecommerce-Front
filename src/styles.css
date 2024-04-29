@@ -128,23 +128,28 @@ html{
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background: rgba(102, 102, 102, 0.24); /* Fondo semitransparente blanco */
-    z-index: 9999; /* Valor alto para asegurar que esté por delante de otros elementos */
+    /*background: rgba(102, 102, 102, 0.24);*/
+     /* Fondo semitransparente blanco */
+     background: rgba(43, 43, 43, 0.24); 
+    z-index: 9999; /* Valor alto para asegurar que esté por delante de otros elementos */    
   }
   
   .spinner {
-    border: 8px solid #387BF3;
-    border-top: 8px solid transparent;
+    /* border: 8px solid #387BF3; */
+    border: 8px solid white;
+    border-top: 8px solid var(--color-site);
     border-radius: 50%;
     width: 40px;
     height: 40px;
-    animation: spin 1s linear infinite;
+    animation: spin 1s linear infinite;    
   }
   
   .loading-text {
     margin-top: 10px;
-    font-size: 16px;
-    color: #387BF3;
+    font-size: 2.5vh;
+    color: var(--color-site);
+    font-weight: bolder;   
+    text-shadow: 1px 1px 2px white;
   }
   
   @keyframes spin {

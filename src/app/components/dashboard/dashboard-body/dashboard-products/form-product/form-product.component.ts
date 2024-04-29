@@ -6,6 +6,7 @@ import { CrudForm } from 'src/app/interfaces/crudForm';
 import { ProductRequest } from 'src/app/interfaces/productRequest';
 import { ProductService } from 'src/app/services/product.service';
 import { ToastService } from 'src/app/services/toast.service';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-form-product',
@@ -85,10 +86,12 @@ export class FormProductComponent implements OnInit {
     private FormBuilder: FormBuilder,
     private ProductService: ProductService,
     private storage: Storage,
-    private ToastService: ToastService
+    private ToastService: ToastService,
+    private datePipe: DatePipe
   ) { }
 
   ngOnInit(): void {
+    // this.ToastService.showOverlay = true;
   }
 
   // * METHODs
@@ -104,6 +107,7 @@ export class FormProductComponent implements OnInit {
   loadFormProduct(data: any) {
     // this, this.formProduct.reset();
     this.dataForm = data;
+    this.updateFormatDate();
     this.loadDataFormProduct();
 
     if (this.dataForm) {
@@ -174,6 +178,8 @@ export class FormProductComponent implements OnInit {
       this.formProduct.markAllAsTouched();
     } else {
       this.ToastService.showOverlay = true;
+
+
       let productRequest: ProductRequest = {
         name: this.formProduct.controls['name'].value,
         category: this.formProduct.controls['category'].value,
@@ -182,7 +188,7 @@ export class FormProductComponent implements OnInit {
         discount: this.formProduct.controls['discount'].value,
         stock: this.formProduct.controls['stock'].value,
         state: this.formProduct.controls['state'].value,
-        discharge_date: this.formProduct.controls['discharge_date'].value,
+        discharge_date: this.datePipe.transform(this.formProduct.controls['discharge_date'].value, 'dd/MM/yyyy'),
         img: []
       } as ProductRequest;
 
@@ -242,7 +248,7 @@ export class FormProductComponent implements OnInit {
         discount: this.formProduct.controls['discount'].value,
         stock: this.formProduct.controls['stock'].value,
         state: this.formProduct.controls['state'].value,
-        discharge_date: this.formProduct.controls['discharge_date'].value,
+        discharge_date: this.datePipe.transform(this.formProduct.controls['discharge_date'].value, 'dd/MM/yyyy'),
         img: this.dataForm?.item.img
       } as ProductRequest;
 
@@ -341,6 +347,16 @@ export class FormProductComponent implements OnInit {
   */
   eliminarProductList(idProduct: number) {
     this.idProductDelete.emit(idProduct);
+  }
+
+  updateFormatDate() {    
+    if (this.dataForm && this.dataForm.item && this.dataForm.item.discharge_date) {
+      var fecha: any = this.dataForm.item.discharge_date.split('/');
+      this.dataForm.item.discharge_date = fecha[2] + '-' + fecha[1] + '-' + fecha[0];
+
+      console.log(this.dataForm.item);
+      
+    }
   }
 
   //#endregion

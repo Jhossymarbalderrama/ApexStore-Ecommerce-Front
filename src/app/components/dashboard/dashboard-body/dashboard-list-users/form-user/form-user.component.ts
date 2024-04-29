@@ -1,9 +1,12 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Role } from 'src/app/enums/Role';
+import { StateUser } from 'src/app/enums/StateUser';
 import { CrudForm } from 'src/app/interfaces/crudForm';
 import { UserRequest } from 'src/app/interfaces/userRequest';
 import { AuthService } from 'src/app/services/auth.service';
 import { LoginService } from 'src/app/services/login.service';
+import { ToastService } from 'src/app/services/toast.service';
 
 @Component({
   selector: 'app-form-user',
@@ -21,16 +24,16 @@ export class FormUserComponent implements OnInit {
   dataForm?: CrudForm;
   formReadOnly: boolean = false;
   disableBtnAction: boolean = false;
-
+  statesUser: string[] = Object.keys(StateUser).filter((key: any) => !isNaN(Number(StateUser[key])));
+  rolesUser: string[] = Object.keys(Role).filter((key: any) => !isNaN(Number(Role[key])));
   formUser: FormGroup = this.FormBuilder.group({
     'id': ['0',],
     'username': ['', Validators.required],
     'password': ['', Validators.required],
-    'firstname': ['', Validators.required],
-    'lastname': ['', Validators.required],
-    'type_user': ['', Validators.required],
-    'state': ['', Validators.required],
-    'role': ['', ],
+    'firstname': ['',],
+    'lastname': ['',],
+    'state': ['',],
+    'role': ['',],
   });
   //#endregion
 
@@ -53,10 +56,6 @@ export class FormUserComponent implements OnInit {
     return this.formUser.controls['lastname'];
   }
 
-  get type_user() {
-    return this.formUser.controls['type_user'];
-  }
-
   get state() {
     return this.formUser.controls['state'];
   }
@@ -70,8 +69,9 @@ export class FormUserComponent implements OnInit {
   constructor(
     private FormBuilder: FormBuilder,
     private LoginService: LoginService,
-    private AuthService: AuthService
-  ) {}
+    private AuthService: AuthService,
+    private ToastService: ToastService
+  ) { }
 
   ngOnInit(): void {
   }
@@ -117,7 +117,7 @@ export class FormUserComponent implements OnInit {
         case 0:
           //ADD : 
           this.formUser.enable();
-          this.disableBtnAction = false;          
+          this.disableBtnAction = false;
           break;
         case 1:
           //UPDATE:  
@@ -151,7 +151,6 @@ export class FormUserComponent implements OnInit {
       password: this.dataForm?.item?.password,
       firstname: this.dataForm?.item?.firstname,
       lastname: this.dataForm?.item?.lastname,
-      type_user: this.dataForm?.item?.type_user,
       state: this.dataForm?.item?.state,
       role: this.dataForm?.item?.role
     });
@@ -170,24 +169,34 @@ export class FormUserComponent implements OnInit {
         password: this.formUser.controls['password'].value,
         firstname: this.formUser.controls['firstname'].value,
         lastname: this.formUser.controls['lastname'].value,
-        type_user: this.formUser.controls['type_user'].value,
         state: this.formUser.controls['state'].value,
         role: this.formUser.controls['role'].value
       } as UserRequest;
+      console.log(userRequest);
 
+      
+      this.spinnerLoading();
       this.LoginService.svRegister(userRequest).subscribe({
-        next: (response) =>{
+        next: (response) => {
           this.AuthService.svDetailsUser(userRequest.username).subscribe({
             next: (detailsUser) => {
               this.refreshList(detailsUser);
             }
           })
           this.closeModal();
-        },error: (error) => {
-          console.error(error);          
+        }, error: (error) => {
+          console.error(error);
         }
       })
     }
+  }
+
+
+  spinnerLoading(){
+    this.ToastService.showOverlay = true;
+    setTimeout(() => {
+      this.ToastService.showOverlay = false;
+    }, 1000);
   }
 
   /**
@@ -197,24 +206,25 @@ export class FormUserComponent implements OnInit {
     if (this.formUser.invalid) {
       this.formUser.markAllAsTouched();
     } else {
+
       let userRequest: UserRequest = {
         id: this.dataForm?.item?.id,
         username: this.formUser.controls['username'].value,
         password: this.formUser.controls['password'].value,
         firstname: this.formUser.controls['firstname'].value,
         lastname: this.formUser.controls['lastname'].value,
-        type_user: this.formUser.controls['type_user'].value,
         state: this.formUser.controls['state'].value,
         role: this.formUser.controls['role'].value
       } as UserRequest;
 
+      this.spinnerLoading();
       this.AuthService.svUpdateUser(userRequest).subscribe({
-        next: (response) =>{
+        next: (response) => {
           //Refrescar Lista de Usuarios
           this.refreshUser(response);
           this.closeModal();
-        },error: (error) => {
-          console.error(error);          
+        }, error: (error) => {
+          console.error(error);
         }
       })
     }
@@ -254,7 +264,7 @@ export class FormUserComponent implements OnInit {
    * 
    * @param usr 
    */
-  refreshUser(usr: UserRequest){
+  refreshUser(usr: UserRequest) {
     this.refreshUserUpdate.emit(usr);
   }
 
@@ -264,7 +274,7 @@ export class FormUserComponent implements OnInit {
    * 
    * @param idUsr 
    */
-  eliminarUserList(idUsr: number){    
+  eliminarUserList(idUsr: number) {
     this.idUserDelete.emit(idUsr);
   }
   //#endregion

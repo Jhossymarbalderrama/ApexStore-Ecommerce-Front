@@ -59,7 +59,7 @@ import { FilterMailUserPipe } from './pipes/filter-mail-user.pipe';
 import { FilterNameFacturasPipe } from './pipes/filter-name-facturas.pipe';
 import { FilterDireccionFacturasPipe } from './pipes/filter-direccion-facturas.pipe';
 import { FilterTotalFacturasPipe } from './pipes/filter-total-facturas.pipe';
-
+import { DatePipe } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -126,7 +126,8 @@ import { FilterTotalFacturasPipe } from './pipes/filter-total-facturas.pipe';
     {provide: HTTP_INTERCEPTORS, useClass: TokenExpirationInterceptor, multi:true},
     {provide: HTTP_INTERCEPTORS, useClass: JwtInterceptorService, multi:true},
     {provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptorService, multi:true},
-    MessageService
+    MessageService,
+    DatePipe
   ],
   bootstrap: [AppComponent]
 })

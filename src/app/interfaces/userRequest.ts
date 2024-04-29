@@ -4,7 +4,6 @@ export interface UserRequest{
     password: string,
     firstname: string,
     lastname: string,
-    type_user: string,
     state: string,
     role: string
 }

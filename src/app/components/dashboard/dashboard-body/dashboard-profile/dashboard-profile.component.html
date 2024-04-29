@@ -44,7 +44,7 @@
           </label>
           <input id="state" type="text" [value]="this.AuthService.userData?.state" disabled
             class="appearance-none border rounded w-full lg:w-4/5 py-2 px-3 bg-gray-100 leading-tight focus:outline-none focus:shadow-outline font-bold"
-            [ngClass]="this.AuthService.userData?.state == 'Activo' ? 'text-green-500' : 'text-red-500'">
+            [ngClass]="this.AuthService.userData?.state == 'ACTIVADO' ? 'text-green-500' : 'text-red-500'">
         </div>
         <div class="mb-4 flex">
           <label class="w-full lg:w-1/5 text-left pr-4 text-gray-800 font-bold" for="role">

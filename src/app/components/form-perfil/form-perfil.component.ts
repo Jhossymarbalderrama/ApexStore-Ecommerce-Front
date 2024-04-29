@@ -70,7 +70,6 @@ export class FormPerfilComponent implements OnInit {
           id: this.AuthService.userData?.id,
           firstname: this.formPerfil.get('firstname')?.value,
           lastname: this.formPerfil.get('lastname')?.value,
-          type_user: this.AuthService.userData?.type_user,
           state: this.AuthService.userData?.state,
           role: this.AuthService.userData?.role
         }
