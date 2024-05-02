@@ -46,8 +46,8 @@
                                 <i class="fas fa-tags mr-2"></i> State
                             </label>
                             <select
-                                class="form-control w-full px-3 py-2 border rounded focus:outline-none focus:border-blue-500"
-                                formControlName="state" id="state" name="state" [disabled]="dataForm?.action == 2"
+                                class="form-control w-full px-3 py-2 border rounded focus:outline-none focus:border-blue-500 "
+                                formControlName="state" id="state" name="state" 
                                 [ngClass]="disableBtnAction ? 'bg-gray-300' : 'bg-white' " required>
                                 <option value="Nuevo" [selected]="dataForm?.item?.state === 'Nuevo'">Nuevo</option>
                                 <option value="Usado" [selected]="dataForm?.item?.state === 'Usado'">Usado</option>

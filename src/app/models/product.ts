@@ -7,7 +7,7 @@ export class Product {
     private _discount: number;
     private _stock: number;
     private _state: string;
-    private _discharge_date: string | Date;
+    private _discharge_date: string;
     private _img: string[];
 
     constructor(
@@ -19,7 +19,7 @@ export class Product {
         discount: number,
         stock: number,
         state: string,
-        discharge_date: string | Date,
+        discharge_date: string,
         img: any[]
     ) {
         this._id = id;
@@ -66,7 +66,7 @@ export class Product {
         return this._state;
     }
 
-    get discharge_date():string | Date{
+    get discharge_date():string{
         return this._discharge_date;
     }
 

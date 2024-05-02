@@ -103,9 +103,9 @@ export class ProductService {
    * Traer informacion de un producto
    * @returns 
    */
-  svProductDetails(): Observable<Product> {
+  svProductDetails(id: number): Observable<Product> {
     //...
-    return new Observable<Product>;
+    return this.http.get<Product>(environment.urlApiProduct+"get/"+id);
   }
 
   /**

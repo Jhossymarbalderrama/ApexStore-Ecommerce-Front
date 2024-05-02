@@ -75,6 +75,11 @@ export class DashboardProductsComponent implements OnInit {
     const modal = document.getElementById('crud-modal-product');
     modal?.classList.remove('hidden');
 
+    /*
+     let fecha: any = this.dataForm.item.discharge_date.split('/');
+     this.dataForm.item.discharge_date = fecha[2] + '-' + fecha[1] + '-' + fecha[0];
+    */     
+
     this.dataFormProduct = {
       action: action,
       item: product

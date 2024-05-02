@@ -107,7 +107,6 @@ export class FormProductComponent implements OnInit {
   loadFormProduct(data: any) {
     // this, this.formProduct.reset();
     this.dataForm = data;
-    this.updateFormatDate();
     this.loadDataFormProduct();
 
     if (this.dataForm) {
@@ -120,7 +119,7 @@ export class FormProductComponent implements OnInit {
         case 1:
           //UPDATE:    
           this.formProduct.enable();
-          this.disableBtnAction = false;        
+          this.disableBtnAction = false;
           break;
         case 2:
           //DELETE: 
@@ -129,7 +128,7 @@ export class FormProductComponent implements OnInit {
           this.disableBtnAction = true;
           modal_delete_product?.classList.remove('hidden');
           break;
-        case 3:          
+        case 3:
           //View ReadONly: Solo Lectura
           this.formProduct.disable();
           this.disableBtnAction = true;
@@ -188,10 +187,11 @@ export class FormProductComponent implements OnInit {
         discount: this.formProduct.controls['discount'].value,
         stock: this.formProduct.controls['stock'].value,
         state: this.formProduct.controls['state'].value,
-        discharge_date: this.datePipe.transform(this.formProduct.controls['discharge_date'].value, 'dd/MM/yyyy'),
+        discharge_date: this.formProduct.controls['discharge_date'].value,
         img: []
       } as ProductRequest;
-
+      // discharge_date: this.datePipe.transform(this.formProduct.controls['discharge_date'].value, 'dd/MM/yyyy'),
+      
       const uploadImgToFireStore = this.imgsList.map(file => {
         const imgRef = ref(this.storage, `images/${file.name}`);
         return uploadBytes(imgRef, file).then(async () => {
@@ -248,16 +248,17 @@ export class FormProductComponent implements OnInit {
         discount: this.formProduct.controls['discount'].value,
         stock: this.formProduct.controls['stock'].value,
         state: this.formProduct.controls['state'].value,
-        discharge_date: this.datePipe.transform(this.formProduct.controls['discharge_date'].value, 'dd/MM/yyyy'),
+        discharge_date: this.formProduct.controls['discharge_date'].value,
         img: this.dataForm?.item.img
       } as ProductRequest;
+    // discharge_date: this.datePipe.transform(this.formProduct.controls['discharge_date'].value, 'dd/MM/yyyy'),
 
       this.ProductService.svUpdateProduct(productRequest).subscribe({
         next: (response) => {
           setTimeout(() => {
-          this.refreshProduct(response);
-          this.ToastService.showOverlay = false;
-          this.closeModal();
+            this.refreshProduct(response);
+            this.ToastService.showOverlay = false;
+            this.closeModal();
           }, 1000);
         }, error: (error) => {
           console.error(error);
@@ -276,13 +277,13 @@ export class FormProductComponent implements OnInit {
   formAction() {
     if (this.dataForm) {
       switch (this.dataForm.action) {
-        case 0:          
+        case 0:
           this.addProduct();
           break;
         case 1:
           this.updateProduct();
           break;
-        case 2:     
+        case 2:
           //DELETE: elimino logicamente un producto
           //Esto deberia ser un update modificando un valor de publicado: [true/false]
           // ?  DeleteProductComponent.ts -> lugar de eliminacion de productos
@@ -304,7 +305,7 @@ export class FormProductComponent implements OnInit {
       discount: this.dataForm?.item?.discount,
       stock: this.dataForm?.item?.stock,
       state: this.dataForm?.item?.state,
-      discharge_date: this.dataForm?.item?.discharge_date
+      discharge_date:  this.dataForm?.item?.discharge_date
     });
 
     this.imgsListURLs = this.dataForm?.item?.img;
@@ -349,15 +350,6 @@ export class FormProductComponent implements OnInit {
     this.idProductDelete.emit(idProduct);
   }
 
-  updateFormatDate() {    
-    if (this.dataForm && this.dataForm.item && this.dataForm.item.discharge_date) {
-      var fecha: any = this.dataForm.item.discharge_date.split('/');
-      this.dataForm.item.discharge_date = fecha[2] + '-' + fecha[1] + '-' + fecha[0];
-
-      console.log(this.dataForm.item);
-      
-    }
-  }
 
   //#endregion
 }
