@@ -5,5 +5,6 @@ export interface UserRequest{
     firstname: string,
     lastname: string,
     state: string,
-    role: string
+    role: string,
+    img: string
 }

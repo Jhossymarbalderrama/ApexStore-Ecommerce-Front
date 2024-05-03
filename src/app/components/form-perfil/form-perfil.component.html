@@ -17,7 +17,25 @@
             <!-- Modal body -->
             <form [formGroup]="formPerfil" class="p-4 md:p-5">
                 <div class="grid gap-4 mb-4 grid-cols-2">
+                   
+                    <div class="col-span-2 flex flex-col justify-center items-center">
+                        <div class="relative">
+                            <label for="imageInput" class="cursor-pointer">
+                                <div *ngIf="!this.imgLocal[0]">
+                                    <img [src]="this.AuthService.userData?.img ? this.AuthService.userData?.img : '../../../../../assets/img/dashboard/profile_default.jpg'" alt="Imagen de perfil"
+                                        class="w-36 h-36 lg:w-44 lg:h-44 object-cover  rounded-full transition-transform transform-gpu hover:scale-105 cursor-pointer">
+                                </div>
 
+                                <div *ngIf="this.imgLocal[0]">
+                                    <img [src]="imgLocal[0]" alt="Imagen de perfil"
+                                        class="w-36 h-36 lg:w-44 lg:h-44 object-cover rounded-full transition-transform transform-gpu hover:scale-105 cursor-pointer">
+                                </div>
+                            </label>
+                            <input id="imageInput" type="file" accept="image/*" (change)="onSaveFileLocal($event)" multiple
+                                style="display: none;">
+                        </div>
+                    </div>
+                    
                     <div class="col-span-2">
                         <label for="firstname"
                             class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nombre: </label>

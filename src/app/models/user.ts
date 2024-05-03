@@ -9,9 +9,9 @@ export class User {
     private _lastname?: string;
     private _state?: StateUser;
     private _role?: Role;
+    private _img?: string;
 
-
-    constructor(username: string, password: string, id?:number, firstname?: string, lastname?: string, state?: StateUser, role?: Role){
+    constructor(username: string, password: string, id?:number, firstname?: string, lastname?: string, state?: StateUser, role?: Role, img?: string){
         this._id = id;
         this._username = username;
         this._password = password;
@@ -19,8 +19,8 @@ export class User {
         this._lastname = lastname;
         this._state = state;
         this._role = role;
-        
-    }
+        this._img = img;
+    }   
 
     public get id(): any{
         return this._id;
@@ -50,6 +50,10 @@ export class User {
         return this._role;
     } 
 
+    public get img(): any{
+        return this._img;
+    }
+
     public set id(id: number){
         this._id = id;
     }
@@ -76,5 +80,9 @@ export class User {
 
     public set role(role:Role){
         this._role = role;
+    }
+
+    public set img(img:string){
+        this._img = img;
     }
 }

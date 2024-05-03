@@ -48,7 +48,7 @@
                     <div class="px-3" *ngIf="this.loginServ._svCurrentUserLoginOn.value" (click)="onDashboard()"
                         style="cursor: pointer;margin-top: -8px;" title="Mi perfil">
                         <div class="w-10 h-10 bg-gray-200 rounded-full overflow-hidden">
-                            <img src="../../../assets/img/dashboard/user.jpg" alt="Perfil"
+                            <img [src]="this.authServ.userData?.img ? this.authServ.userData?.img : '../../../../../assets/img/dashboard/profile_default.jpg' " alt="Perfil"
                                 class="w-full h-full object-cover">
                         </div>
                     </div>

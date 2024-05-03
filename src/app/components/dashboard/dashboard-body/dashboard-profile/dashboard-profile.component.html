@@ -4,9 +4,12 @@
 
     <div class="flex flex-wrap lg:flex-no-wrap">
       <div class="w-full lg:w-2/5 lg:pr-4 order-1 lg:order-2 flex flex-col items-center pb-4">
-        <div class="mb-4">
-          <img src="https://qph.cf2.quoracdn.net/main-qimg-64797fe2d59d9be91f093d86008048a6-pjlq" alt="Imagen de perfil"
-            class="w-48 h-48 lg:w-64 lg:h-64 object-cover rounded-md transition-transform transform-gpu hover:scale-105 cursor-pointer">
+        <div class="mb-4 relative hover:scale-105">
+          <img [src]="this.AuthService.userData?.img ? this.AuthService.userData?.img : '../../../../../assets/img/dashboard/profile_default.jpg'" alt="Imagen de perfil"
+            class="w-48 h-48 lg:w-64 lg:h-64 object-cover rounded-full transition-transform transform-gpu cursor-pointer">
+          <span (click)="showModal()" class="editProfileImg absolute inset-0 cursor-pointer rounded-full flex  justify-center items-center opacity-0 bg-gray-400 bg-opacity-50 hover:opacity-100 transition-opacity">
+            <i class="fa-solid fa-pen-to-square text-3xl"></i>
+          </span>
         </div>
        
         <button class="bg-yellow-400 hover:bg-yellow-500 text-white font-bold py-2 px-4 rounded"

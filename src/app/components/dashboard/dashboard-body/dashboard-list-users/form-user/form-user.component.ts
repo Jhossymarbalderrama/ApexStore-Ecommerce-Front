@@ -214,7 +214,8 @@ export class FormUserComponent implements OnInit {
         firstname: this.formUser.controls['firstname'].value,
         lastname: this.formUser.controls['lastname'].value,
         state: this.formUser.controls['state'].value,
-        role: this.formUser.controls['role'].value
+        role: this.formUser.controls['role'].value,      
+        img: this.dataForm?.item?.img
       } as UserRequest;
 
       this.spinnerLoading();

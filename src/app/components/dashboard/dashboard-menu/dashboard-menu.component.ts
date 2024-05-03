@@ -12,6 +12,7 @@ export class DashboardMenuComponent {
   // * ATRIBUTOS
   dashboardUser: boolean = false;
   userIMG: string = '../../../../assets/img/dashboard/user.jpg'; // ! Sacar esto y poner la imagen que tiene el Usuario
+  estaEnPerfil: boolean = false;
 
   // * CONSTRUCTOR
   constructor(private router: Router, public AuthService: AuthService) {
