@@ -1,7 +1,8 @@
 <!-- Main modal -->
 <div id="crud-modal-user"
-    class="modal fixed left-0 top-0 flex md:justify-center md:items-center bg-black bg-opacity-50 w-full h-full md:h-full overflow-y-auto hidden z-30">
-    <div class="relative  mx-auto max-w-4xl">
+    class="modal fixed left-0 top-0 flex md:justify-center md:items-center bg-black bg-opacity-50 w-full h-full md:h-full overflow-y-auto hidden z-30"
+    (click)="closeModal()">
+    <div class="relative  mx-auto max-w-4xl"  (click)="$event.stopPropagation()">
         <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
             <div class="flex items-center justify-between p-5 border-b rounded-t dark:border-gray-600">
                 <h2 class="text-2xl font-semibold">Registro Usuarios</h2>
