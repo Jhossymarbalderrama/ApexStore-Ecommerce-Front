@@ -23,8 +23,8 @@
                                 formControlName="name" type="text" id="name" name="name" placeholder="product name"
                                 [value]="dataForm?.item?.name" [readOnly]="dataForm?.action == 2"
                                 [ngClass]="disableBtnAction ? 'bg-gray-300' : 'bg-white' " required>
-                            <div *ngIf="name.invalid && (name.dirty || name.touched)" class="text-danger text-sm">
-                                <span *ngIf="name.errors?.['required']">*Name is required</span>
+                            <div *ngIf="name.invalid && (name.dirty || name.touched)" class="text-danger text-xs">
+                                <span *ngIf="name.errors?.['required']">*Campo requerido</span>
                             </div>
                         </div>
                         <div>
@@ -38,8 +38,8 @@
                                 [readOnly]="dataForm?.action == 2"
                                 [ngClass]="disableBtnAction ? 'bg-gray-300' : 'bg-white' " required>
                             <div *ngIf="category.invalid && (category.dirty || category.touched)"
-                                class="text-danger text-sm">
-                                <span *ngIf="category.errors?.['required']">*Category is required</span>
+                                class="text-danger text-xs">
+                                <span *ngIf="category.errors?.['required']">*Campo requerido</span>
                             </div>
                         </div>
                         <div>
@@ -53,8 +53,8 @@
                                 <option value="Nuevo" [selected]="dataForm?.item?.state === 'Nuevo'">Nuevo</option>
                                 <option value="Usado" [selected]="dataForm?.item?.state === 'Usado'">Usado</option>
                             </select>
-                            <div *ngIf="state.invalid && (state.dirty || state.touched)" class="text-danger text-sm">
-                                <span *ngIf="state.errors?.['required']">*State is required</span>
+                            <div *ngIf="state.invalid && (state.dirty || state.touched)" class="text-danger text-xs">
+                                <span *ngIf="state.errors?.['required']">*Campo requerido</span>
                             </div>
                         </div>
 
@@ -69,8 +69,8 @@
                                 formControlName="price" type="number" id="price" name="price" placeholder="price"
                                 [value]="dataForm?.item?.price" [readOnly]="dataForm?.action == 2"
                                 [ngClass]="disableBtnAction ? 'bg-gray-300' : 'bg-white' " required>
-                            <div *ngIf="price.invalid && (price.dirty || price.touched)" class="text-danger text-sm">
-                                <span *ngIf="price.errors?.['required']">*Price is required</span>
+                            <div *ngIf="price.invalid && (price.dirty || price.touched)" class="text-danger text-xs">
+                                <span *ngIf="price.errors?.['required']">*Campo requerido</span>
                             </div>
                         </div>
                         <div>
@@ -84,8 +84,8 @@
                                 [readOnly]="dataForm?.action == 2"
                                 [ngClass]="disableBtnAction ? 'bg-gray-300' : 'bg-white' ">
                             <div *ngIf="discount.invalid && (discount.dirty || discount.touched)"
-                                class="text-danger text-sm">
-                                <span *ngIf="discount.errors?.['required']">*Discount is required</span>
+                                class="text-danger text-xs">
+                                <span *ngIf="discount.errors?.['required']">*Campo requerido</span>
                             </div>
                         </div>
                         <div>
@@ -97,8 +97,8 @@
                                 formControlName="stock" type="number" id="stock" name="stock" placeholder="stock"
                                 [value]="dataForm?.item?.stock" [readOnly]="dataForm?.action == 2"
                                 [ngClass]="disableBtnAction ? 'bg-gray-300' : 'bg-white' " required>
-                            <div *ngIf="stock.invalid && (stock.dirty || stock.touched)" class="text-danger text-sm">
-                                <span *ngIf="stock.errors?.['required']">*Stock is required</span>
+                            <div *ngIf="stock.invalid && (stock.dirty || stock.touched)" class="text-danger text-xs">
+                                <span *ngIf="stock.errors?.['required']">*Campo requerido</span>
                             </div>
                         </div>
                     </div>
@@ -114,8 +114,8 @@
                                 [ngClass]="disableBtnAction ? 'bg-gray-300' : 'bg-white' " required>
                                 
                             <div *ngIf="discharge_date.invalid && (discharge_date.dirty || discharge_date.touched)"
-                                class="text-danger text-sm">
-                                <span *ngIf="discharge_date.errors?.['required']">*Discharge date is required</span>
+                                class="text-danger text-xs">
+                                <span *ngIf="discharge_date.errors?.['required']">*Campo requerido</span>
                             </div>
                         </div>
                         <div *ngIf="dataForm?.action == 0">
@@ -139,8 +139,8 @@
                             [value]="dataForm?.item?.description" [readOnly]="dataForm?.action == 2"
                             [ngClass]="disableBtnAction ? 'bg-gray-300' : 'bg-white' " required></textarea>
                         <div *ngIf="description.invalid && (description.dirty || description.touched)"
-                            class="text-danger text-sm">
-                            <span *ngIf="description.errors?.['required']">*Description is required</span>
+                            class="text-danger text-xs">
+                            <span *ngIf="description.errors?.['required']">*Campo requerido</span>
                         </div>
                     </div>
                     <div class="grid grid-cols-3 gap-4 mb-4">
