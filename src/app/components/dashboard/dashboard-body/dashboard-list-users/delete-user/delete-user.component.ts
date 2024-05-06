@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Storage, deleteObject, ref, uploadBytes } from '@angular/fire/storage';
 import { AuthService } from 'src/app/services/auth.service';
 import { ToastService } from 'src/app/services/toast.service';
 
@@ -15,7 +16,8 @@ export class DeleteUserComponent {
   // * CONSTRUCTOR
   constructor(
     private AuthService: AuthService,
-    private ToastService : ToastService
+    private ToastService : ToastService,
+    private Storage: Storage
   ){}
   
   ngOnInit(): void {}
@@ -29,10 +31,19 @@ export class DeleteUserComponent {
    */
   deleteUser() {
     if (this.idUser) {
-      this.spinnerLoading();
-      this.AuthService.svDeleteUser(this.idUser).subscribe();
-      this.idUserDelete.emit(this.idUser);
-      this.closeModal();
+    this.spinnerLoading();
+
+    this.AuthService.svDetailsUserID(this.idUser).subscribe(
+      res =>{
+        
+        const imgRef = ref(this.Storage, res.img);
+        deleteObject(imgRef);
+        
+        this.AuthService.svDeleteUser(this.idUser).subscribe();
+        this.idUserDelete.emit(this.idUser);
+        this.closeModal();
+      }
+    )     
     } else {
       console.error("Error. No se puede eliminar un Usuario con valor de id es: " + this.idUser);
     }

@@ -28,7 +28,7 @@ export class FormUserComponent implements OnInit {
   rolesUser: string[] = Object.keys(Role).filter((key: any) => !isNaN(Number(Role[key])));
   formUser: FormGroup = this.FormBuilder.group({
     'id': ['0',],
-    'username': ['', Validators.required],
+    'username': ['', [Validators.required, Validators.email]],
     'password': ['', Validators.required],
     'firstname': ['',],
     'lastname': ['',],

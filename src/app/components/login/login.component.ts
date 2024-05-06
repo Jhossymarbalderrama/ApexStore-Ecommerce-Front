@@ -21,7 +21,7 @@ export class LoginComponent implements OnInit {
   showOverlay: boolean = false; // ? Spinner Loading
 
   formLogin: FormGroup = this.FormBuilder.group({
-    'username': ['jhossy@gmail.com', Validators.required],
+    'username': ['jhossy@gmail.com',[ Validators.required, Validators.email]],
     'password': ['jhossy', Validators.required]
   });
 
@@ -63,7 +63,7 @@ export class LoginComponent implements OnInit {
           // console.log("Logeado: ",userData);               
         },
         error: (errorData) => {
-          console.error(errorData);
+          // console.error(errorData);
           this.loginError = errorData;
           this.ToastService.showOverlay = false;
         },

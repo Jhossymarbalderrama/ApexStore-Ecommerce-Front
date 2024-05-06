@@ -1,8 +1,8 @@
 <div class="block lg:block bg-menu text-white flex flex-col pt-5 w-full h-full pl-10 lg:pl-5 flex-grow overflow-y-auto">
 
    <div class="w-full flex justify-center">
-    <div class="mb-4 flex flex-col justify-center items-center w-56 h-52 lg:w-36 lg:h-36 xl:w-52 xl:h-52" [routerLink]="'/dashboard/profile'">
-        <img [src]="this.AuthService.userData?.img ? this.AuthService.userData?.img : '../../../../../assets/img/dashboard/profile_default.jpg' "
+    <div class="mb-4 flex flex-col justify-center items-center w-56 h-52 lg:w-36 lg:h-36 xl:w-52 xl:h-52" (click)="navClose()" [routerLink]="'/dashboard/profile'">
+        <img [src]="this.AuthService.userData?.img ? this.AuthService.userData?.img : UrlService.url?.profileDefault "
         alt="Imagen de perfil"
         class="w-40 h-40 lg:pr-0 lg:w-36 lg:h-36 xl:w-44 xl:h-44 object-cover rounded-full transition-transform transform-gpu hover:scale-105 cursor-pointer"
         style="margin-left: -2rem !important;">
@@ -93,100 +93,3 @@
         </a>
     </div>
 </div>
-
-
-<!-- 
-<div class="block lg:block bg-menu text-white flex flex-col pt-5 w-full h-full lg:pl-5 flex-grow overflow-y-auto">
-
-    <div class="mb-6 w-full flex flex-col justify-center items-center">
-        <div class="mb-4 w-36 lg:w-40" [routerLink]="'/dashboard/profile'">
-            <img [src]="this.AuthService.userData?.img ? this.AuthService.userData?.img : '../../../../../assets/img/dashboard/profile_default.jpg' "
-                alt="Imagen de perfil"
-                class="w-36 h-36 lg:w-40 lg:h-40 object-cover rounded-full transition-transform transform-gpu hover:scale-105 cursor-pointer">
-        </div>
-
-
-        <p class="text-lg font-semibold text-response mb-6">Panel de Usuario</p>
-
-        <div class="mb-4 w-full text-left">
-            <a (click)="navClose()" routerLink="/dashboard/home" id='home' class="flex items-center text-white">
-                <i class="fas fa-home mr-4"></i>
-                <span class="text-xs lg:text-xs  xl:text-md font-bold" routerLinkActive="text-color-site">Home</span>
-            </a>
-        </div>
-
-        <div class="mb-4 w-full text-left">
-            <a (click)="navClose()" routerLink="/dashboard/profile" id='profile' class="flex items-center text-white">
-                <i class="fas fa-user mr-4"></i>
-                <span class="text-xs lg:text-xs  xl:text-md font-bold" routerLinkActive="text-color-site">Mi Perfil</span>
-            </a>
-        </div>
-
-        <div class="mb-4 w-full text-left">
-            <a (click)="navClose()" routerLink="/dashboard/shopping-cart" id='shopping-cart'
-                class="flex items-center text-white">
-                <i class="fa-solid fa-cart-shopping mr-4"></i>
-                <span class="text-xs lg:text-xs  xl:text-md font-bold" routerLinkActive="text-color-site">Carrito</span>
-            </a>
-        </div>
-
-        <div class="mb-4 w-full text-left" *ngIf="this.AuthService.svADM">
-            <a (click)="navClose()" routerLink="/dashboard/products" id='products' class="flex items-center text-white">
-                <i class="fas fa-box mr-4"></i>
-                <span class="text-xs lg:text-xs  xl:text-md font-bold" routerLinkActive="text-color-site">Productos </span>
-                <span class="text-red-500 text-xs pl-1">(ADM)</span>
-            </a>
-        </div>
-
-        <div class="mb-4 w-full text-left">
-            <a (click)="navClose()" routerLink="/dashboard/store" id='store' class="flex items-center text-white">
-                <i class="fa-solid fa-store mr-4"></i>
-                <span class="text-xs lg:text-xs  xl:text-md font-bold" routerLinkActive="text-color-site">Tienda</span>
-            </a>
-        </div>
-
-        <div class="mb-4 w-full text-left">
-            <a (click)="navClose()" routerLink="/dashboard/shopping-history" id='shopping-history'
-                class="flex items-center text-white">
-                <i class="fa-solid fa-boxes-packing mr-4"></i>
-                <span class="text-xs lg:text-xs  xl:text-md font-bold" routerLinkActive="text-color-site">Historial de
-                    compras</span>
-            </a>
-        </div>
-
-        <div class="mb-4 w-full text-left" *ngIf="this.AuthService.svADM">
-            <a (click)="navClose()" routerLink="/dashboard/articles" id='articles' class="flex items-center text-white">
-                <i class="fas fa-newspaper mr-4"></i>
-                <span class="text-xs lg:text-xs  xl:text-md font-bold" routerLinkActive="text-color-site">Articulos</span>
-                <span class="text-red-500 text-xs pl-1">(ADM)</span>
-            </a>
-        </div>
-
-        <div class="mb-4 w-full text-left" *ngIf="this.AuthService.svADM">
-            <a (click)="navClose()" routerLink="/dashboard/orders" id='orders' class="flex items-center text-white">
-                <i class="fa-solid fa-clipboard-list mr-4"></i>
-                <span class="text-xs lg:text-xs  xl:text-md font-bold" routerLinkActive="text-color-site">Ordenes</span>
-                <span class="text-red-500 text-xs pl-1">(ADM)</span>
-            </a>
-        </div>
-
-        <div class="mb-4 w-full text-left" *ngIf="this.AuthService.svADM">
-            <a (click)="navClose()" routerLink="/dashboard/list-users" id='list-users'
-                class="flex items-center text-white">
-                <i class="fa-solid fa-address-book mr-4"></i>
-                <span class="text-xs lg:text-xs  xl:text-md font-bold" routerLinkActive="text-color-site">Usuarios</span>
-                <span class="text-red-500 text-xs pl-1">(ADM)</span>
-            </a>
-        </div>
-
-        <div class="mb-4 w-full text-left" *ngIf="this.AuthService.svADM">
-            <a (click)="navClose()" routerLink="/dashboard/analytics" id='analytics'
-                class="flex items-center text-white">
-                <i class="fa-solid fa-chart-pie mr-4"></i>
-                <span class="text-xs lg:text-xs  xl:text-md font-bold" routerLinkActive="text-color-site">Estadisticas</span>
-                <span class="text-red-500 text-xs pl-1">(ADM)</span>
-            </a>
-        </div>
-    </div>
-</div>
- -->

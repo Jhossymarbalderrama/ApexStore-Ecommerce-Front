@@ -8,6 +8,7 @@ import { ToastService } from 'src/app/services/toast.service';
 
 import { Storage, ref, uploadBytes, deleteObject } from '@angular/fire/storage';
 import { getDownloadURL, getStorage } from '@firebase/storage';
+import { UrlService } from 'src/app/services/url.service';
 
 @Component({
   selector: 'app-form-perfil',
@@ -47,16 +48,13 @@ export class FormPerfilComponent implements OnInit {
     private LoginService: LoginService,
     public AuthService: AuthService,
     private ToastService: ToastService,
-    private Storage: Storage
+    private Storage: Storage,
+    public UrlService: UrlService
   ) { }
 
   async ngOnInit(): Promise<void> {
     setTimeout(() => {
-      this.formPerfil.patchValue({
-        'firstname': this.AuthService.userData?.firstname,
-        'lastname': this.AuthService.userData?.lastname,
-        'img': this.AuthService.userData?.img
-      });
+      this.setValuesForm();
     }, 500);
   }
 
@@ -68,7 +66,18 @@ export class FormPerfilComponent implements OnInit {
    */
   closeModal() {
     const modal = document.getElementById('crud-modal');
+    this.formPerfil.reset();
+   this.setValuesForm();
     modal?.classList.add('hidden');
+  }
+
+
+  setValuesForm(){
+    this.formPerfil.patchValue({
+      'firstname': this.AuthService.userData?.firstname,
+      'lastname': this.AuthService.userData?.lastname,
+      'img': this.AuthService.userData?.img
+    });
   }
 
   /**
@@ -117,16 +126,16 @@ export class FormPerfilComponent implements OnInit {
          // ? Update Normal 
           this.AuthService.svUpdateUser(userRequest).subscribe();
       }
-      console.log(userRequest);
+      
+      setTimeout(() => {
+        this.ToastService.showOverlay = false;
+        this.refreshData.emit(true);
+        this.closeModal();
+      }, 2000);
     } else {
       this.formPerfil.markAllAsTouched();
     }
 
-    setTimeout(() => {
-      this.ToastService.showOverlay = false;
-      this.refreshData.emit(true);
-      this.closeModal();
-    }, 2000);
   }
 
 

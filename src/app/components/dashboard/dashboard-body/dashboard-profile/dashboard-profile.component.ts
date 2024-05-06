@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { User } from 'src/app/models/user';
 import { AuthService } from 'src/app/services/auth.service';
 import { LoginService } from 'src/app/services/login.service';
+import { UrlService } from 'src/app/services/url.service';
 import { environment } from 'src/environments/environment';
 
 @Component({
@@ -18,7 +19,8 @@ export class DashboardProfileComponent implements OnInit, AfterViewInit {
   // * CONSTRUCTOR
   constructor(
     public AuthService: AuthService,
-    private LoginService: LoginService
+    private LoginService: LoginService,
+    public UrlService: UrlService
   ) {
     // this.LoginService.checkTokenExpiration();
     if (!this.AuthService.userData) {      

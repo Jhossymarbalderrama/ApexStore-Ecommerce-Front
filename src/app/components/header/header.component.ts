@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
 import { CartService } from 'src/app/services/cart.service';
 import { LoginService } from 'src/app/services/login.service';
+import { UrlService } from 'src/app/services/url.service';
 
 @Component({
   selector: 'app-header',
@@ -20,7 +21,8 @@ export class HeaderComponent implements OnInit {
     public authServ: AuthService,
     public cartServ: CartService,
     public loginServ: LoginService,
-    private router: Router
+    private router: Router,
+    public UrlService: UrlService
   ) { }
 
   ngOnInit(): void { }

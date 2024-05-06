@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { UrlService } from 'src/app/services/url.service';
 
 @Component({
   selector: 'app-about',
@@ -7,4 +8,7 @@ import { Component } from '@angular/core';
 })
 export class AboutComponent {
 
+  constructor(public UrlService: UrlService){
+
+  }
 }

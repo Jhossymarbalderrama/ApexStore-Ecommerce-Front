@@ -10,6 +10,7 @@ import { FacturacionService } from 'src/app/services/facturacion.service';
 import { MessageService } from 'primeng/api';
 import { ToastService } from 'src/app/services/toast.service';
 import { Router } from '@angular/router';
+import { UrlService } from 'src/app/services/url.service';
 
 @Component({
   selector: 'app-payment-form',
@@ -92,7 +93,8 @@ export class PaymentFormComponent implements OnInit {
     private FacturacionService: FacturacionService,
     private DeliveryService: DeliveryService,
     private ToastService: ToastService,
-    private Router: Router
+    private Router: Router,
+    public UrlService: UrlService
   ) {
     if (this.AuthService.userData == null || this.AuthService.userData == undefined) {
       this.AuthService.svGetUserData();

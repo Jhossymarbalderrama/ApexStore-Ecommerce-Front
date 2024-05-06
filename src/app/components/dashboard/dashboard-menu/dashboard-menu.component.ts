@@ -2,6 +2,7 @@ import { Component, OnChanges, SimpleChanges } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
 import { Role } from 'src/app/enums/Role';
+import { UrlService } from 'src/app/services/url.service';
 
 @Component({
   selector: 'app-dashboard-menu',
@@ -15,7 +16,11 @@ export class DashboardMenuComponent {
   estaEnPerfil: boolean = false;
 
   // * CONSTRUCTOR
-  constructor(private router: Router, public AuthService: AuthService) {
+  constructor(
+    private router: Router, 
+    public AuthService: AuthService,
+    public UrlService: UrlService
+  ) {
 
   }
 

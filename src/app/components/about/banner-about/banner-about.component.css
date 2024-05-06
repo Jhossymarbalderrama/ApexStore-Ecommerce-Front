@@ -4,7 +4,7 @@ section{
 }
 
 .banner{
-    background: linear-gradient(to right top, #000000e8, #00000038), url('../../../../assets/img/banners/sections/about.jpg');
+    background: linear-gradient(to right top, #000000e8, #00000038), url('../../../../assets/img/banners/sections/about.webp');
     background-size: cover;
     background-position: 0% 30%;
     background-repeat: no-repeat;

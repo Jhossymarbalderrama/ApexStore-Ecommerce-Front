@@ -1,4 +1,4 @@
-<header id="menu">
+<header>
   <app-header *ngIf="dashboardUser"></app-header>
 </header>
 
@@ -14,8 +14,8 @@
   <p-toast></p-toast>
 </span>
 
-<div id="icon-up" class="icon-up">
-  <a href="#menu" class="back-to-top
+<div id="icon-up" class="icon-up cursor-pointer">
+  <a (click)="toUpHeader()" class="back-to-top
   fixed inline-flex items-center justify-center	rounded	decoration-0 w-9 h-10 md:w-8 md:h-9 z-40">
     <span>
       <i class="fa-solid fa-arrow-up" width="2rem" height="3rem"></i>

@@ -112,5 +112,10 @@ export class AuthService {
       catchError(this.errorHandlerService.handleError<any>())
     );
   }
+
+
+  svDetailsUserID(id: number): Observable<User>{
+    return this.http.get<User>(environment.urlApiUser+'get/'+id);
+  }
   //#endregion
 }

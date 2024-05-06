@@ -30,7 +30,7 @@
 
                         <div class="col-span-1 sm:col-span-2">
                             <label for="username" class="flex items-center text-gray-700 text-sm font-semibold mb-2">
-                                <i class="fa-solid fa-user mr-2"></i> Email
+                                <i class="fa-solid fa-user mr-2"></i>*Email
                             </label>
                             <input [value]="dataForm?.item?.username" [readOnly]="formReadOnly" class="form-control"
                                 formControlName="username" type="email" id="username" name="username"
@@ -39,7 +39,8 @@
                                 required>
 
                             <div *ngIf="username.invalid && (username.dirty || username.touched)" class="text-danger">
-                                <span *ngIf="username.errors?.['required']">*Email requerido</span>
+                                <span *ngIf="username.errors?.['required']">*Campo Requerido</span>
+                                <span *ngIf="username.errors?.['email']">*Correo invalido</span>
                             </div>
                         </div>
                     </div>
@@ -47,7 +48,7 @@
                     <div class="grid grid-cols-1 gap-1 mb-4 w-full">
                         <div class="col-span-1 sm:col-span-1">
                             <label for="password" class="flex items-center text-gray-700 text-sm font-semibold mb-2">
-                                <i class="fa-solid fa-lock mr-2"></i> Contraseña
+                                <i class="fa-solid fa-lock mr-2"></i>*Contraseña
                             </label>
                             <input [value]="dataForm?.item?.password" [readOnly]="formReadOnly" class="form-control"
                                 formControlName="password" type="password" id="password" name="password"
@@ -56,7 +57,7 @@
                                 required>
 
                             <div *ngIf="password.invalid && (password.dirty || password.touched)" class="text-danger">
-                                <span *ngIf="password.errors?.['required']">*Contraseña requerida</span>
+                                <span *ngIf="password.errors?.['required']">*Campo requerido</span>
                             </div>
                         </div>
                     </div>

@@ -12,10 +12,16 @@ export const environment = {
     production: false,
     urlHost: 'http://localhost:8080/',
     urlApi: 'http://localhost:8080/api/',
+
     urlApiProduct: 'http://localhost:8080/api/product/',
+
     urlApiUser: 'http://localhost:8080/api/user/',
+
     urlApiAuth: 'http://localhost:8080/auth/',
+
     urlApiFacturacion: 'http://localhost:8080/api/factura/',
+    
     urlApiDelivery: 'http://localhost:8080/api/delivery/',
+
     urlApiChart: 'http://localhost:8080/api/chart/'
 }

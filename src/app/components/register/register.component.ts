@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormGroup , FormBuilder, Validator, Validators} from '@angular/forms';
+import { Router } from '@angular/router';
 import { LoginRequest } from 'src/app/interfaces/loginRequest';
 import { User } from 'src/app/models/user';
 import { LoginService } from 'src/app/services/login.service';
@@ -14,12 +15,10 @@ export class RegisterComponent {
 
   // * ATRIBUTOS
   formRegister: FormGroup = this.FormBuilder.group({
-  'username': ['',Validators.required],
+  'username': ['',[Validators.email, Validators.required]],
   'password': ['',Validators.required],
   'confirmPassword': ['',Validators.required],
   })
-
-  // registerState: boolean = false;
 
   // * GETTERs and SETTERs
   get username(){
@@ -38,7 +37,8 @@ export class RegisterComponent {
   constructor(
     private FormBuilder : FormBuilder,
     private LoginService: LoginService,
-    private ToastService: ToastService
+    private ToastService: ToastService,
+    private Router: Router
     ){
   }
 
@@ -61,8 +61,8 @@ export class RegisterComponent {
         } as LoginRequest).subscribe(
           {
             next: (response) => {
-              console.info(response);
               this.formRegister.reset();
+              this.Router.navigateByUrl('/login');
             },
             error: (errorData) => {
               console.error(errorData);      

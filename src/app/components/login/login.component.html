@@ -12,7 +12,8 @@
             <i class="absolute top-4 right-3 text-gray-500 fas fa-envelope"></i>
   
             <div *ngIf="username.invalid && (username.dirty || username.touched)" class="text-danger">
-              <span *ngIf="username.errors?.['required']">User name is required</span>
+              <span *ngIf="username.errors?.['required']">*Ingrese su correo</span>
+              <span *ngIf="username.errors?.['email']">*Ingrese un correo valido</span>
             </div>
           </div>
         </div>
@@ -25,7 +26,7 @@
             <i class="absolute top-4 right-3 text-gray-500 fas fa-lock"></i>
   
             <div *ngIf="password.invalid && (password.dirty || password.touched)" class="text-danger">
-              <span *ngIf="password.errors?.['required']">Password is required</span>
+              <span *ngIf="password.errors?.['required']">*Ingrese su contraseña</span>
             </div>
           </div>
         </div>

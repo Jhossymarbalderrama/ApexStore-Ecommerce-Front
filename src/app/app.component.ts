@@ -52,4 +52,11 @@ export class AppComponent implements OnInit {
       btnToTop?.classList.remove('icon-up')
     }
   }
+
+  toUpHeader(){
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  }
 }

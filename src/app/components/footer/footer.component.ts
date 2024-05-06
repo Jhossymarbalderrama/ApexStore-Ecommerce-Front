@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
+import { UrlService } from 'src/app/services/url.service';
 
 @Component({
   selector: 'app-footer',
@@ -10,7 +11,8 @@ export class FooterComponent {
 
   // * CONSTRUCTOR
   constructor(
-    private router: Router
+    private router: Router,
+    public UrlService: UrlService
   ){
 
   }
