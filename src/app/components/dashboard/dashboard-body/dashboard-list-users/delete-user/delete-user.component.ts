@@ -35,10 +35,11 @@ export class DeleteUserComponent {
 
     this.AuthService.svDetailsUserID(this.idUser).subscribe(
       res =>{
-        
-        const imgRef = ref(this.Storage, res.img);
-        deleteObject(imgRef);
-        
+        if(res.img){
+          const imgRef = ref(this.Storage, res.img);
+          deleteObject(imgRef);
+        }
+
         this.AuthService.svDeleteUser(this.idUser).subscribe();
         this.idUserDelete.emit(this.idUser);
         this.closeModal();

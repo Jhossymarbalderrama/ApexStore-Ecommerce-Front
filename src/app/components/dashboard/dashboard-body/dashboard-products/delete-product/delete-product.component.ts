@@ -38,11 +38,13 @@ export class DeleteProductComponent implements OnInit {
       this.ProductService.svProductDetails(this.idProduct).subscribe(
         data => {
           // Elimino las imagenes del storage
-          data.img.forEach(url => {
-            const imgRef = ref(this.Storage, url);
-
-            deleteObject(imgRef);
-          });
+          if(data.img){
+            data.img.forEach(url => {
+              const imgRef = ref(this.Storage, url);
+  
+              deleteObject(imgRef);
+            });
+          }
 
           //Elimino el producto
           this.ProductService.svDeleteProduct(this.idProduct).subscribe(

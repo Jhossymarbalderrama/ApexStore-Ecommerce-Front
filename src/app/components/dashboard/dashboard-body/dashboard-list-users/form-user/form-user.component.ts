@@ -172,8 +172,7 @@ export class FormUserComponent implements OnInit {
         state: this.formUser.controls['state'].value,
         role: this.formUser.controls['role'].value
       } as UserRequest;
-      console.log(userRequest);
-
+      // console.log(userRequest);
       
       this.spinnerLoading();
       this.LoginService.svRegister(userRequest).subscribe({

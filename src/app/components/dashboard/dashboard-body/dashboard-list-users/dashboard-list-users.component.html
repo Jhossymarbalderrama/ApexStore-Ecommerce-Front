@@ -63,7 +63,7 @@
                             {{usr.role}}
                         </span>
                     </td>
-                    <td class="py-1 px-2 lg:py-2 lg:px-4 border-b hidden md:table-cell">{{usr.firstname}} {{' '+usr.lastname}}</td>
+                    <td class="py-1 px-2 lg:py-2 lg:px-4 border-b hidden md:table-cell">{{usr.firstname != null && usr.lastname != null ? usr.firstname+' '+usr.lastname : ''}}</td>
                     <td style="text-shadow: 2px 2px #000000ce;" class="py-1 px-2 lg:py-2 lg:px-2 border-b bg-gray-600 font-bold hidden md:table-cell">
                         <span [ngClass]="usr.state == 'ACTIVADO' ? 'text-green-400':'text-red-500'">
                             <i class="fa-solid fa-circle text-xs"></i>
