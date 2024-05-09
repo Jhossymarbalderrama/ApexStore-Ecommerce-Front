@@ -10,18 +10,18 @@ export const environment = {
     },
 
     production: false,
-    urlHost: 'http://localhost:8080/',
-    urlApi: 'http://localhost:8080/api/',
+    urlHost: 'https://apexstore-ecommerce-backend.onrender.com/',
+    urlApi: 'https://apexstore-ecommerce-backend.onrender.com/api/',
 
-    urlApiProduct: 'http://localhost:8080/api/product/',
+    urlApiProduct: 'https://apexstore-ecommerce-backend.onrender.com/api/product/',
 
-    urlApiUser: 'http://localhost:8080/api/user/',
+    urlApiUser: 'https://apexstore-ecommerce-backend.onrender.com/api/user/',
 
-    urlApiAuth: 'http://localhost:8080/auth/',
+    urlApiAuth: 'https://apexstore-ecommerce-backend.onrender.com/auth/',
 
-    urlApiFacturacion: 'http://localhost:8080/api/factura/',
+    urlApiFacturacion: 'https://apexstore-ecommerce-backend.onrender.com/api/factura/',
     
-    urlApiDelivery: 'http://localhost:8080/api/delivery/',
+    urlApiDelivery: 'https://apexstore-ecommerce-backend.onrender.com/api/delivery/',
 
-    urlApiChart: 'http://localhost:8080/api/chart/'
+    urlApiChart: 'https://apexstore-ecommerce-backend.onrender.com/api/chart/'
 }
