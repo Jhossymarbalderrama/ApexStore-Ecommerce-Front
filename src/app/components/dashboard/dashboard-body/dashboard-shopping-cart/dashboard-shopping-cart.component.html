@@ -17,7 +17,7 @@
                             <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
                         </svg>
                         <li class="flex items-center space-x-3 text-left  cursor-pointer">
-                            <a routerLink="/dashboard/payment-form" class="flex flex-row space-x-2">
+                            <a [routerLink]="cartEmpty ? '/dashboard/shopping-cart' : '/dashboard/payment-form' " class="flex flex-row space-x-2">
                                 <span
                                     class="text-xs flex h-5 w-5 lg:h-6 lg:w-6 items-center justify-center rounded-full bg-gray-400 font-semibold text-white">2
                                 </span>

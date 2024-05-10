@@ -8,36 +8,38 @@ header {
 }
 
 /* * NAV BAR */
-.navbar-solid{
+.navbar-solid {
     position: fixed;
     transition: 0.3s all ease;
-    background-color: #f5f5f5d5 !important; /*f5f5f5ec*/ /*f5f5f5e7*/
+    background-color: #f5f5f5d5 !important;
+    /*f5f5f5ec*/
+    /*f5f5f5e7*/
     color: black;
 }
 
-.cart{
+.cart {
     color: green;
 }
 
-.cart-df{
+.cart-df {
     color: none;
 }
 
-.view-info-cart{
-    cursor: pointer;    
+.view-info-cart {
+    cursor: pointer;
 }
 
-.view-info-cart:hover{
+.view-info-cart:hover {
     transform: scale(1.1);
     transition: 0.7s all ease;
 }
 
-.view-info-cart:not(:hover){
+.view-info-cart:not(:hover) {
     transform: scale(1);
     transition: 0.5s all ease;
 }
 
-.view-none{
+.view-none {
     cursor: default;
 }
 
@@ -47,13 +49,35 @@ header {
     -webkit-box-orient: horizontal;
     overflow: hidden;
     -webkit-line-clamp: 1;
-    max-width: 40%;  
-    text-overflow: ellipsis; 
+    max-width: 40%;
+    text-overflow: ellipsis;
     color: rgb(22, 22, 192);
-  }
+}
 
-  .separator {
-    width: 2px; /* Ancho de la barra vertical */
-    height: 24px; /* Altura de la barra vertical, puedes ajustarla según sea necesario */
-    background-color: #ccc; /* Color gris de la barra vertical */
-  }
+.separator {
+    width: 2px;
+    /* Ancho de la barra vertical */
+    height: 24px;
+    /* Altura de la barra vertical, puedes ajustarla según sea necesario */
+    background-color: #ccc;
+    /* Color gris de la barra vertical */
+}
+
+
+.box-logo img {
+    height: 36px;
+    width: 178px;    
+    /* height: 5.5vh;
+    width: 14.3vw;   */
+}
+
+@media screen and (min-width: 1024px) {}
+
+@media screen and (min-width: 768px) and (max-width: 1023px) {}
+
+@media screen and (max-width: 390px) {
+    .box-logo img {
+        height: 4vh;
+        width: 35vw;    
+    }
+}

@@ -10,18 +10,27 @@ export const environment = {
     },
 
     production: false,
-    urlHost: 'https://apexstore-ecommerce-backend.onrender.com/',
-    urlApi: 'https://apexstore-ecommerce-backend.onrender.com/api/',
 
-    urlApiProduct: 'https://apexstore-ecommerce-backend.onrender.com/api/product/',
 
-    urlApiUser: 'https://apexstore-ecommerce-backend.onrender.com/api/user/',
+    // ! Backend RENDER Hosting
+    // urlHost: 'https://apexstore-ecommerce-backend.onrender.com/',
+    // urlApi: 'https://apexstore-ecommerce-backend.onrender.com/api/',
 
-    urlApiAuth: 'https://apexstore-ecommerce-backend.onrender.com/auth/',
+    // urlApiProduct: 'https://apexstore-ecommerce-backend.onrender.com/api/product/',
+    // urlApiUser: 'https://apexstore-ecommerce-backend.onrender.com/api/user/',
+    // urlApiAuth: 'https://apexstore-ecommerce-backend.onrender.com/auth/',
+    // urlApiFacturacion: 'https://apexstore-ecommerce-backend.onrender.com/api/factura/',
+    // urlApiDelivery: 'https://apexstore-ecommerce-backend.onrender.com/api/delivery/',
+    // urlApiChart: 'https://apexstore-ecommerce-backend.onrender.com/api/chart/'
 
-    urlApiFacturacion: 'https://apexstore-ecommerce-backend.onrender.com/api/factura/',
-    
-    urlApiDelivery: 'https://apexstore-ecommerce-backend.onrender.com/api/delivery/',
+    // ! Backend Local Hosting 
+    urlHost: 'http://localhost:8080/',
+    urlApi: 'http://localhost:8080/api/',
 
-    urlApiChart: 'https://apexstore-ecommerce-backend.onrender.com/api/chart/'
+    urlApiProduct: 'http://localhost:8080/api/product/',
+    urlApiUser: 'http://localhost:8080/api/user/',
+    urlApiAuth: 'http://localhost:8080/auth/',
+    urlApiFacturacion: 'http://localhost:8080/api/factura/',
+    urlApiDelivery: 'http://localhost:8080/api/delivery/',
+    urlApiChart: 'http://localhost:8080/api/chart/'
 }

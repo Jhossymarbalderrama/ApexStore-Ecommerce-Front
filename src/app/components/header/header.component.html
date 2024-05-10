@@ -1,15 +1,16 @@
 <header class="text-gray-600 body-font" id="header">
     <nav class="border-gray-200 dark:bg-gray-900">
         <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-            <a class="flex items-center" [routerLink]="'/home'">
-                <img [src]="UrlService.url?.logo" alt="" height="36px" width="178px">
+            <a class="flex items-center box-logo" [routerLink]="'/home'">
+                <!-- <img [src]="UrlService.url?.logo" alt="" height="36px" width="178px"> -->
+                <img [src]="UrlService.url?.logo" alt="apex store" title="Apex Store">
             </a>
 
             <div class="flex">
                 <div class="flex md:order-2 md:space-x-0 rtl:space-x-reverse">
 
                     <button type="button" (click)="navigateURL()" class="lg:hidden text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none 
-                focus:ring-blue-300 font-medium rounded-lg  sm:text-md text-xs px-4 py-1 text-center 
+                focus:ring-blue-300 font-medium rounded-lg  sm:text-md text-xs px-1 py-0 sm:px-4 sm:py-1 text-center 
                 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 mx-2 lg:mx-0"
                         [ngClass]="this.loginServ._svCurrentUserLoginOn.value ? 'bg-red-600 hover:bg-red-500' : ' bg-color-site hover:bg-blue-500'">
                         {{this.loginServ._svCurrentUserLoginOn.value ? 'Cerrar Sesión' : 'Iniciar sesión'}}

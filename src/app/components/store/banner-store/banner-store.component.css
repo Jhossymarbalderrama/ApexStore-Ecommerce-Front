@@ -6,7 +6,8 @@ section{
 .banner{
     background: linear-gradient(to right top, #000000e8, #00000038), url('../../../../assets/img/banners/sections/store.webp');
     background-size: cover;
-    background-position: center;
+    /* background-position: center; */
+    background-position: 70% 10%;
     background-repeat: no-repeat;
 }
 

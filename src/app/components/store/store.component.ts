@@ -27,7 +27,7 @@ export class StoreComponent implements OnInit {
   cantElementPagination: number = this.cantElementPaginationDefult;
   paginationView: number = 1;
 
-  loading: boolean = false;
+  loading: boolean = true;
 
   // * CONSTRUCTOR
   constructor(
@@ -35,12 +35,15 @@ export class StoreComponent implements OnInit {
   ) {
     if (this.productServ.listProducts?.length > 0) {
       this.products = this.productServ.listProducts;
+      this.loading = false;
     } else {
       this.productServ.svListProducts().subscribe(
         (products) => {
-
           this.products = products;
           this.lenListProducts = this.products?.length;
+          setTimeout(() => {
+            this.loading = false;
+          }, 500);
         }
       )
       this.productServ.listProducts = this.products;
@@ -48,11 +51,7 @@ export class StoreComponent implements OnInit {
   }
 
   ngOnInit() {
-    // setTimeout(() => {
-    //   if(this.products.length != 0){
-    //     this.loading = false;
-    //   }
-    // }, 2000);
+
   }
 
 
