@@ -16,12 +16,16 @@ export class AuthService {
   // * ATRIBUTOS
   private svUserData?: User; // ? Datos del Usuario Logeado
   public svADM?: boolean = false;
+  public svIdUserLogin: number = 0;
   // * CONSTRUCTOR
   constructor(
     private http: HttpClient,
     private errorHandlerService: ErrorHandlerService,
     private ToastService:ToastService
   ) {
+
+    let id = localStorage.getItem('idUser');
+    id ? this.svIdUserLogin = Number.parseInt(id) : 0;
   }
 
   // * GETTERs
@@ -92,6 +96,7 @@ export class AuthService {
     return this.http.get<User>(environment.urlApiUser + "get/detail/" + usrName).pipe(
       tap((response) => {
         this.userData = response;
+        localStorage.setItem('idUser', response.id);
         if(response.role == Role[0]){
           this.svADM = true;
         } else{
