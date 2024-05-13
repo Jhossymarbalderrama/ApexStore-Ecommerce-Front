@@ -49,14 +49,27 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngIf="!tieneFacturas" class="hover:bg-gray-50">
-            <td colspan="8" class="py-1 px-2 lg:py-2 lg:px-4 border-b">
-              <span class="pl-4 text-red-500">
-                No se registran ninguna compra...
-              </span>
-            </td>
-          </tr>
+          <ng-container *ngIf="!tieneFacturas">
+            <tr class="animate-pulse">
+              <td colspan="8" class="py-1 px-2 lg:py-2 lg:px-4 border-b">
+                <span class="pl-4 text-red-500"> No se registran ninguna compra...</span>
+              </td>
+            </tr>
+          </ng-container>
+
           <ng-container *ngIf="tieneFacturas">
+
+            <tr *ngIf="listFacturas.length == 0" class="animate-pulse">
+              <td class="py-1 px-2 lg:py-2 lg:px-4 border-b text-sm lg:text-md"></td>
+              <td class="py-1 px-2 lg:py-2 lg:px-4 border-b text-sm hidden lg:table-cell lg:text-md">Cargando...</td>
+              <td class="py-1 px-2 lg:py-2 lg:px-4 border-b text-sm hidden lg:table-cell lg:text-md">Cargando...</td>
+              <td class="py-1 px-2 lg:py-2 lg:px-4 border-b text-sm hidden lg:table-cell lg:text-md">Cargando...</td>
+              <td class="py-1 px-2 lg:py-2 lg:px-4 border-b text-sm hidden lg:table-cell lg:text-md">Cargando...</td>
+              <td class="py-1 px-2 lg:py-2 lg:px-4 border-b text-sm lg:text-md">Cargando...</td>
+              <td class="py-1 px-2 lg:py-2 lg:px-4 border-b text-sm lg:text-md">Cargando...</td>
+              <td class="py-1 px-2 lg:py-2 lg:px-4 border-b text-sm lg:text-md">Cargando...</td>
+            </tr>
+            
             <tr *ngFor="let item of obtenerElementosDePagina()" class="hover:bg-gray-50">
               <td style="text-shadow: 2px 2px #000000ce;"
                 class="py-1 px-2 lg:py-2 lg:px-4 border-b bg-gray-600 font-bold text-white text-sm lg:text-md">{{item?.id}}</td>
@@ -65,7 +78,7 @@
               <td class="py-1 px-2 lg:py-2 lg:px-4 border-b hidden lg:table-cell text-xs md:text-sm lg:text-md">{{item?.cp}}</td>
               <td style="text-shadow: 2px 2px #000000ce;"
                 class="py-1 px-2 lg:py-2 lg:px-4 border-b font-bold text-green-400 bg-gray-600 hidden lg:table-cell text-xs md:text-sm lg:text-md">
-                $ {{item.total}}
+                $ {{item?.total}}
               </td>
               <td class="py-1 px-2 lg:py-2 lg:px-4 border-b text-xs md:text-sm lg:text-md">{{item?.date}}</td>
               <td style="text-shadow: 2px 2px #000000ce;"

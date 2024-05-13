@@ -8,6 +8,21 @@ import { environment } from 'src/environments/environment';
 })
 export class ChartService {
 
+  chartsDataIsEmpty: boolean = true;
+
+  chartArea: any; // ? Apex Chart element
+  chartPie: any;// ? Apex Chart element
+  chartDonut: any;// ? Apex Chart element
+  chartRadar: any;// ? Apex Chart element
+  chartLine: any;// ? Apex Chart element
+
+
+  dataChartArea: any; // * Apex Chart data
+  dataChartPie: any; // * Apex Chart data
+  dataChartDonut: any; // * Apex Chart data
+  dataChartRadar: any; // * Apex Chart data
+  dataChartLine: any; // * Apex Chart data
+
   constructor(
     private http: HttpClient
   ) { }

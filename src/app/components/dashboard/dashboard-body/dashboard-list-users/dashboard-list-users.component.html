@@ -55,6 +55,15 @@
             </thead>
             <tbody>
 
+                <tr *ngIf="this.userList.length == 0" class="animate-pulse">
+                    <td class="py-1 px-2 lg:py-2 lg:px-4 border-b text-sm lg:text-md"></td>
+                    <td class="py-1 px-2 lg:py-2 lg:px-4 border-b text-sm lg:text-md">Cargando...</td>
+                    <td class="py-1 px-2 lg:py-2 lg:px-4 border-b text-sm lg:text-md hidden md:table-cell">Cargando...</td>
+                    <td class="py-1 px-2 lg:py-2 lg:px-4 border-b text-sm lg:text-md hidden md:table-cell">Cargando...</td>
+                    <td class="py-1 px-2 lg:py-2 lg:px-4 border-b text-sm lg:text-md hidden md:table-cell">Cargando...</td>
+                    <td class="py-1 px-2 lg:py-2 lg:px-4 border-b text-sm lg:text-md">Cargando...</td>
+                  </tr>
+
                 <tr class="hover:bg-gray-50" *ngFor="let usr of obtenerElementosDePagina()">
                     <td style="text-shadow: 2px 2px #000000ce;"class="py-1 px-2 lg:py-2 lg:px-4 border-b bg-gray-600 font-bold text-white">{{usr.id}}</td>
                     <td class="py-1 px-2 lg:py-2 lg:px-4 border-b font-semibold">{{usr.username}}</td>

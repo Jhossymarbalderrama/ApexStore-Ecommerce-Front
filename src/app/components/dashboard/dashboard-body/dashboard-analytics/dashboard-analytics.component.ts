@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, ElementRef, OnDestroy } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, OnDestroy, AfterViewInit } from '@angular/core';
 import { LoginService } from 'src/app/services/login.service';
 import * as ApexCharts from 'apexcharts';
 import { ChartService } from 'src/app/services/chart.service';
@@ -8,14 +8,20 @@ import { ChartService } from 'src/app/services/chart.service';
   templateUrl: './dashboard-analytics.component.html',
   styleUrls: ['./dashboard-analytics.component.css']
 })
-export class DashboardAnalyticsComponent implements OnInit, OnDestroy {
+export class DashboardAnalyticsComponent implements OnInit, OnDestroy, AfterViewInit {
 
   // ? Atributos Charts
+
+  // ! data save service - first loading page
   dataChartArea: any = {
     date: '',
-    total: 0,
+    total: 0
   };
-  dataChartPie: any;
+  // ! data save service - first loading page
+  dataChartPie: any; 
+
+
+  dataResChartPie:any;
   cantUsuariosTotales: number = 0;
   cantFacturasTotal: number = 0;
   cantProductosTotal: number = 0;
@@ -23,6 +29,7 @@ export class DashboardAnalyticsComponent implements OnInit, OnDestroy {
 
 
   
+
   // * CONSTRUCTOR
   constructor(
     private LoginService: LoginService,
@@ -32,36 +39,28 @@ export class DashboardAnalyticsComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
+    
+  }
 
-    setTimeout(() => {      
-      this.createChartArea();
-    }, 200);
-
-    setTimeout(() => {    
-      this.generatePieChart();
-    }, 300);
-
-    setTimeout(() => {
-      this.createChartDonut();
-    }, 400);
-
-    setTimeout(() => {
-      this.createChartRadar();
-    }, 500);
-
-    setTimeout(() => {
-      this.createChartLine();
-    }, 600);    
+  ngAfterViewInit(): void {
+    this.createChartArea();
   }
 
   ngOnDestroy(): void {
-
+    this.ChartService.chartArea.destroy();
+    this.ChartService.chartPie.destroy();
+    this.ChartService.chartDonut.destroy();
+    this.ChartService.chartRadar.destroy();
+    this.ChartService.chartLine.destroy();
   }
 
-  constructorChart(chartName: any, options: any) {
-    const chart = new ApexCharts(document.querySelector(`#` + chartName), options);
+  constructorChart(chartName: any, options: any): any {
+    const chart = new ApexCharts(document.getElementById(chartName), options);
     chart.render();
+
+    return chart;
   }
+
 
   /**
    * Chart Type Area | Facturacion por mes anual
@@ -107,7 +106,14 @@ export class DashboardAnalyticsComponent implements OnInit, OnDestroy {
           date: añoActual,
           total: maxTotalAño
         }
-        this.constructorChart('chartArea', optionsChartArea);
+        this.ChartService.chartArea = this.constructorChart('chartArea', optionsChartArea);      
+        
+        this.ChartService.dataChartArea = {
+          dataChartArea: this.dataChartArea,
+          options: optionsChartArea
+        }
+
+        this.generatePieChart();//Creo el siguiente chart
       }
     );
   }
@@ -138,9 +144,10 @@ export class DashboardAnalyticsComponent implements OnInit, OnDestroy {
           }
         };
 
-        const chart = new ApexCharts(document.querySelector('#pieChart'), options);
-        chart.render();
+        this.ChartService.chartPie = new ApexCharts(document.getElementById('pieChart'), options);
+        this.ChartService.chartPie.render();
 
+        this.createChartDonut();
       }
     )
   }
@@ -169,7 +176,37 @@ export class DashboardAnalyticsComponent implements OnInit, OnDestroy {
           }
         };
 
-        this.constructorChart('chartDonut', options);
+        this.ChartService.chartDonut = this.constructorChart('chartDonut', options);
+        this.createChartRadar();
+      }
+    )
+  }
+
+  createChartRadar() {
+    this.ChartService.listAltaProductosXMes().subscribe(
+      res => {
+        const options = {
+          chart: {
+            type: 'radar',
+            background: '#f5f5f5'
+          },
+          xaxis: {
+            categories: [
+              'Ene', 'Feb', 'Mar',
+              'Abr', 'May', 'Jun',
+              'Jul', 'Ago', 'Sep',
+              'Oct', 'Nov', 'Dic']
+          },
+          series: res.map(
+            (item: any) => {
+              item.data.map((cant: any) => { this.cantProductosTotal += cant });
+              return { name: item.name, data: item.data };
+            }),
+          colors: ['#6875F5', '#f00d33']
+        };
+
+        this.ChartService.chartRadar = this.constructorChart('chartRadar', options);
+        this.createChartLine();
       }
     )
   }
@@ -211,37 +248,10 @@ export class DashboardAnalyticsComponent implements OnInit, OnDestroy {
           colors: ['#f00d33', '#6875F5'],
         };
 
-        this.constructorChart('chartLine', optionsChartLine);
-
+        this.ChartService.chartLine = this.constructorChart('chartLine', optionsChartLine);  
+        this.ChartService.chartsDataIsEmpty = false;      
       }
     )
   }
 
-  createChartRadar() {
-    this.ChartService.listAltaProductosXMes().subscribe(
-      res => {
-        const options = {
-          chart: {
-            type: 'radar',
-            background: '#f5f5f5'
-          },
-          xaxis: {
-            categories: [
-              'Ene', 'Feb', 'Mar',
-              'Abr', 'May', 'Jun',
-              'Jul', 'Ago', 'Sep',
-              'Oct', 'Nov', 'Dic']
-          },
-          series: res.map(
-            (item: any) => {
-              item.data.map((cant: any) => { this.cantProductosTotal += cant });
-              return { name: item.name, data: item.data };
-            }),
-          colors: ['#6875F5', '#f00d33']
-        };
-
-        this.constructorChart('chartRadar', options);
-      }
-    )
-  }
 }
