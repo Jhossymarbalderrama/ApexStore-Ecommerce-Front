@@ -113,7 +113,10 @@ export class DashboardAnalyticsComponent implements OnInit, OnDestroy, AfterView
           options: optionsChartArea
         }
 
-        this.generatePieChart();//Creo el siguiente chart
+        // ! Creo el siguiente chart
+        setTimeout(() => {
+          this.generatePieChart(); 
+        }, 500);
       }
     );
   }
@@ -147,7 +150,9 @@ export class DashboardAnalyticsComponent implements OnInit, OnDestroy, AfterView
         this.ChartService.chartPie = new ApexCharts(document.getElementById('pieChart'), options);
         this.ChartService.chartPie.render();
 
-        this.createChartDonut();
+        setTimeout(() => {
+          this.createChartDonut();
+        }, 700);
       }
     )
   }
@@ -177,7 +182,10 @@ export class DashboardAnalyticsComponent implements OnInit, OnDestroy, AfterView
         };
 
         this.ChartService.chartDonut = this.constructorChart('chartDonut', options);
-        this.createChartRadar();
+        
+        setTimeout(() => {
+          this.createChartRadar();
+        }, 800);
       }
     )
   }
@@ -206,7 +214,10 @@ export class DashboardAnalyticsComponent implements OnInit, OnDestroy, AfterView
         };
 
         this.ChartService.chartRadar = this.constructorChart('chartRadar', options);
-        this.createChartLine();
+        
+        setTimeout(() => {
+          this.createChartLine();
+        }, 900);
       }
     )
   }
@@ -248,8 +259,7 @@ export class DashboardAnalyticsComponent implements OnInit, OnDestroy, AfterView
           colors: ['#f00d33', '#6875F5'],
         };
 
-        this.ChartService.chartLine = this.constructorChart('chartLine', optionsChartLine);  
-        this.ChartService.chartsDataIsEmpty = false;      
+        this.ChartService.chartLine = this.constructorChart('chartLine', optionsChartLine);             
       }
     )
   }

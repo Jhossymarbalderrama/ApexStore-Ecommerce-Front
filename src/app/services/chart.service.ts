@@ -7,9 +7,6 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root'
 })
 export class ChartService {
-
-  chartsDataIsEmpty: boolean = true;
-
   chartArea: any; // ? Apex Chart element
   chartPie: any;// ? Apex Chart element
   chartDonut: any;// ? Apex Chart element
