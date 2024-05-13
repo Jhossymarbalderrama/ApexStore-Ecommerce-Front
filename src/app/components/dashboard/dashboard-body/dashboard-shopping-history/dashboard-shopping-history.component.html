@@ -57,9 +57,11 @@
             </tr>
           </ng-container>
 
+
+          
           <ng-container *ngIf="tieneFacturas">
 
-            <tr *ngIf="listFacturas.length == 0" class="animate-pulse">
+            <tr *ngIf="listFacturas?.length == 0" class="animate-pulse">
               <td class="py-1 px-2 lg:py-2 lg:px-4 border-b text-sm lg:text-md"></td>
               <td class="py-1 px-2 lg:py-2 lg:px-4 border-b text-sm hidden lg:table-cell lg:text-md">Cargando...</td>
               <td class="py-1 px-2 lg:py-2 lg:px-4 border-b text-sm hidden lg:table-cell lg:text-md">Cargando...</td>

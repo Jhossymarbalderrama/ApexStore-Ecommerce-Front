@@ -7,18 +7,14 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root'
 })
 export class ChartService {
+  dataCharts: any; // ! Datos de Charts almacenados si ya se cargo por primera vez la pantalla.
+
   chartArea: any; // ? Apex Chart element
   chartPie: any;// ? Apex Chart element
   chartDonut: any;// ? Apex Chart element
   chartRadar: any;// ? Apex Chart element
   chartLine: any;// ? Apex Chart element
 
-
-  dataChartArea: any; // * Apex Chart data
-  dataChartPie: any; // * Apex Chart data
-  dataChartDonut: any; // * Apex Chart data
-  dataChartRadar: any; // * Apex Chart data
-  dataChartLine: any; // * Apex Chart data
 
   constructor(
     private http: HttpClient
@@ -44,5 +40,9 @@ export class ChartService {
 
   listAltaProductosXMes() : Observable<any>{
     return this.http.get<any>(environment.urlApiChart + "listAltaProductosXMes");
+  }
+
+  getDataCharts() : Observable<any>{
+    return this.http.get<any>(environment.urlApiChart + "getDataCharts");
   }
 }
