@@ -13,7 +13,6 @@ export class DashboardShoppingCartComponent {
 
   // * CONSTRUCTOR
   constructor(
-    private LoginService: LoginService,
     private CartService: CartService
   ) {
     // this.LoginService.checkTokenExpiration();

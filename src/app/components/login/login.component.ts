@@ -60,8 +60,7 @@ export class LoginComponent implements OnInit {
       this.LoginService.svLogin(this.formLogin.value as LoginRequest).subscribe({
         next: (userData) => {
           //Trae el Token
-          // console.log("Logeado: ",userData);  
-          this.AuthService.svDetailsUser(this.formLogin.get('username')?.value).subscribe();
+          // console.log("Logeado: ",userData);           
         },
         error: (errorData) => {
           // console.error(errorData);
@@ -69,6 +68,7 @@ export class LoginComponent implements OnInit {
           this.ToastService.showOverlay = false;
         },
         complete: () => {
+          this.AuthService.svDetailsUser(this.formLogin.get('username')?.value).subscribe();
           setTimeout(() => {
             this.formLogin.reset();
             this.Router.navigateByUrl('/dashboard/profile');

@@ -10,9 +10,7 @@ export class DashboardStoreComponent {
 
   // * CONSTRUCTOR
   constructor(
-    private LoginService: LoginService
   ) {
-    // this.LoginService.checkTokenExpiration();
   }
 
 }

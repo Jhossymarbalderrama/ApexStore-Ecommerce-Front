@@ -25,7 +25,7 @@ export class AuthService {
   ) {
 
     let id = localStorage.getItem('idUser');
-    id ? this.svIdUserLogin = Number.parseInt(id) : 0;
+    id ? this.svIdUserLogin = Number.parseInt(id) : 0;    
   }
 
   // * GETTERs

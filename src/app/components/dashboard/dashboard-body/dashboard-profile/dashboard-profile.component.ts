@@ -23,9 +23,9 @@ export class DashboardProfileComponent implements OnInit, AfterViewInit {
     public UrlService: UrlService
   ) {
     // this.LoginService.checkTokenExpiration();
-    if (!this.AuthService.userData) {      
-      this.refreshData(true);
-    } 
+    // if (!this.AuthService.userData) {      
+    //   this.refreshData(true);
+    // } 
   }
   
   ngAfterViewInit(): void {}
@@ -47,6 +47,7 @@ export class DashboardProfileComponent implements OnInit, AfterViewInit {
    * @param $event 
    */
   refreshData($event: any){    
-    this.AuthService.svDetailsUser(localStorage.getItem('userLogin') as string).subscribe();
+    // this.AuthService.svDetailsUser(localStorage.getItem('userLogin') as string).subscribe();
+    // this.AuthService.svDetailsUserID(localStorage.getItem('idUser') as any);
   }
 }

@@ -86,8 +86,7 @@ export class FormProductComponent implements OnInit {
     private FormBuilder: FormBuilder,
     private ProductService: ProductService,
     private storage: Storage,
-    private ToastService: ToastService,
-    private datePipe: DatePipe
+    private ToastService: ToastService
   ) { }
 
   ngOnInit(): void {

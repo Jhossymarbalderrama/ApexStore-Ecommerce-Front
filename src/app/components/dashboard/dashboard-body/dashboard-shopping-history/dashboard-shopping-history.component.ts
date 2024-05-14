@@ -41,13 +41,10 @@ export class DashboardShoppingHistoryComponent {
 
   // * CONSTRUCTOR
   constructor(
-    private LoginService: LoginService,
     private FacturacionService: FacturacionService,
     private AuthService: AuthService
   ) {
     this.loadListFacturas();
-    console.log("Llamo a cargar Lista");
-    
     this.action = Crud;
   }
 
@@ -72,25 +69,14 @@ export class DashboardShoppingHistoryComponent {
   }
 
   loadListFacturas() {
-    console.log("Entro a cargar lista");
-    console.log(this.AuthService.userData);
-    
-    // this.AuthService.svDetailsUser(localStorage.getItem('userLogin') as string).subscribe(
-    //   (user) => {
-    //     console.log(user);
-        
-        this.FacturacionService.svListFacturasUser(this.AuthService.svIdUserLogin).subscribe(data => {
-          this.listFacturas = data;
-          console.log(data);
-          
-          if (data.length != 0) {
-            this.tieneFacturas = true;
-          }else{
-            this.tieneFacturas = false;
-          }
-        });
-    //   }
-    // );
+    this.FacturacionService.svListFacturasUser(this.AuthService.svIdUserLogin).subscribe(data => {
+      this.listFacturas = data;
+      if (data.length != 0) {
+        this.tieneFacturas = true;
+      } else {
+        this.tieneFacturas = false;
+      }
+    });
   }
 
   /**

@@ -34,8 +34,7 @@ export class DashboardListUsersComponent implements OnInit {
 
   // * CONSTRUCTOR
   constructor(
-    private AuthService: AuthService,
-    private LoginService: LoginService
+    private AuthService: AuthService
   ) {
     // this.LoginService.checkTokenExpiration();
     this.AuthService.svListUsers().subscribe(

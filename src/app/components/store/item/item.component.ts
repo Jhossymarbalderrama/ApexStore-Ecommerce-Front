@@ -31,7 +31,6 @@ export class ItemComponent implements OnInit, OnDestroy {
   constructor(
     private route: ActivatedRoute,
     private productServ: ProductService,
-    private authServ: AuthService,
     private cartServ: CartService,
     private Location: Location,
     private Router: Router

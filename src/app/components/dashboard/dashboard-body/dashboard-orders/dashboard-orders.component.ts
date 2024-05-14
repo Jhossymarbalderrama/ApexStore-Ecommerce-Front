@@ -39,15 +39,8 @@ export class DashboardOrdersComponent {
 
   // * CONSTRUCTOR
   constructor(
-    private LoginService: LoginService,
-    private FacturacionService: FacturacionService,
-    private ToastService: ToastService
+    private FacturacionService: FacturacionService
   ) {
-    // this.LoginService.checkTokenExpiration(); // ? Check Token Login     
-    // this.FacturacionService.svListFacturas().subscribe( data => {
-    //   this.listFacturas = data;
-    // })
-
     this.action = Crud;
     this.loadListFacturas();
   }

@@ -33,7 +33,6 @@ export class DashboardAnalyticsComponent implements OnInit, OnDestroy, AfterView
 
   // * CONSTRUCTOR
   constructor(
-    private LoginService: LoginService,
     private ChartService: ChartService
   ) {
     this.ChartService.getDataCharts().subscribe(
@@ -116,10 +115,8 @@ export class DashboardAnalyticsComponent implements OnInit, OnDestroy, AfterView
     this.ChartService.chartArea = this.constructorChart('chartArea', optionsChartArea);
 
     // ! Creo el siguiente chart
-    setTimeout(() => {
-      this.generatePieChart(data);
-    }, 500);
-
+   
+    this.generatePieChart(data);
   }
 
   /**
@@ -150,10 +147,8 @@ export class DashboardAnalyticsComponent implements OnInit, OnDestroy, AfterView
     this.ChartService.chartPie = new ApexCharts(document.getElementById('pieChart'), options);
     this.ChartService.chartPie.render();
 
-    setTimeout(() => {
-      this.createChartDonut(data);
-    }, 700);
 
+    this.createChartDonut(data);
   }
 
   /**
@@ -182,10 +177,7 @@ export class DashboardAnalyticsComponent implements OnInit, OnDestroy, AfterView
 
     this.ChartService.chartDonut = this.constructorChart('chartDonut', options);
 
-    setTimeout(() => {
       this.createChartRadar(data);
-    }, 800);
-
   }
 
   createChartRadar(data: any) {
@@ -213,10 +205,8 @@ export class DashboardAnalyticsComponent implements OnInit, OnDestroy, AfterView
 
     this.ChartService.chartRadar = this.constructorChart('chartRadar', options);
 
-    setTimeout(() => {
-      this.createChartLine(data);
-    }, 900);
 
+    this.createChartLine(data);
   }
 
   /**

@@ -96,9 +96,9 @@ export class PaymentFormComponent implements OnInit {
     private Router: Router,
     public UrlService: UrlService
   ) {
-    if (this.AuthService.userData == null || this.AuthService.userData == undefined) {
-      this.AuthService.svGetUserData();
-    }
+    // if (this.AuthService.userData == null || this.AuthService.userData == undefined) {
+    //   this.AuthService.svGetUserData();
+    // }
 
     this.DeliveryService.svGetListDelivery().subscribe(
       rp => {
@@ -153,6 +153,8 @@ export class PaymentFormComponent implements OnInit {
         date: ""
       } as any;
 
+
+      
       this.ToastService.showOverlay = true;
 
       this.FacturacionService.svAltaFacturacion(facturacionRequest, products).subscribe(

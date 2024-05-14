@@ -1,7 +1,7 @@
-<div class="block lg:block bg-menu text-white flex flex-col pt-5 w-full h-full pl-10 lg:pl-5 flex-grow overflow-y-auto">
+<div class="block lg:block bg-menu text-white flex flex-col pt-2 w-full h-full pl-10 lg:pl-5 flex-grow overflow-y-auto">
 
    <div class="w-full flex justify-center">
-    <div class="mb-4 flex flex-col justify-center items-center w-56 h-52 lg:w-36 lg:h-36 xl:w-52 xl:h-52" (click)="navClose()" [routerLink]="'/dashboard/profile'">
+    <div class="mb-2 flex flex-col justify-center items-center w-56 h-52 lg:w-36 lg:h-36 xl:w-52 xl:h-52" (click)="navClose()" [routerLink]="'/dashboard/profile'">
         <img [src]="this.AuthService.userData?.img ? this.AuthService.userData?.img : UrlService.url?.profileDefault "
         alt="Imagen de perfil"
         class="w-40 h-40 lg:pr-0 lg:w-36 lg:h-36 xl:w-44 xl:h-44 object-cover rounded-full transition-transform transform-gpu hover:scale-105 cursor-pointer"

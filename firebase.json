@@ -1,6 +1,10 @@
 {
   "hosting": {
-    "public": "./dist/e-commerce",
+    "public": "dist/e-commerce",
+    "rewrites": [ {
+      "source": "**",
+      "destination": "/index.html"
+    } ],
     "ignore": [
       "firebase.json",
       "**/.*",

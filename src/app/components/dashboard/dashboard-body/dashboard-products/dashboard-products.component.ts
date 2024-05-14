@@ -37,8 +37,7 @@ export class DashboardProductsComponent implements OnInit {
 
   // * CONSTRUCTOR
   constructor(
-    private ProductService: ProductService,
-    private LoginService: LoginService
+    private ProductService: ProductService
   ) {
     this.action = Crud;
   }
