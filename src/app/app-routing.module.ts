@@ -21,6 +21,8 @@ import { DashboardListUsersComponent } from './components/dashboard/dashboard-bo
 import { DashboardAnalyticsComponent } from './components/dashboard/dashboard-body/dashboard-analytics/dashboard-analytics.component';
 import { DashboardContactComponent } from './components/dashboard/dashboard-body/dashboard-contact/dashboard-contact.component';
 import { PaymentFormComponent } from './components/dashboard/dashboard-body/dashboard-shopping-cart/payment-form/payment-form.component';
+import { ErrorPageComponent } from './components/error-page/error-page.component';
+import { authGuard } from './guards/auth.guard';
 
 const routes: Routes = [
 
@@ -33,27 +35,29 @@ const routes: Routes = [
   { path: "cart-info", component: CartInfoComponent },
   { path: "login", component: LoginComponent },
   { path: "register", component: RegisterComponent },
-  { path: "dashboard", component: DashboardComponent, children:[
-    { path: "home", component: DashboardHomeComponent},
-    { path: "profile", component: DashboardProfileComponent},
-    { path: "shopping-cart", component: DashboardShoppingCartComponent},
-    { path: "products", component: DashboardProductsComponent},
-    { path: "store", component: DashboardStoreComponent},
-    { path: "store/item/:id", component: ItemComponent},
-    { path: "shopping-history", component: DashboardShoppingHistoryComponent},
-    { path: "articles", component: DashboardArticlesComponent},
-    { path: "orders", component: DashboardOrdersComponent},
-    { path: "list-users", component: DashboardListUsersComponent},
-    { path: "analytics", component: DashboardAnalyticsComponent},
-    { path: "contact", component: DashboardContactComponent},    
-    {path: "payment-form",component: PaymentFormComponent},
-    { path: "**", component: DashboardHomeComponent}
-  ]},
-  {path:"**", component:HomeComponent}
+  {
+    path: "dashboard", component: DashboardComponent, canMatch: [authGuard], children: [
+      { path: "home", component: DashboardHomeComponent },
+      { path: "profile", component: DashboardProfileComponent },
+      { path: "shopping-cart", component: DashboardShoppingCartComponent },
+      { path: "products", component: DashboardProductsComponent },
+      { path: "store", component: DashboardStoreComponent },
+      { path: "store/item/:id", component: ItemComponent },
+      { path: "shopping-history", component: DashboardShoppingHistoryComponent },
+      { path: "articles", component: DashboardArticlesComponent },
+      { path: "orders", component: DashboardOrdersComponent },
+      { path: "list-users", component: DashboardListUsersComponent },
+      { path: "analytics", component: DashboardAnalyticsComponent },
+      { path: "contact", component: DashboardContactComponent },
+      { path: "payment-form", component: PaymentFormComponent },
+      { path: "**", component: DashboardHomeComponent }
+    ]
+  },
+  { path: "**", component: ErrorPageComponent }
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes,{scrollPositionRestoration: 'enabled'})],
+  imports: [RouterModule.forRoot(routes, { scrollPositionRestoration: 'enabled' })],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

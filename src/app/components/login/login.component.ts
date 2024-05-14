@@ -61,14 +61,13 @@ export class LoginComponent implements OnInit {
         next: (userData) => {
           //Trae el Token
           // console.log("Logeado: ",userData);           
+          this.AuthService.svDetailsUser(this.formLogin.get('username')?.value).subscribe();
         },
         error: (errorData) => {
-          // console.error(errorData);
           this.loginError = errorData;
           this.ToastService.showOverlay = false;
         },
-        complete: () => {
-          this.AuthService.svDetailsUser(this.formLogin.get('username')?.value).subscribe();
+        complete: () => {          
           setTimeout(() => {
             this.formLogin.reset();
             this.Router.navigateByUrl('/dashboard/profile');

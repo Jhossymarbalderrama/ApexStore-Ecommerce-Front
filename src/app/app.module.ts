@@ -60,6 +60,7 @@ import { FilterNameFacturasPipe } from './pipes/filter-name-facturas.pipe';
 import { FilterDireccionFacturasPipe } from './pipes/filter-direccion-facturas.pipe';
 import { FilterTotalFacturasPipe } from './pipes/filter-total-facturas.pipe';
 import { DatePipe } from '@angular/common';
+import { ErrorPageComponent } from './components/error-page/error-page.component';
 
 @NgModule({
   declarations: [
@@ -108,7 +109,8 @@ import { DatePipe } from '@angular/common';
     FilterMailUserPipe,
     FilterNameFacturasPipe,
     FilterDireccionFacturasPipe,
-    FilterTotalFacturasPipe
+    FilterTotalFacturasPipe,
+    ErrorPageComponent
   ],
   imports: [
     BrowserModule,
