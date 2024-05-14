@@ -56,13 +56,15 @@ export class LoginService {
    */
   public svLogin(credentials: LoginRequest): Observable<User> {
     return this.http.post<any>(environment.urlApiAuth + "login", credentials).pipe(
-      tap((userData) => {
-        localStorage.setItem('userLogin', credentials.username);
+      tap((userData) => {     
+        console.log(userData);
+        
+        localStorage.setItem('userLogin', credentials.username);        
         
         sessionStorage.setItem("token", userData.token);
         this._svCurretUserData.next(userData.token);
         this._svCurrentUserLoginOn.next(true);  
-        this.ToastService.Info('¡Bienvenido '+ this.AuthService.userData.username + '!');      
+        this.ToastService.Info('¡Bienvenido '+ credentials.username + '!');      
       }),
       map((userData) => userData.token),
       catchError(this.svHandleError)
@@ -76,6 +78,7 @@ export class LoginService {
     sessionStorage.removeItem('token');
     localStorage.removeItem('userLogin');
     localStorage.removeItem('userData');
+    localStorage.removeItem('idUser');
     this._svCurrentUserLoginOn.next(false);
     this._svCurretUserData.next("");
     this.ToastService.Info(' 👋¡Hasta pronto '+ this.AuthService?.userData?.username + '!');      
@@ -127,7 +130,9 @@ export class LoginService {
         this.svLogout();
         this.router.navigateByUrl('home');
       }else{        
-        this.AuthService.svDetailsUser(localStorage.getItem('userLogin') as string).subscribe();
+        if(!this.AuthService.userData){
+          this.AuthService.svDetailsUser(localStorage.getItem('userLogin') as string).subscribe();
+        }
       }
     }
   }

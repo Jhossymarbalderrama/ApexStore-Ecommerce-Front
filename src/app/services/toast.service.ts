@@ -21,7 +21,7 @@ export class ToastService {
    */
   Success(message: string) {
     this.MessageService.clear();
-    this.MessageService.add({ severity: 'success', summary: 'Petición procesada. 😀', detail: message });
+    this.MessageService.add({ severity: 'success',summary: 'Petición procesada. 😀', detail: message });
   }
 
   /**

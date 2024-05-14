@@ -22,7 +22,7 @@ export class DashboardProfileComponent implements OnInit, AfterViewInit {
     private LoginService: LoginService,
     public UrlService: UrlService
   ) {
-    // this.LoginService.checkTokenExpiration();
+    this.LoginService.checkTokenExpiration();
     // if (!this.AuthService.userData) {      
     //   this.refreshData(true);
     // } 

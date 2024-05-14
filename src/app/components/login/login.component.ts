@@ -60,8 +60,7 @@ export class LoginComponent implements OnInit {
       this.LoginService.svLogin(this.formLogin.value as LoginRequest).subscribe({
         next: (userData) => {
           //Trae el Token
-          // console.log("Logeado: ",userData);           
-          this.AuthService.svDetailsUser(this.formLogin.get('username')?.value).subscribe();
+          // console.log("Logeado: ",userData);                     
         },
         error: (errorData) => {
           this.loginError = errorData;
