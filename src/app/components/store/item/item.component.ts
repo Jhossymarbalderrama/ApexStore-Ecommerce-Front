@@ -26,6 +26,7 @@ export class ItemComponent implements OnInit, OnDestroy {
 
   public cantProdBuysRandom: number = Math.floor(Math.random() * 100);
   public dashboard: boolean = false;
+  public cantProduct: number = 1;
 
   // * CONSTRUCTOR
   constructor(
@@ -65,7 +66,10 @@ export class ItemComponent implements OnInit, OnDestroy {
 
   addCart() {
     if (this._product) {
-      this.cartServ.svAddProductCart(this._product);
+      if(this.cantProduct > 0 && this.cantProduct <= this._product?.stock){        
+        this.cartServ.svAddProductCart(this._product, this.cantProduct);
+        this.cantProduct = 1;
+      }      
     }
   }
   //#endregion

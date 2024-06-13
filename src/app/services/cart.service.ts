@@ -68,27 +68,33 @@ export class CartService {
    *Guardo los products Agregados al Carrito en el LocalStorage
    * @param product  producto a agregar al carrito
    */
-  svAddProductCart(product: Product) {
-    try {
-      let listProducts: any = this.products;
-
-      let productAdd = {
-        id: product.id,
-        name: product.name,
-        category: product.category,
-        img: [product.img[0]],
-        price: product.price,
-        discount: product.discount
-      };
-
-      listProducts.push(productAdd);
-      this.svResetValuesClass();
-      this.products = listProducts; //seteo productos 
-      this.cart_cant_product = this.cart_cant_product + 1; //Sumo cant al carrito view
-
-      this.svSaveLocalStorage();
-      this.svCalcularTotalesCart();     
-      this.ToastService.Info('¡Se agrego un producto al Carrito!.'); 
+  svAddProductCart(product: Product, cantProduct: number) {
+    try {      
+      for (let i = 0; i < cantProduct; i++) {
+        let listProducts: any = this.products;
+        let productAdd = {
+          id: product.id,
+          name: product.name,
+          category: product.category,
+          img: [product.img[0]],
+          price: product.price,
+          discount: product.discount
+        };
+  
+        listProducts.push(productAdd);
+        this.svResetValuesClass();
+        this.products = listProducts; // ? seteo productos 
+        this.cart_cant_product = this.cart_cant_product + 1; // ? Sumo cant al carrito view
+  
+        this.svSaveLocalStorage();   
+        this.svCalcularTotalesCart();  
+      }
+            
+      this.ToastService.Info(
+        `¡Se ${cantProduct > 1 ? 
+          'agregaron los productos': 
+          'agrego un producto'} al Carrito!.
+          `); 
     } catch (error) {
       this.ToastService.Error('¡Ups!. Error al agregar un producto al carrito. ☹️');
       console.error("Error al agregar al carrito. " + error);
@@ -101,6 +107,7 @@ export class CartService {
    */
   svDeleteProductCart(product: Product) {
     try {
+
       this.products = this.products.filter(prod => prod != product);
       this.svSaveLocalStorage();      
       this.svGetLocalStorageProducts();

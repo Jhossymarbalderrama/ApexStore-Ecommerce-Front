@@ -21,7 +21,8 @@ export class PaymentFormComponent implements OnInit {
 
   // * ATRIBUTOS
   // #region
-  public cartProduct!: Product[] | [];
+  public cartProduct!: Product[] | []; // Productos para Endpoint Backend
+  public cartProductView: any; // Productos Filtrados repetidos
   public cart_cant_product!: number;
   public subTotal!: number;
   public total!: number;
@@ -109,6 +110,9 @@ export class PaymentFormComponent implements OnInit {
 
   ngOnInit(): void {
     this.cartProduct = this.CartService.products;
+
+    this.filterProductCart();
+    
     this.cart_cant_product = this.CartService.cart_cant_product;
     this.subTotal = this.CartService.subtotal;
   }
@@ -117,6 +121,28 @@ export class PaymentFormComponent implements OnInit {
   // * METHODs
   //#region 
 
+
+  filterProductCart(){
+    this.cartProductView = this.CartService.products;
+
+    this.cartProductView = Array.from(
+      new Set(this.cartProduct.map((pd: any) => pd.id))
+    ).map((id: any) => {
+      return this.cartProduct.find((pd: any) => pd.id === id);
+    });
+
+    this.cartProductView.map(
+      (pdv: any) => {
+        let cant = 0;
+        this.cartProduct.map(
+          (pdl: any) => {
+            pdv.id == pdl.id ? cant++ : 0;
+          }
+        );
+        pdv.cant = cant;
+      }
+    )
+  }
   /** Capturo el metodo de envio y llama a calcular el total a pagar
    * @param shipping Metodo de envio
    */

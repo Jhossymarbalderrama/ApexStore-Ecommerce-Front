@@ -1,0 +1,7 @@
+.box-cantProduct input{
+    width: 4rem;
+}
+
+.sin-stock{
+    text-decoration: line-through;
+}

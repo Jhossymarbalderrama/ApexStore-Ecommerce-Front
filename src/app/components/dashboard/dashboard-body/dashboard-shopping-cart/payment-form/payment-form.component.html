@@ -41,52 +41,9 @@
 
 
 <div class="grid pb-8 sm:px-10 lg:grid-cols-2 lg:px-20 xl:px-32">
-  <div class="px-4 pt-8">
-    <p class="text-2xl font-bold">Productos</p>
-    <p class="text-gray-400">Revisa tus artículos.</p>
-    <div class="mt-4 space-y-3 rounded-lg border bg-white px-2 py-4 sm:px-6">
-
-      <div *ngFor='let pd of cartProduct'>
-        <div class="flex flex-col rounded-lg bg-white sm:flex-row">
-          <img class="m-2 h-24 w-28 rounded-md border object-cover object-center" [src]=pd.img[0] alt="" />
-          <div class="flex w-full flex-col px-4 py-4">
-            <span class="font-semibold">{{pd.name}}</span>
-            <span class="float-right text-gray-400">{{pd.category}}</span>
-            <p class="text-lg font-semibold text-green-600">${{pd.price}}</p>
-          </div>
-        </div>
-      </div>
-
-    </div>
-
-    <p class="mt-8 text-lg font-medium">Metodos de Envio</p>
-    <form [formGroup]="formPayment" class="mt-5 grid gap-6">
-      <div class="relative" *ngFor="let item of shippingMethod">
-        <input formControlName="method" class="peer hidden" id="{{item?.id}}" type="radio" name="method"
-          [value]="item.id" [checked]="item.id === shippingSelect?.id" (click)="selectShipping(item)" />
-        <span
-          class="peer-checked:border-gray-700 absolute right-4 top-1/2 box-content block h-3 w-3 -translate-y-1/2 rounded-full border-8 border-gray-300 bg-white"></span>
-        <label
-          class="peer-checked:border-2 peer-checked:border-gray-700 peer-checked:bg-gray-50 flex cursor-pointer select-none rounded-lg border border-gray-300 p-4"
-          for="{{item?.id}}">
-          <img class="w-14 object-contain" [src]="item.img" alt="" />
-          <div class="ml-5">
-            <span class="mt-2 font-semibold">{{item?.name}}</span>
-            <p class="text-slate-500 text-sm leading-6">Demora: {{item?.description}}</p>
-          </div>
-        </label>
-      </div>
-
-      <div *ngIf="method.invalid && (method.dirty || method.touched)" class="text-danger text-sm">
-        <span *ngIf="method.errors?.['required']">*El metodo de envio es requerido</span>
-      </div>
-    </form>
-
-  </div>
-  <div class="mt-10 bg-gray-50 px-4 pt-6 lg:mt-5">
+  <div class="mt-10 bg-gray-200 px-4 pt-6 lg:mt-5 rounded-md">
     <p class="text-2xl font-bold">Formulario de Pago</p>
-    <p class="text-gray-400">Complete su pedido proporcionando sus datos de pago.</p>
-
+    <p class="text-gray-400">Complete su pedido proporcionando sus datos de pago.</p>    
     <form [formGroup]="formPayment" id="formPayment" (submit)="sendForm()">
       <label for="email" class="mt-4 mb-2 block text-sm font-semibold">Email</label>
       <div class="relative">
@@ -179,6 +136,27 @@
         <span *ngIf="codigoPostal.errors?.['pattern']">*El formato no es correcto</span>
       </div>
 
+      <p class="mt-8 mb-2 text-lg font-medium">Metodos de Envio</p>      
+        <div *ngFor="let item of shippingMethod" class="relative bg-white my-2">
+          <input formControlName="method" class="peer hidden" id="{{item?.id}}" type="radio" name="method"
+            [value]="item.id" [checked]="item.id === shippingSelect?.id" (click)="selectShipping(item)" />
+          <span
+            class="peer-checked:border-gray-700 absolute right-4 top-1/2 box-content block h-3 w-3 -translate-y-1/2 rounded-full border-8 border-gray-300 bg-white"></span>
+          <label
+            class="peer-checked:border-2 peer-checked:border-gray-700 peer-checked:bg-gray-50 flex cursor-pointer select-none  p-4"
+            for="{{item?.id}}">
+            <img class="w-14 object-contain" [src]="item.img" alt="" />
+            <div class="ml-5">
+              <span class="mt-2 font-semibold">{{item?.name}}</span>
+              <p class="text-slate-500 text-sm leading-6">Demora: {{item?.description}}</p>
+            </div>
+          </label>
+        </div>
+  
+        <div *ngIf="method.invalid && (method.dirty || method.touched)" class="text-danger text-sm">
+          <span *ngIf="method.errors?.['required']">*El metodo de envio es requerido</span>
+        </div>
+
       <div class="mt-6 border-t border-b py-2">
         <div class="flex items-center justify-between">
           <p class="text-base font-semibold text-gray-900">Subtotal</p>
@@ -199,6 +177,25 @@
         Hacer Pedido
       </button>
     </form>
+  </div>
 
+  <div class="px-4 mt-10">   
+    <p class="text-2xl font-bold">Productos</p>
+    <p class="text-gray-400">Revisa tus artículos.</p>
+    <div class="mt-4 space-y-3 rounded-lg border bg-white px-2 py-4 sm:px-6">
+
+      <div *ngFor='let pd of cartProductView'>
+        <div class="flex flex-col rounded-lg bg-white sm:flex-row justify-center items-center">
+          <img class="h-full w-28 rounded-md border object-cover object-center" [src]=pd.img[0] alt="" />
+          <div class="flex w-full flex-col px-4 py-4">
+            <span class="text-xs font-semibold text-green-600">Cantidad: {{pd.cant}}</span>
+            <span class="font-semibold">{{pd.name}}</span>
+            <span class="float-right text-gray-400">{{pd.category}}</span>
+            <p class="text-lg font-semibold text-green-600">${{pd.price * pd.cant}}</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
   </div>
 </div>
