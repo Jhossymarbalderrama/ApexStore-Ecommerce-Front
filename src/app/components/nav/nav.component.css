@@ -1,4 +1,18 @@
 
 .menu-view{
-    color: #6875F5;
+    color: var(--bg-blue-site);
+}
+
+li{
+    /* text-shadow: 0px 0px 8px black; */
+}
+
+li:hover{
+    transition: 0.2s all ease ;
+    transform: scale(1.1);
+}
+
+a{
+    user-select: none;
+    outline: none;
 }

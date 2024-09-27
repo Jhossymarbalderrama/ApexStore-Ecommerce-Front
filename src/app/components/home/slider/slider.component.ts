@@ -1,19 +1,14 @@
-import { Component, OnChanges, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { DataService } from 'src/app/services/data.service';
+
 
 @Component({
   selector: 'app-slider',
   templateUrl: './slider.component.html',
   styleUrls: ['./slider.component.css']
 })
-export class SliderComponent implements OnInit {
-
-  constructor() {
-
-  }
-
-  ngOnInit(): void {
-
-  }
-
-  
+export class SliderComponent{
+  constructor(
+    public data: DataService
+  ){}
 }

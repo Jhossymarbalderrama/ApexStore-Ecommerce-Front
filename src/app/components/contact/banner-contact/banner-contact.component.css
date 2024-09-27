@@ -1,48 +1,41 @@
-
-section{      
-    height: 180px;
+section div {
+    letter-spacing: 5px;
+    text-shadow: -1px -1px 15px black;
 }
 
-.banner{
-    background: linear-gradient(to right top, #000000e8, #00000038), url('../../../../assets/img/banners/sections/contact.webp');
+.banner {
+    background: linear-gradient(to top, #00000062, #0e0e0ea9, #0e0e0ed3), 
+    url('../../../../assets/img/banners/sections/contact.webp');
     background-size: cover;
-    background-position: 0% 55%;
     background-repeat: no-repeat;
+    background-position: center;
 }
 
 
-.box-content{
+.box-content {
     height: 170px;
     padding: 1em 6em;
-    color: white;    
+    color: white;
 }
 
-h4{
+h4 {
     text-shadow: 2px 2px 2px #272727
 }
 
-span > h4{    
+span>h4 {
     /* font-size: 68px; */
     font-size: 48px;
     text-transform: capitalize;
-    margin-bottom: 20px;    
+    margin-bottom: 20px;
     text-shadow: 2px 4px black;
 }
 
-@media screen and (min-width: 1024px) {
-    
-}
-
-@media screen and (min-width: 768px) and (max-width: 1023px) {
-    span > h4{ 
-        font-size: 4.5vh;
-    }
-}
-
 @media screen and (max-width: 767px) {
-
-
-    span > h4{ 
-        font-size: 2.5vh;
+    .banner {
+        background: linear-gradient(to top, #00000062, #0e0e0ea9, #0e0e0ed3), 
+        url('../../../../assets/img/banners/sections/contact-resp.webp');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
     }
 }

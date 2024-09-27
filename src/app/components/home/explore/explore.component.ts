@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { Router } from '@angular/router';
+import { DataService } from 'src/app/services/data.service';
 
 @Component({
   selector: 'app-explore',
@@ -7,65 +8,43 @@ import { Router } from '@angular/router';
   styleUrls: ['./explore.component.css']
 })
 export class ExploreComponent {
+  @Output() categoryItemEvent = new EventEmitter<string>();
 
   // * ATRIBUTOS
-  isHovered: boolean = false;
-  sonido: boolean = false;
-  perifericos: boolean = false;
-  procesadores: boolean = false;
-  gaming: boolean = false;
-  rgb: boolean = false;
-  refrigeracion: boolean = false;
+  private categorySelect: string = '';
+  public get rutaActual(): string {
+    return this.router.url;
+  }
+
+  public get isHome(): boolean {
+    return this.rutaActual == '/home';
+  }
 
   // * CONSTRUCTOR
   constructor(
-    private router: Router
-  ) { }
+    private router: Router,
+    public data: DataService
+  ) {}
 
   // * METHODs
   //#region 
 
-  onHover(a: number): void {
-    this.resetHover();
-    this.hoverSection(a);
-    this.isHovered = true;
-  }
-
-  onLeave(): void {
-    this.isHovered = false;
-  }
-
-  resetHover() {
-    this.sonido = this.perifericos = this.procesadores = this.gaming = this.rgb = this.refrigeracion = false;
-  }
-
-  hoverSection(a: number) {
-    switch (a) {
-      case 1:
-        this.sonido = true;
-        break;
-      case 2:
-        this.perifericos = true;
-        break;
-      case 3:
-        this.procesadores = true;
-        break;
-      case 4:
-        this.gaming = true;
-        break;
-      case 5:
-        this.rgb = true;
-        break;
-      case 6:
-        this.refrigeracion = true;
-        break;
+  /**
+   * Envio la cateria al componente para filtrar
+   * @param category 
+   */
+  goToStoreByCategory(category: string) {
+    if (this.isHome) {
+      this.router.navigateByUrl('/store');
+    } else {
+      if (this.categorySelect != category) {
+        this.categorySelect = category;
+        this.categoryItemEvent.emit(category);
+      } else {
+        this.categorySelect = '';
+        this.categoryItemEvent.emit('');
+      }
     }
   }
-
-  onRouterLink() {
-    this.router.navigateByUrl('store');
-  }
   //#endregion
-
-
 }

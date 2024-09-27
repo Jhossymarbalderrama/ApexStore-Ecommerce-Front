@@ -1,11 +1,11 @@
-<!-- Main modal -->
+
 <div id="crud-modal-user"
-    class="modal fixed left-0 top-0 flex md:justify-center md:items-center bg-black bg-opacity-50 w-full h-full md:h-full overflow-y-auto hidden z-30"
-    (click)="closeModal()">
-    <div class="relative  mx-auto max-w-4xl"  (click)="$event.stopPropagation()">
-        <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
-            <div class="flex items-center justify-between p-5 border-b rounded-t dark:border-gray-600">
-                <h2 class="text-2xl font-semibold">Registro Usuarios</h2>
+class="modal fixed left-0 top-0 flex p-3 md:p-0 md:justify-center md:items-center bg-black bg-opacity-50 w-full h-full md:h-full overflow-y-auto hidden z-30" 
+(click)="closeModal()">
+<div class="relative w-full md:w-auto max-w-4xl max-h-xl 2xl:max-w-6xl 2xl:max-h-6xl"  (click)="$event.stopPropagation()">
+    <div class="bg-gray-200 rounded dark:bg-gray-700 md:mx-4 lg:mx-0">
+        <div class="flex items-center justify-between p-5 border-b rounded-t border-gray-700">
+            <h2  class="text-2xl">Registro de Usuarios</h2>
 
                 <button type="button" title="close" (click)="closeModal()"
                     class="text-black-400 bg-red-400 hover:bg-red-300 hover:text-red-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-red-700 dark:hover:text-white">
@@ -14,13 +14,14 @@
                 </button>
             </div>
 
-            <div class="p-6 overflow-y-auto">
+            <div class="px-4 lg:px-8 py-2 overflow-y-auto">
                 <form [formGroup]="formUser" id="formUser" enctype="multipart/form-data">
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-3 lg:gap-4 mb-4">
 
                         <div class="col-span-1 sm:col-span-1">
                             <label for="id" class="flex items-center text-gray-700 text-sm font-semibold mb-2">
-                                <i class="fa-solid fa-id-card mr-2"></i> Id
+                                <i class="fa-solid fa-id-card mr-2"></i> 
+                                <span class="text-xs">ID</span>
                             </label>
                             <input [value]="dataForm?.item?.id" [readOnly]="formReadOnly" class="form-control"
                                 formControlName="id" type="number" id="id" name="id" placeholder="id"
@@ -30,7 +31,8 @@
 
                         <div class="col-span-1 sm:col-span-2">
                             <label for="username" class="flex items-center text-gray-700 text-sm font-semibold mb-2">
-                                <i class="fa-solid fa-user mr-2"></i>*Email
+                                <i class="fa-solid fa-user mr-2"></i>
+                                <span class="text-xs"><span class="text-red-500">*</span>Email</span>
                             </label>
                             <input [value]="dataForm?.item?.username" [readOnly]="formReadOnly" class="form-control"
                                 formControlName="username" type="email" id="username" name="username"
@@ -38,7 +40,7 @@
                                 class="w-full px-3 py-2 border rounded  focus:outline-none focus:border-blue-500"
                                 required>
 
-                            <div *ngIf="username.invalid && (username.dirty || username.touched)" class="text-danger">
+                            <div *ngIf="username.invalid && (username.dirty || username.touched)" class="text-danger text-xs">
                                 <span *ngIf="username.errors?.['required']">*Campo Requerido</span>
                                 <span *ngIf="username.errors?.['email']">*Correo invalido</span>
                             </div>
@@ -48,7 +50,9 @@
                     <div class="grid grid-cols-1 gap-1 mb-4 w-full">
                         <div class="col-span-1 sm:col-span-1">
                             <label for="password" class="flex items-center text-gray-700 text-sm font-semibold mb-2">
-                                <i class="fa-solid fa-lock mr-2"></i>*Contraseña
+                                <i class="fa-solid fa-lock mr-2"></i>
+                                <span class="text-xs"><span class="text-red-500">*</span>Contraseña</span>
+
                             </label>
                             <input [value]="dataForm?.item?.password" [readOnly]="formReadOnly" class="form-control"
                                 formControlName="password" type="password" id="password" name="password"
@@ -56,7 +60,7 @@
                                 class="w-full px-3 py-2 border rounded  focus:outline-none focus:border-blue-500"
                                 required>
 
-                            <div *ngIf="password.invalid && (password.dirty || password.touched)" class="text-danger">
+                            <div *ngIf="password.invalid && (password.dirty || password.touched)" class="text-danger text-xs">
                                 <span *ngIf="password.errors?.['required']">*Campo requerido</span>
                             </div>
                         </div>
@@ -65,7 +69,8 @@
                     <div class="grid grid-cols-2 gap-2 mb-4 w-full">
                         <div class="col-span-3 sm:col-span-1">
                             <label for="firstname" class="flex items-center text-gray-700 text-sm font-semibold mb-2">
-                                <i class="fa-solid fa-user-tag mr-2"></i> Firstname
+                                <i class="fa-solid fa-user-tag mr-2"></i>
+                                <span class="text-xs">Nombre</span>
                             </label>
                             <input [value]="dataForm?.item?.firstname" [readOnly]="formReadOnly" class="form-control"
                                 formControlName="firstname" type="text" id="firstname" name="firstname"
@@ -75,7 +80,8 @@
                         </div>
                         <div class="col-span-3 sm:col-span-1">
                             <label for="lastname" class="flex items-center text-gray-700 text-sm font-semibold mb-2">
-                                <i class="fa-solid fa-user-tag mr-2"></i> Apellido
+                                <i class="fa-solid fa-user-tag mr-2"></i>
+                                <span class="text-xs">Apellido</span>
                             </label>
                             <input [value]="dataForm?.item?.lastname" [readOnly]="formReadOnly" class="form-control"
                                 formControlName="lastname" type="text" id="lastname" name="lastname"
@@ -89,7 +95,8 @@
 
                         <div class="col-span-3 sm:col-span-1" *ngIf="this.dataForm?.action != 0">
                             <label for="state" class="flex items-center text-gray-700 text-sm font-semibold mb-2">
-                                <i class="fa-solid fa-person-circle-question mr-2"></i> State
+                                <i class="fa-solid fa-person-circle-question mr-2"></i>
+                                <span class="text-xs">Estado</span>
                             </label>                            
                                  <select name="stateUser" id="stateUser"  
                                  formControlName="state" 
@@ -104,7 +111,8 @@
 
                         <div class="col-span-3 sm:col-span-1" *ngIf="this.dataForm?.action != 0">
                             <label for="role" class="flex items-center text-gray-700 text-sm font-semibold mb-2">
-                                <i class="fa-solid fa-briefcase mr-2"></i> Role
+                                <i class="fa-solid fa-briefcase mr-2"></i>
+                                <span class="text-xs">Role</span>
                             </label>
                                 <select name="role" id="role"  
                                  formControlName="role" 
@@ -118,21 +126,21 @@
                         </div>
                     </div>
 
-                    <div class="flex justify-end">
+                    <div class="flex flex-col md:flex-row py-4 md:py-2  justify-center md:justify-end gap-3 md:gap-0">
                         <button (click)="formAction()" type="submit" *ngIf="!disableBtnAction"
-                            class="bg-green-500 text-white px-20 py-2 rounded hover:bg-green-700">
+                            class="w-full items-center md:w-auto bg-green-500 text-white px-20 py-2 rounded hover:bg-green-700">
                             <i class="fas fa-check-circle mr-2"></i> {{this.dataForm?.action == 0 ? 'Agregar Usuario' :
                             'Modificar Usuario' }}
                         </button>
 
                         <button (click)="formAction()" type="submit" *ngIf="disableBtnAction && dataForm?.action == 2"
-                            class="bg-red-500 text-white px-20 py-2 rounded hover:bg-red-700">
+                            class="w-full items-center md:w-auto bg-red-500 text-white px-20 py-2 rounded hover:bg-red-700">
                             <i class="fa-solid fa-trash mr-2"></i> Eliminar Usuario
                         </button>
 
                         <button (click)="closeModal()"
-                            class="text-white inline-flex items-center focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-10 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 ml-3"
-                            [ngClass]="dataForm?.action==2 ? 'bg-green-500 hover:bg-green-600' : 'bg-red-500 hover:bg-red-600'">
+                            class="w-full md:w-auto text-white inline-flex justify-center items-center focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded text-sm px-10 py-2.5 md:ml-3"
+                            [ngClass]="dataForm?.action==2 ? 'bg-blue-500 hover:bg-blue-600' : 'bg-red-500 hover:bg-red-600'">
                             Cancel
                         </button>
                     </div>

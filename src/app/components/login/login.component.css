@@ -1,4 +1,6 @@
 section{
+    height: 100%;
+    min-height: 95vh;
     background: linear-gradient(to top, #000000b2, #0000001f), url('../../../assets/img/background/5053309.webp');
     background-size: cover;
     background-position: 0% 0%;
@@ -19,7 +21,6 @@ input {
 }
 
 button {
-    color: #fff;
     padding: 0.5rem;
     border-radius: 0.25rem;
     cursor: pointer;

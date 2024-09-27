@@ -1,0 +1,260 @@
+[
+    {
+        "id": 8,
+        "name": "Auriculares HyperX Cloud Flight ",
+        "description": "Auriculares HyperX Cloud Flight Black Wireless",
+        "category": "Audiculares",
+        "price": 108000,
+        "discount": 10,
+        "stock": 198,
+        "state": "Nuevo",
+        "discharge_date": "2024-04-02",
+        "img": [
+            "https://firebasestorage.googleapis.com/v0/b/e-commerce-ac291.appspot.com/o/images%2Fimg_20240304_145811_1.jpg?alt=media&token=42683053-d9b5-4d20-93cf-fdf9a1d23803",
+            "https://firebasestorage.googleapis.com/v0/b/e-commerce-ac291.appspot.com/o/images%2Fimg_20240304_145811_3.jpg?alt=media&token=a290a8b6-0c41-4a76-9daf-9ee1d22de5c0",
+            "https://firebasestorage.googleapis.com/v0/b/e-commerce-ac291.appspot.com/o/images%2Fimg_20240304_145811_2.jpg?alt=media&token=c78fa7f0-0988-4adf-ba67-4894e1615deb"
+        ]
+    },
+    {
+        "id": 10,
+        "name": "RADEON RX 6400 4GB GIGABYTE EAGLE",
+        "description": "Placa de video RADEON RX 6400 4GB GIGABYTE EAGLE\n",
+        "category": "Placa de Video",
+        "price": 192000,
+        "discount": 15,
+        "stock": 50,
+        "state": "Nuevo",
+        "discharge_date": "2024-01-27",
+        "img": [
+            "https://firebasestorage.googleapis.com/v0/b/e-commerce-ac291.appspot.com/o/images%2Fimg_20240304_150346_rx1.jpg?alt=media&token=9bc73613-8ed3-4881-a7ae-e24786a08873",
+            "https://firebasestorage.googleapis.com/v0/b/e-commerce-ac291.appspot.com/o/images%2Fimg_20240304_150346_rx2.jpg?alt=media&token=275d5887-1996-4377-924c-d668223e0a03",
+            "https://firebasestorage.googleapis.com/v0/b/e-commerce-ac291.appspot.com/o/images%2Fimg_20240304_150346_rx3.jpg?alt=media&token=e0acf69a-c161-43ac-b04b-cb3410935343"
+        ]
+    },
+    {
+        "id": 11,
+        "name": "Redragon Kumara K552-KR Rainbow Outemu RED ESP",
+        "description": "Teclado Mecanico Redragon Kumara K552-KR Rainbow Outemu RED ESP",
+        "category": "Teclado Mecanico",
+        "price": 33450,
+        "discount": 5,
+        "stock": 138,
+        "state": "Nuevo",
+        "discharge_date": "2024-01-10",
+        "img": [
+            "https://firebasestorage.googleapis.com/v0/b/e-commerce-ac291.appspot.com/o/images%2Fimg_20240304_151519_rd1.jpg?alt=media&token=accdacf5-abb9-41ce-92da-1cbcd68c266d",
+            "https://firebasestorage.googleapis.com/v0/b/e-commerce-ac291.appspot.com/o/images%2Fimg_20240304_151519_rd2.jpg?alt=media&token=6f585b71-12f1-4c16-b095-811deecbea11",
+            "https://firebasestorage.googleapis.com/v0/b/e-commerce-ac291.appspot.com/o/images%2Fimg_20240304_151519_rd3.jpg?alt=media&token=d28125e3-b32b-49f8-a936-f877d1f997ba"
+        ]
+    },
+    {
+        "id": 12,
+        "name": "Redragon Fizz Pro K616-RGB 60% White/Pink Wireless",
+        "description": "Teclado Mecanico Redragon Fizz Pro K616-RGB 60% White/Pink Wireless",
+        "category": "Teclado Mecanico",
+        "price": 46600,
+        "discount": 5,
+        "stock": 120,
+        "state": "Nuevo",
+        "discharge_date": "2024-02-18",
+        "img": [
+            "https://firebasestorage.googleapis.com/v0/b/e-commerce-ac291.appspot.com/o/images%2Fimg_20240304_151724_rdw1.jpg?alt=media&token=6d4c1829-3cff-4cd8-8c51-9ea9faf89a85",
+            "https://firebasestorage.googleapis.com/v0/b/e-commerce-ac291.appspot.com/o/images%2Fimg_20240304_151724_rdw2.jpg?alt=media&token=790b8b59-3799-4776-bb39-ebd4ed4a4ce3"
+        ]
+    },
+    {
+        "id": 13,
+        "name": "AMD Ryzen 5 5600X 4.6GHz Turbo AM4",
+        "description": "Procesador AMD Ryzen 5 5600X 4.6GHz Turbo AM4 + Wraith Stealth Cooler",
+        "category": "Procesador",
+        "price": 255000,
+        "discount": 10,
+        "stock": 100,
+        "state": "Nuevo",
+        "discharge_date": "2024-03-22",
+        "img": [
+            "https://firebasestorage.googleapis.com/v0/b/e-commerce-ac291.appspot.com/o/images%2Fimg_20240304_152113_pr1.jpg?alt=media&token=484e5f8b-c0ab-4a5f-92d3-e2b9e799d784",
+            "https://firebasestorage.googleapis.com/v0/b/e-commerce-ac291.appspot.com/o/images%2Fimg_20240304_152113_pr2.jpg?alt=media&token=c5de2e3f-b286-4342-9195-6c192ffbba13"
+        ]
+    },
+    {
+        "id": 14,
+        "name": "AMD Ryzen 7 5800X 4.7GHz Turbo AM4",
+        "description": "Procesador AMD Ryzen 7 5800X 4.7GHz Turbo AM4 - No incluye Cooler",
+        "category": "Procesador",
+        "price": 360000,
+        "discount": 5,
+        "stock": 60,
+        "state": "Nuevo",
+        "discharge_date": "2024-03-05",
+        "img": [
+            "https://firebasestorage.googleapis.com/v0/b/e-commerce-ac291.appspot.com/o/images%2Fimg_20240304_152242_pr72.jpg?alt=media&token=69ab0d80-756b-44c5-8a9f-09748287306a",
+            "https://firebasestorage.googleapis.com/v0/b/e-commerce-ac291.appspot.com/o/images%2Fimg_20240304_152242_pr71.jpg?alt=media&token=1965942f-4030-41cc-96da-d4e29a1713f8"
+        ]
+    },
+    {
+        "id": 15,
+        "name": "AMD Ryzen 9 5950X 4.9GHz Turbo AM4 - No incluye Cooler",
+        "description": "Procesador AMD Ryzen 9 5950X 4.9GHz Turbo AM4 - No incluye Cooler",
+        "category": "Procesador",
+        "price": 770000,
+        "discount": 0,
+        "stock": 20,
+        "state": "Nuevo",
+        "discharge_date": "2024-03-17",
+        "img": [
+            "https://firebasestorage.googleapis.com/v0/b/e-commerce-ac291.appspot.com/o/images%2Fimg_20240304_152357_pr91.jpg?alt=media&token=3a95779f-6c11-4e53-849d-5e635c80058e",
+            "https://firebasestorage.googleapis.com/v0/b/e-commerce-ac291.appspot.com/o/images%2Fimg_20240304_152357_pr92.jpg?alt=media&token=a7e2bccc-ec61-4a86-8eea-6f1b65f2123b"
+        ]
+    },
+    {
+        "id": 16,
+        "name": "Fuente Gigabyte 650W 80 Plus Bronze P650B",
+        "description": "Fuente de poder Gigabyte 650W 80 Plus Bronze P650B",
+        "category": "Fuente",
+        "price": 102350,
+        "discount": 25,
+        "stock": 39,
+        "state": "Nuevo",
+        "discharge_date": "2024-03-21",
+        "img": [
+            "https://firebasestorage.googleapis.com/v0/b/e-commerce-ac291.appspot.com/o/images%2Fimg_20240304_152533_f3.jpg?alt=media&token=ba802baa-cac0-4f66-a937-b33e1c8ca5b3",
+            "https://firebasestorage.googleapis.com/v0/b/e-commerce-ac291.appspot.com/o/images%2Fimg_20240304_152533_f1.jpg?alt=media&token=ff0224b8-7738-4659-9dd9-a114121666a4",
+            "https://firebasestorage.googleapis.com/v0/b/e-commerce-ac291.appspot.com/o/images%2Fimg_20240304_152533_f2.jpg?alt=media&token=345bab4f-a506-47ca-90c1-5802c03da7e2"
+        ]
+    },
+    {
+        "id": 17,
+        "name": "Intel Core i5 10400F 4.3GHz Turbo 1200 Comet Lake",
+        "description": "Procesador Intel Core i5 10400F 4.3GHz Turbo 1200 Comet Lake",
+        "category": "Procesador",
+        "price": 136900,
+        "discount": 10,
+        "stock": 80,
+        "state": "Nuevo",
+        "discharge_date": "2024-04-02",
+        "img": [
+            "https://firebasestorage.googleapis.com/v0/b/e-commerce-ac291.appspot.com/o/images%2Fimg_20240304_152713_pi51.jpg?alt=media&token=c590646e-e767-49c3-a108-5a4a837f1801"
+        ]
+    },
+    {
+        "id": 18,
+        "name": "Intel Core i7 12700 4.9GHz Turbo Socket 1700 Alder Lake",
+        "description": "Procesador Intel Core i7 12700 4.9GHz Turbo Socket 1700 Alder Lake",
+        "category": "Procesador",
+        "price": 439900,
+        "discount": 5,
+        "stock": 28,
+        "state": "Nuevo",
+        "discharge_date": "2024-05-11",
+        "img": [
+            "https://firebasestorage.googleapis.com/v0/b/e-commerce-ac291.appspot.com/o/images%2Fimg_20240304_152745_pi71.jpg?alt=media&token=64d48412-b252-48cf-aefb-40982a939cf6"
+        ]
+    },
+    {
+        "id": 19,
+        "name": "Mother ASUS TUF GAMING B550M-PLUS WIFI II AM4",
+        "description": "Mother ASUS TUF GAMING B550M-PLUS WIFI II AM4",
+        "category": "Motherboard",
+        "price": 240000,
+        "discount": 12,
+        "stock": 50,
+        "state": "Nuevo",
+        "discharge_date": "2024-05-13",
+        "img": [
+            "https://firebasestorage.googleapis.com/v0/b/e-commerce-ac291.appspot.com/o/images%2Fimg_20240304_153014_mb3.jpg?alt=media&token=d43848fb-2c39-4ae0-a520-836705bb0376",
+            "https://firebasestorage.googleapis.com/v0/b/e-commerce-ac291.appspot.com/o/images%2Fimg_20240304_153014_mb1.jpg?alt=media&token=b31477c2-6c07-4b8e-8e58-8289f5c79daf",
+            "https://firebasestorage.googleapis.com/v0/b/e-commerce-ac291.appspot.com/o/images%2Fimg_20240304_153014_mb2.jpg?alt=media&token=1b61cd15-6bab-48a7-b2ad-b7324bdd1e98"
+        ]
+    },
+    {
+        "id": 20,
+        "name": "ASUS ROG STRIX Z790-E GAMING WIFI Intel 12/13th Gen LGA1700 DDR5",
+        "description": "ASUS ROG STRIX Z790-E GAMING WIFI Intel 12/13th Gen LGA1700 DDR5",
+        "category": "Motherboard",
+        "price": 589750,
+        "discount": 10,
+        "stock": 38,
+        "state": "Nuevo",
+        "discharge_date": "2024-06-20",
+        "img": [
+            "https://firebasestorage.googleapis.com/v0/b/e-commerce-ac291.appspot.com/o/images%2Fimg_20240304_153201_mb4.jpg?alt=media&token=d26d8a89-27b7-496a-ba8d-de0a7e6e41d2",
+            "https://firebasestorage.googleapis.com/v0/b/e-commerce-ac291.appspot.com/o/images%2Fimg_20240304_153201_mb5.jpg?alt=media&token=0ac10786-36d5-4e9d-8ffb-61b8b59afb49",
+            "https://firebasestorage.googleapis.com/v0/b/e-commerce-ac291.appspot.com/o/images%2Fimg_20240304_153201_mb6.jpg?alt=media&token=e797abf7-a2ea-439b-b8e4-3b8509ee7cf7"
+        ]
+    },
+    {
+        "id": 21,
+        "name": "Memoria Kingston DDR4 8GB 3200MHz Fury Beast CL16",
+        "description": "Memoria Kingston DDR4 8GB 3200MHz Fury Beast CL16",
+        "category": "Ram",
+        "price": 31900,
+        "discount": 0,
+        "stock": 99,
+        "state": "Nuevo",
+        "discharge_date": "2024-06-08",
+        "img": [
+            "https://firebasestorage.googleapis.com/v0/b/e-commerce-ac291.appspot.com/o/images%2Fimg_20240304_153323_ra2.jpg?alt=media&token=21b1bcd5-18f3-4d56-a685-0c531de8b8fe",
+            "https://firebasestorage.googleapis.com/v0/b/e-commerce-ac291.appspot.com/o/images%2Fimg_20240304_153323_ra1.jpg?alt=media&token=5e9355e1-89cb-4773-88f3-e87238c1f5da"
+        ]
+    },
+    {
+        "id": 22,
+        "name": "Memoria Team DDR5 64GB (2x32GB) 5600MHz T-Force Delta RGB CL36 White ",
+        "description": "Memoria Team DDR5 64GB (2x32GB) 5600MHz T-Force Delta RGB CL36 White ",
+        "category": "Ram",
+        "price": 303699,
+        "discount": 0,
+        "stock": 20,
+        "state": "Nuevo",
+        "discharge_date": "2024-06-29",
+        "img": [
+            "https://firebasestorage.googleapis.com/v0/b/e-commerce-ac291.appspot.com/o/images%2Fimg_20240304_153424_ra3.jpg?alt=media&token=f381de66-22ea-4dec-9208-ebb9a5e2e9e9"
+        ]
+    },
+    {
+        "id": 23,
+        "name": "Corsair Crystal 680X RGB TG Smart Black",
+        "description": "Corsair Crystal 680X RGB TG Smart Black",
+        "category": "Gabinete",
+        "price": 319900,
+        "discount": 5,
+        "stock": 24,
+        "state": "Nuevo",
+        "discharge_date": "2024-07-04",
+        "img": [
+            "https://firebasestorage.googleapis.com/v0/b/e-commerce-ac291.appspot.com/o/images%2Fimg_20240304_153549_gb1.jpg?alt=media&token=4a91b93f-19d5-48b3-9d98-74e3c76ad427",
+            "https://firebasestorage.googleapis.com/v0/b/e-commerce-ac291.appspot.com/o/images%2Fimg_20240304_153549_gb2.jpg?alt=media&token=ce172f8d-406f-47dd-8f0a-2a9a706013af",
+            "https://firebasestorage.googleapis.com/v0/b/e-commerce-ac291.appspot.com/o/images%2Fimg_20240304_153549_gb3.jpg?alt=media&token=7e18b8c1-848f-4c8f-8f21-a7e0e89e22ad"
+        ]
+    },
+    {
+        "id": 302,
+        "name": "ASUS VG278Q 144HZ",
+        "description": "Monitor de Gaming ASUS VG278Q: 27\", FullHD, 1ms, 144Hz, Adaptive-Sync",
+        "category": "Monitor",
+        "price": 370200,
+        "discount": 10,
+        "stock": 18,
+        "state": "Nuevo",
+        "discharge_date": "2024-05-06",
+        "img": [
+            "https://firebasestorage.googleapis.com/v0/b/e-commerce-ac291.appspot.com/o/images%2Fimg_20240506_143415_monitor-gamer-27-asus-vg278q-144hz-1ms-fhd-hdmi-dp-0.jpg?alt=media&token=8d7e24f2-3b9b-43d3-a52e-e9a167080eef"
+        ]
+    },
+    {
+        "id": 304,
+        "name": "GEFORCE RTX 4090",
+        "description": "VIDEO GEFORCE RTX 4090 24GB PNY GDDR6 TRIPLE FAN\n",
+        "category": "Placa de Video",
+        "price": 3695510,
+        "discount": 10,
+        "stock": 15,
+        "state": "Nuevo",
+        "discharge_date": "2024-05-06",
+        "img": [
+            "https://firebasestorage.googleapis.com/v0/b/e-commerce-ac291.appspot.com/o/images%2Fimg_20240506_151311_video-geforce-rtx-4090-24gb-pny-gddr6-triple-fan-0.jpg?alt=media&token=310587e4-e12f-47d5-8ed4-e0b8a38d54e9",
+            "https://firebasestorage.googleapis.com/v0/b/e-commerce-ac291.appspot.com/o/images%2Fimg_20240506_151311_video-geforce-rtx-4090-24gb-pny-gddr6-triple-fan-1.jpg?alt=media&token=34c399bb-c766-49e4-929d-310f89080c4f"
+        ]
+    }
+]

@@ -1,145 +1,35 @@
-<section class="text-gray-600 body-font">
-  <div class="container px-5 py-12 mx-auto flex flex-wrap">
-    <div class="flex flex-wrap md:-m-2 -m-1 w-full">
+<!-- ? Section down Slider -->
+<section id="category" class="text-gray-600 body-font py-8 flex flex-col gap-8 w-full items-center">
 
-      <div class="flex flex-wrap w-full md:w-1/2">
-
-        <div class="relative md:p-2 p-1 w-full md:w-1/2 mb-4"
-          (click)="onRouterLink()" (mouseover)="onHover(1)" (mouseout)="onLeave()">
-          <img src="../../../../assets/img/explore/sound.webp" alt="Imagen"
-            class="w-full object-cover h-full object-center block img hover:scale-105 hover:grayscale transition-all duration-300 ease-in-out cursor-pointer">
-          <div *ngIf="isHovered && sonido"
-            class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center">
-            <p class="text-white p-2 rounded font-bold text-lg md:text-3xl">Sonido</p>
-          </div>
-        </div>
-
-        <div class="relative md:p-2 p-1 w-full md:w-1/2 mb-4"
-          (click)="onRouterLink()" (mouseover)="onHover(2)" (mouseout)="onLeave()">
-          <img src="../../../../assets/img/explore/keyboard-2.webp" alt="Imagen"
-            class="w-full object-cover h-full object-center block img hover:scale-105 hover:grayscale transition-all duration-300 ease-in-out cursor-pointer">
-          <div *ngIf="isHovered && perifericos"
-            class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center">
-            <p class="text-white p-2 rounded font-bold text-lg md:text-3xl">Periféricos</p>
-          </div>
-        </div>
-
-        <div class="relative md:p-2 p-1 w-full"
-          (click)="onRouterLink()" (mouseover)="onHover(3)" (mouseout)="onLeave()">
-          <img src="../../../../assets/img/explore/procesador.webp" alt="Imagen"
-            class="w-full object-cover h-full object-center block img hover:scale-105 hover:grayscale transition-all duration-300 ease-in-out cursor-pointer">
-          <div *ngIf="isHovered && procesadores"
-            class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center">
-            <p class="text-white p-2 rounded font-bold text-lg md:text-3xl">Procesadores</p>
+  <!-- ? Delivery Shipping -->
+  <div class="flex justify-center text-center mx-0 bg-gray-200 rounded-lg w-full" *ngIf="this.isHome || this.rutaActual == '/'">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 p-4">
+      <div *ngFor="let item of data.getDataShippingHome" class="flex justify-center">
+        <div class="p-4 rounded-lg flex flex-col items-center">
+          <div class="flex flex-row justify-center items-center gap-3">
+            <img width="40" height="40" [src]="item.icon" alt="{{ item.title }}" />
+            <div class="text-left">
+              <h2 class="text-black text-sm md:text-base lg:text-md font-bold uppercase">{{ item.title }}</h2>
+              <p class="text-xs md:text-sm lg:text-base font-medium">{{ item.description }}</p>
+            </div>
           </div>
         </div>
       </div>
+    </div>
+  </div>
+  
 
-      <div class="flex flex-wrap w-full md:w-1/2">
-
-        <div class="relative md:p-2 p-1 w-full"
-          (click)="onRouterLink()" (mouseover)="onHover(4)" (mouseout)="onLeave()">
-          <img src="../../../../assets/img/explore/periferic.webp" alt="Imagen"
-            class="w-full object-cover h-full object-center block img hover:scale-105 hover:grayscale transition-all duration-300 ease-in-out cursor-pointer">
-          <div *ngIf="isHovered && gaming"
-            class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center">
-            <p class="text-white p-2 rounded font-bold text-lg md:text-3xl">Gaming</p>
-          </div>
+<!-- ? Filter Category Products -->
+  <div class="flex justify-center mx-4 sm:mx-8">
+    <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4  w-full">
+      <div *ngFor="let item of data.getDataCategoriesHome" class="flex justify-center items-center rounded-md bg-transparent hover:bg-gray-300 cursor-pointer transform hover:scale-110 transition-transform duration-200 ease-in-out  ">
+        <div class="px-6 py-4 flex flex-col items-center "
+             (click)="goToStoreByCategory(item.category)">
+          <img class="py-4" width="60" height="60" [src]="item.icon" alt="{{ item.name }}">
+          <h2 class="font-medium text-base lg:text-xl text-black">{{ item.name }}</h2>
+          <p class="text-xs lg:text-sm font-medium">{{ item.category }}</p>
         </div>
-
-        <div class="relative md:p-2 p-1 w-full md:w-1/2 mb-4"
-          (click)="onRouterLink()" (mouseover)="onHover(5)" (mouseout)="onLeave()">
-          <img src="../../../../assets/img/explore/keyboard-1.webp" alt="Imagen"
-            class="w-full object-cover h-full object-center block img hover:scale-105 hover:grayscale transition-all duration-300 ease-in-out cursor-pointer">
-          <div *ngIf="isHovered && rgb"
-            class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center">
-            <p class="text-white p-2 rounded font-bold text-lg md:text-3xl">RGB</p>
-          </div>
-        </div>
-
-        <div class="relative md:p-2 p-1 w-full md:w-1/2"
-          (click)="onRouterLink()" (mouseover)="onHover(6)" (mouseout)="onLeave()">
-          <img src="../../../../assets/img/explore/rams.webp" alt="Imagen"
-            class="w-full object-cover h-full object-center block img hover:scale-105 hover:grayscale transition-all duration-300 ease-in-out cursor-pointer">
-          <div *ngIf="isHovered && refrigeracion"
-            class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center">
-            <p class="text-white p-2 rounded font-bold text-lg md:text-3xl">Refrigeración</p>
-          </div>
-        </div>
-
       </div>
     </div>
   </div>
 </section>
-
-
-
-<!-- 
-<section class="text-gray-600 body-font">
-  <div class="container px-5 py-24 mx-auto flex flex-wrap">
-    <div class="flex flex-wrap md:-m-2 -m-1">
-
-      <div class="flex flex-wrap w-1/2">
-        <div class="relative md:p-2 p-1 w-1/2 " (click)="onRouterLink()" (mouseover)="onHover(1)" (mouseout)="onLeave()">
-          <img src="../../../../assets/img/explore/sound.webp" alt="Imagen"
-            class="w-full object-cover h-full object-center block img hover:scale-105 hover:grayscale transition-all duration-300 ease-in-out cursor-pointer">
-          <div *ngIf="isHovered && sonido"
-            class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center">
-            <p class="text-white p-2 rounded font-bold text-3xl">Sonido</p>
-          </div>
-        </div>
-
-        <div class="relative md:p-2 p-1 w-1/2 " (click)="onRouterLink()" (mouseover)="onHover(2)" (mouseout)="onLeave()">
-          <img src="../../../../assets/img/explore/keyboard-2.webp" alt="Imagen"
-            class="w-full object-cover h-full object-center block img hover:scale-105 hover:grayscale transition-all duration-300 ease-in-out cursor-pointer">
-          <div *ngIf="isHovered && perifericos"
-            class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center">
-            <p class="text-white p-2 rounded font-bold text-3xl">Periféricos</p>
-          </div>
-        </div>
-
-        <div class="relative md:p-2 p-1 w-full" (click)="onRouterLink()" (mouseover)="onHover(3)" (mouseout)="onLeave()">
-          <img src="../../../../assets/img/explore/procesador.webp" alt="Imagen"
-            class="w-full object-cover h-full object-center block img hover:scale-105 hover:grayscale transition-all duration-300 ease-in-out cursor-pointer">
-          <div *ngIf="isHovered && procesadores"
-            class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center">
-            <p class="text-white p-2 rounded font-bold text-3xl">Procesadores</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="flex flex-wrap w-1/2">
-
-        <div class="relative md:p-2 p-1 w-full" (click)="onRouterLink()" (mouseover)="onHover(4)" (mouseout)="onLeave()">
-          <img src="../../../../assets/img/explore/periferic.webp" alt="Imagen"
-            class="w-full object-cover h-full object-center block img hover:scale-105 hover:grayscale transition-all duration-300 ease-in-out cursor-pointer">
-          <div *ngIf="isHovered && gaming"
-            class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center">
-            <p class="text-white p-2 rounded font-bold text-3xl">Gaming</p>
-          </div>
-        </div>
-
-        <div class="relative md:p-2 p-1 w-1/2 " (click)="onRouterLink()" (mouseover)="onHover(5)" (mouseout)="onLeave()">
-          <img src="../../../../assets/img/explore/keyboard-1.webp" alt="Imagen"
-            class="w-full object-cover h-full object-center block img hover:scale-105 hover:grayscale transition-all duration-300 ease-in-out cursor-pointer">
-          <div *ngIf="isHovered && rgb"
-            class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center">
-            <p class="text-white p-2 rounded font-bold text-3xl">RGB</p>
-          </div>
-        </div>
-
-        <div class="relative md:p-2 p-1 w-1/2 " (click)="onRouterLink()" (mouseover)="onHover(6)" (mouseout)="onLeave()">
-          <img src="../../../../assets/img/explore/rams.webp" alt="Imagen"
-            class="w-full object-cover h-full object-center block img hover:scale-105 hover:grayscale transition-all duration-300 ease-in-out cursor-pointer">
-          <div *ngIf="isHovered && refrigeracion"
-            class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center">
-            <p class="text-white p-2 rounded font-bold text-3xl">Refrigeración</p>
-          </div>
-        </div>    
-
-      </div>
-    </div>
-  </div>
-</section>
-
-<hr>  -->

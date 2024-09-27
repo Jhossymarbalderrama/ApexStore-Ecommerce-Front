@@ -1,150 +1,157 @@
-<body class="bg-gray-400 p-0 pt-14 md:p-4 lg:pt-0 lg:p-4">
-    <div class="w-full p-4 shadow dark:bg-gray-800 flex flex-wrap space-x-0 xl:space-x-3 xl:flex-nowrap">
+<body class="overflow-hidden py-2 px-2 sm:px-4 lg:px-4 lg:py-2 2xl:px-6 2xl:py-4">
+    <div class="p-3 sm:p-4 lg:p-8 2xl:mt-10 2xl:m-6 flex flex-col gap-4 sm:gap-6 bg-gray-200 bg-opacity-80 rounded-lg">
+        <div class="container mx-auto px-3 md:px-6 py-3 mt-12 lg:mt-0 bg-gray-100 bg-opacity-80 md:shadow-md rounded-md">
 
-        <div class="w-full md:w-full lg:w-full xl:w-8/12 bg-white p-6 mb-4 lg:mb-0 rounded-xl">
-            
-            <h4 class="text-3xl font-bold block mb-4 text-gray-900 dark:text-white">
-                <i class="fa-solid fa-copy text-2xl mr-2 text-color-site"></i>
-                Facturacion por Mes
-            </h4>
+        <div class="w-full flex flex-wrap space-x-0 xl:space-x-3 xl:flex-nowrap">
 
-            <h5 class="text-lg font-semibold text-gray-700 dark:text-gray-300">
-                <a *ngIf="!dataChartArea">Loading ...</a> Maximo en el Periodo de {{dataChartArea.date}} |
-                <a class="text-green-500 hover:text-green-600" style="text-shadow: 1px 1px black;">
-                    <i class="fa-solid fa-dollar-sign" style="filter: drop-shadow(2px 2px black);"></i>
-                    <a *ngIf="!dataChartArea">Loading...</a>{{dataChartArea.total}}
-                </a>
-            </h5>
+            <div class="w-full md:w-full lg:w-full xl:w-7/12 bg-white py-3 px-2 md:py-6 md:px-6 mb-4 lg:mb-0 rounded-lg">
 
-            <div id="chartArea" class="mt-4" [ngClass]="dataChartArea.total ? '' : 'animate-pulse h-96 bg-gray-300'"></div>
-        </div>
+                <h4 class="text-2xl 2xl:text-3xl block mb-4 text-gray-900">
+                    <i class="fa-solid fa-copy text-2xl text-blue-500"></i>
+                    Facturacion por Mes
+                </h4>
+
+                <h5 class="text-md 2xl:text-lg text-gray-700">
+                    <a *ngIf="!dataChartArea">Loading ...</a> Ganacia Maxima en el Periodo de {{dataChartArea.date}} |
+                    <a class="text-green-500 hover:text-green-600">
+                        <i class="fa-solid fa-dollar-sign"></i>
+                        <a *ngIf="!dataChartArea">Loading...</a>{{(dataChartArea.total).toLocaleString('es-ES')}}
+                    </a>
+                </h5>
+
+                <div id="chartArea" class="mt-4"
+                    [ngClass]="dataChartArea.total ? '' : 'animate-pulse h-96 bg-gray-200 rounded'"></div>
+            </div>
 
 
-        <div class="w-full md:w-full md:mt-4 lg:mt-4 xl:mt-0 lg:w-full xl:w-4/12 bg-white p-6 rounded-xl">
-            <div class="flex justify-between items-start w-full">
-                <div class="flex-col items-center">
-                    <div class="flex items-center mb-1">
-                        <i class="fa-solid fa-boxes-stacked text-2xl mr-2 text-color-site"></i>
-                        <h4 class="text-xl font-bold leading-none text-gray-900 dark:text-white me-1">
-                            Top 5 - Venta de Productos
-                        </h4>
+            <div class="w-full md:w-full md:mt-4 lg:mt-4 xl:mt-0 lg:w-full xl:w-5/12 bg-white py-3 px-2 md:py-6 md:px-6 rounded-lg">
+                <div class="flex justify-between items-start w-full">
+                    <div class="flex-col items-center">
+                        <div class="flex items-center">
+                            <h4 class="text-md 2xl:text-xl block mb-4 text-gray-900">
+                                <i class="fa-solid fa-boxes-stacked text-2xl text-blue-500"></i>
+                                Top 5 - Venta de Productos
+                            </h4>
+                        </div>
+                    </div>
+                    <div class="flex justify-center items-center text-xs 2xl:text-sm">
+                        <button id="dateRangeButton" type="button"
+                            class="inline-flex items-center text-blue-700 font-medium hover:underline">
+                            {{today | date:'dd MMMM yyyy'}}
+                            <i class="fa-solid fa-calendar-days ml-1"></i>
+                        </button>
                     </div>
                 </div>
-                <div class="flex justify-end items-center text-sm">
-                    <button id="dateRangeButton" type="button"
-                        class="inline-flex items-center text-blue-700 dark:text-blue-600 font-medium hover:underline">
-                        {{today | date:'dd MMMM yyyy'}}
-                        <i class="fa-solid fa-calendar-days ml-1"></i>
-                    </button>
+
+                <div id="pieChart" class="mt-4" [ngClass]="!dataChartPie ? 'animate-pulse h-48 bg-gray-200 rounded' : '' ">
+                </div>
+
+                <hr class="border-t border-blue-300 w-full p-0 m-0 my-2">
+
+                <div class="overflow-x-auto">
+                    <table class="min-w-full bg-gray-300  rounded-md overflow-hidden text-left mt-4">
+                        <thead class="bg-gray-800 text-white text-left">
+                            <tr class="bg-gray-700 text-white text-left">
+                                <th class="py-1 px-2 lg:py-2 lg:px-4 border-b text-sm 2xl:text-md font-thin">Nº</th>
+                                <th class="py-1 px-2 lg:py-2 lg:px-4 border-b text-sm 2xl:text-md font-thin">Producto</th>
+                                <th class="py-1 px-2 lg:py-2 lg:px-4 border-b text-sm 2xl:text-md font-thin">Categoría</th>
+                                <th class="py-1 px-2 lg:py-2 lg:px-4 border-b text-sm 2xl:text-md font-thin">Precio</th>
+                            </tr>
+                        </thead>
+                        <tbody class="font-semibold">
+                            <tr *ngFor="let pd of dataChartPie; let i = index"
+                                class="bg-gray-50 hover:bg-gray-200 cursor-pointer">
+                                <td class="border-b py-1 px-2 text-xs 2xl:text-md font-thin">{{i+1}}</td>
+                                <td class="border-b py-1 px-2 text-xs 2xl:text-md font-thin">{{pd.nombre_producto}}</td>
+                                <td class="border-b py-1 px-2 text-xs 2xl:text-md font-thin">{{pd.categoria}}</td>
+                                <td class="border-b py-1 px-2 text-xs 2xl:text-md font-thin text-green-400">${{(pd.precio).toLocaleString('es-ES')}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="flex justify-end mt-4">
+                    <div class="flex justify-between items-center">
+                        <button id="dropdownDefaultButton" data-dropdown-placement="bottom"
+                            class="text-sm font-medium text-gray-500 hover:text-gray-900 text-center inline-flex items-center"
+                            type="button">
+                            Últimos 7 días
+                            <i class="fa-solid fa-angle-down ml-1"></i>
+                        </button>
+                    </div>
                 </div>
             </div>
 
-            <div id="pieChart" class="mt-4" [ngClass]="!dataChartPie ? 'animate-pulse h-48 bg-gray-300' : '' "></div> 
 
-            <hr class="my-4 border-t border-gray-300 dark:border-gray-700">
-
-            <div class="overflow-x-auto">
-                <table class="w-full bg-white border-gray-300 rounded-md overflow-hidden text-left">
-                    <thead>
-                        <tr class="bg-gray-700 text-white text-left">
-                            <th class="py-1 px-2 lg:py-2 lg:px-4 border-b text-xs">Nº</th>
-                            <th class="py-1 px-2 lg:py-2 lg:px-4 border-b text-xs">Producto</th>
-                            <th class="py-1 px-2 lg:py-2 lg:px-4 border-b text-xs">Categoría</th>
-                            <th class="py-1 px-2 lg:py-2 lg:px-4 border-b text-xs">Precio</th>
-                        </tr>
-                    </thead>
-                    <tbody class="font-semibold">
-                        <tr *ngFor="let pd of dataChartPie; let i = index"
-                            class="bg-gray-300 hover:bg-gray-400 cursor-pointer">
-                            <td class="border py-1 px-2 text-xs">{{i+1}}</td>
-                            <td class="border py-1 px-2 text-xs">{{pd.nombre_producto}}</td>
-                            <td class="border py-1 px-2 text-xs">{{pd.categoria}}</td>
-                            <td class="border py-1 px-2 text-xs">${{pd.precio}}</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-
-            <div class="flex justify-end mt-4">
-                <div class="flex justify-between items-center">
-                    <button id="dropdownDefaultButton" data-dropdown-placement="bottom"
-                        class="text-sm font-medium text-gray-500 dark:text-gray-400 hover:text-gray-900 text-center inline-flex items-center dark:hover:text-white"
-                        type="button">
-                        Últimos 7 días
-                        <i class="fa-solid fa-angle-down ml-1"></i>
-                    </button>
-                </div>
-            </div>
         </div>
 
 
+        <div class="w-full rounded-lg flex flex-wrap space-x-0 xl:space-x-1 xl:flex-nowrap">
+            <div
+                class="w-full md:w-6/12 lg:w-6/12 xl:w-4/12 bg-white py-3 px-2 md:py-6 md:px-6 mb-4 lg:mb-0 rounded-lg">
+                <div class="flex justify-between items-start w-full mb-2">
+                    <div class="flex-col items-center">
+                        <div class="flex items-center mb-1">
+                            <h4 class="text-md 2xl:text-xl leading-none text-gray-900 me-1">
+                                <i class="fa-solid fa-users text-2xl mr-2 text-blue-500"></i>
+                                Cantidad de Usuarios
+                            </h4>
+                        </div>
+                    </div>
+                </div>
+                <div id="chartDonut" [ngClass]="cantUsuariosTotales ? '' : 'animate-pulse h-48 bg-gray-200 rounded'">
+                </div>
+
+                <span class="text-right text-gray-500 text-xs 2xl:text-sm">
+                    <p>Cantidad total de usuarios: {{cantUsuariosTotales}}</p>
+                </span>
+            </div>
+
+
+
+            <div
+                class="w-full md:w-6/12 lg:w-6/12 xl:w-4/12 bg-white py-3 px-2 md:py-6 md:px-6 mb-4 lg:mb-0 rounded">
+                <div class="flex justify-between items-start w-full mb-2">
+                    <div class="flex-col items-center">
+                        <div class="flex items-center mb-1">
+                            <h4 class="text-md 2xl:text-xl leading-none text-gray-900 me-1">
+                                <i class="fa-solid fa-chart-line text-2xl mr-2 text-blue-500"></i>
+                                Alta de Productos por mes
+                            </h4>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="chartRadar"
+                    [ngClass]="cantProductosTotal ? '' : 'animate-pulse h-48 bg-gray-200 rounded'"></div>
+
+                <span class="text-right text-gray-500 text-xs 2xl:text-sm">
+                    <p>Cantidad de productos: {{cantProductosTotal}}</p>
+                </span>
+            </div>
+
+            <div
+                class="w-full md:w-full lg:w-full xl:w-4/12 bg-white py-3 px-2 md:py-6 md:px-6 mb-4 lg:mb-0 rounded lg:mt-4 xl:mt-0">
+                <div class="flex justify-between items-start w-full mb-2">
+                    <div class="flex-col items-center">
+                        <div class="flex items-center mb-1">
+                            <h4 class="text-md 2xl:text-xl leading-none text-gray-900 me-1">
+                                <i class="fa-solid fa-copy text-2xl mr-2 text-blue-500"></i>
+                                Facturacion por Mes
+                            </h4>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="chartLine"
+                    [ngClass]="cantFacturasTotal ? '' : 'animate-pulse h-48 bg-gray-200 rounded'"></div>
+
+                <span class="text-right text-gray-500 text-xs 2xl:text-sm">
+                    <p>Cantidad de facturas: {{cantFacturasTotal}}</p>
+                </span>
+            </div>
+
+        </div>
     </div>
-
-
-    <div class="w-full  shadow dark:bg-gray-800 p-4 flex flex-wrap space-x-0 xl:space-x-1 xl:flex-nowrap">
-
-
-        <div
-            class="w-full md:w-6/12 lg:w-6/12 xl:w-4/12 bg-white p-6 mb-4 lg:mb-0 xl:rounded-lg lg:rounded-l-lg md:rounded-l-lg sm:rounded-lg">
-            <div class="flex justify-between items-start w-full mb-2">
-                <div class="flex-col items-center">
-                    <div class="flex items-center mb-1">
-                        <i class="fa-solid fa-users text-2xl mr-2 text-color-site"></i>
-                        <h4 class="text-xl font-bold leading-none text-gray-900 dark:text-white me-1">
-                            Cantidad de Usuarios
-                        </h4>
-                    </div>
-                </div>
-            </div>
-            <div id="chartDonut" [ngClass]="cantUsuariosTotales ? '' : 'animate-pulse h-64 w-full bg-gray-300'"></div>
-
-            <span class="text-right text-gray-500 font-semibold">
-                <p>Cantidad total de usuarios:  {{cantUsuariosTotales}}</p>
-            </span>
-        </div>
-
-
-
-        <div
-            class="w-full md:w-6/12 lg:w-6/12 xl:w-4/12 bg-white p-6 mb-4 lg:mb-0  xl:rounded-lg lg:rounded-r-lg md:rounded-r-lg sm:rounded-lg">
-            <div class="flex justify-between items-start w-full mb-2">
-                <div class="flex-col items-center">
-                    <div class="flex items-center mb-1">
-                        <i class="fa-solid fa-chart-line text-2xl mr-2 text-color-site"></i>
-                        <h4 class="text-xl font-bold leading-none text-gray-900 dark:text-white me-1">
-                            Alta de Productos por mes
-                        </h4>
-                    </div>
-                </div>
-            </div>
-
-            <div id="chartRadar" class="filter-drop-shadow-sm" [ngClass]="cantProductosTotal ? '' : 'animate-pulse h-64 w-full bg-gray-300 '"></div>
-
-            <span class="text-right text-gray-500 font-semibold">
-                <p>Cantidad de productos: {{cantProductosTotal}}</p>
-            </span>
-        </div>
-
-        <div
-            class="w-full md:w-full lg:w-full xl:w-4/12 bg-white p-6 mb-4 lg:mb-0  xl:rounded-lg lg:rounded-lg lg:mt-4 xl:mt-0 md:rounded-lg sm:rounded-lg">
-            <div class="flex justify-between items-start w-full mb-2">
-                <div class="flex-col items-center">
-                    <div class="flex items-center mb-1">
-                        <i class="fa-solid fa-copy text-2xl mr-2 text-color-site"></i>
-                        <h4 class="text-xl font-bold leading-none text-gray-900 dark:text-white me-1">
-                            Facturacion por Mes
-                        </h4>
-                    </div>
-                </div>
-            </div>
-
-            <div id="chartLine" class="filter-drop-shadow-sm" [ngClass]="cantFacturasTotal ? '' : 'animate-pulse h-64 w-full bg-gray-300 '"></div>
-
-            <span class="text-right text-gray-500 font-semibold">
-                <p>Cantidad de facturas: {{cantFacturasTotal}}</p>
-            </span>
-        </div>
-
-    </div>
-
+</div>
 </body>

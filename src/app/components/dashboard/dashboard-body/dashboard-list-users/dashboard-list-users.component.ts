@@ -40,6 +40,8 @@ export class DashboardListUsersComponent implements OnInit {
     this.AuthService.svListUsers().subscribe(
       (users) => {
         this.userList = users;
+        console.log(users);
+        
       }
     )
 

@@ -1,33 +1,36 @@
-<body class="bg-white md:bg-gray-400 p-0 pt-14 md:p-4 lg:pt-5 lg:p-4">
-  <div class="container mx-auto p-4 bg-white md:shadow-md md:rounded-md">
+<body class="overflow-hidden py-2 px-2 sm:px-4 lg:px-4 lg:py-2 2xl:px-6 2xl:py-4">
+  <div class="p-3 sm:p-4 lg:p-8 2xl:mt-10 2xl:m-6 flex flex-col gap-4 sm:gap-6 bg-gray-200 bg-opacity-80 rounded-lg">
+    <div class="container mx-auto px-3 md:px-6 py-3 mt-12 lg:mt-0 bg-gray-100 bg-opacity-80 md:shadow-md rounded-md">
 
-    <h2 class="text-2xl font-semibold mb-4">Administrador de Compras</h2>
+      <h2 class="w-full sm:w-auto text-center sm:text-left text-xl lg:text-2xl 2xl:text-3xl p-2">Administrador de Compras</h2>
 
-    <div class="flex flex-col lg:flex-row lg:justify-between mb-2">
-      <div class="w-2/5 flex items-center space-y-4 space-x-4 lg:space-y-0 lg:space-x-4 order-2 lg:order-1">
-        <label for="showProducts" class="text-gray-700 font-semibold text-sm">Cantidad de Facturas:</label>
+      <div class="flex flex-col lg:flex-row lg:justify-between justify-center items-center">
+        <div class="w-full lg:w-/5 flex items-center space-y-4 space-x-4 lg:space-y-0 lg:space-x-4 order-2 lg:order-1">
+          <label for="showProducts" class="text-gray-700  text-sm 2xl:text-md">Cantidad de Facturas:</label>
         <select [(ngModel)]="cantElementPagination" id="showProducts"
-          class="border border-gray-300 rounded-md p-1 w-24">
+          class="border border-gray-300 rounded-md p-1 w-full lg:w-24">
           <option value="10">10</option>
           <option value="20">20</option>
           <option value="50">50</option>
         </select>
       </div>
 
-      <div class="w-3/5 lg:w-auto flex flex-col lg:flex-row items-start lg:items-end lg:space-x-4  order-1 lg:order-2">
-        <div class="mb-4 lg:mb-0 flex flex-col lg:flex-row items-start xl:items-center lg:space-x-4 space-y-3 lg:space-y-0">
-          <div class="relative">
+      <div class="w-full  lg:w-3/5 flex flex-col lg:flex-row items-center lg:space-x-4  order-1 lg:order-2">
+        <div class="w-full lg:w-auto mb-4 lg:mb-0 flex flex-col lg:flex-row items-center lg:space-x-4 space-y-3 lg:space-y-0">
+          <div class="relative w-full lg:w-auto">
             <input type="text" placeholder="Dirección"
-              class="w-80 lg:w-48 font-semibold text-xs py-2  px-3 rounded-md border focus:outline-none focus:ring focus:border-blue-100"
+              class="w-full lg:w-52 2xl:w-48  text-sm 2xl:text-md py-2  px-3 rounded-md border focus:outline-none focus:ring focus:border-blue-100"
               [(ngModel)]='filterDireccion'>
             <span class="absolute right-3 top-1/2 transform -translate-y-1/2">
               <i class="fa-solid fa-map-location-dot text-gray-600"></i>
             </span>
           </div>
           <button (click)="clearFilters()"
-            class="font-semibold bg-blue-500 text-xs text-white py-3 px-2 xl:px-8 rounded-md focus:outline-none hover:bg-blue-600">
-            <i class="fa-solid fa-filter text-white-600 pr-1 xl:pr-"></i>
+          class="w-full lg:w-auto mb-3 lg:mb-0 bg-blue-500 text-sm 2xl:text-md text-white py-2 rounded-md focus:outline-none hover:bg-blue-600">
+          <span class="mx-8 flex flex-row justify-center items-center gap-2">
+              <i class="fa-solid fa-filter text-white-600"></i>
             Limpiar
+            </span>
           </button>
         </div>
       </div>
@@ -35,17 +38,17 @@
     </div>
 
     <div class="overflow-x-auto">
-      <table class="min-w-full bg-gray-300 border border-gray-300 rounded-md overflow-hidden text-left">
-        <thead class="bg-gray-400">
+      <table class="min-w-full bg-gray-300 border border-gray-300 rounded-md overflow-hidden text-left mt-4">
+        <thead class="bg-gray-800 text-white text-left">
           <tr>
-            <th class="py-1 px-2 lg:py-2 lg:px-4 border-b text-sm lg:text-md">ID</th>
-            <th class="py-1 px-2 lg:py-2 lg:px-4 border-b text-sm hidden lg:table-cell lg:text-md">Nombre</th>
-            <th class="py-1 px-2 lg:py-2 lg:px-4 border-b text-sm hidden lg:table-cell lg:text-md">Dirección</th>
-            <th class="py-1 px-2 lg:py-2 lg:px-4 border-b text-sm hidden lg:table-cell lg:text-md">CP</th>
-            <th class="py-1 px-2 lg:py-2 lg:px-4 border-b text-sm hidden lg:table-cell lg:text-md actions">Total pagado</th>
-            <th class="py-1 px-2 lg:py-2 lg:px-4 border-b text-sm lg:text-md actions">Fecha</th>
-            <th class="py-1 px-2 lg:py-2 lg:px-4 border-b text-sm lg:text-md">Estado</th>
-            <th class="py-1 px-2 lg:py-2 lg:px-4 border-b text-sm lg:text-md actions">Acciones</th>
+            <th class="py-1 px-2 lg:py-2 lg:px-4 border-b text-sm 2xl:text-md font-thin">ID</th>
+            <th class="py-1 px-2 lg:py-2 lg:px-4 border-b hidden lg:table-cell text-sm 2xl:text-md font-thin">Nombre</th>
+            <th class="py-1 px-2 lg:py-2 lg:px-4 border-b hidden lg:table-cell text-sm 2xl:text-md font-thin">Dirección</th>
+            <th class="py-1 px-2 lg:py-2 lg:px-4 border-b hidden lg:table-cell text-sm 2xl:text-md font-thin">CP</th>
+            <th class="w-32 py-1 px-2 lg:py-2 lg:px-4 border-b hidden lg:table-cell actions text-sm 2xl:text-md font-thin">Total pagado</th>
+            <th class="py-1 px-2 lg:py-2 lg:px-4 border-b actions text-sm 2xl:text-md font-thin">Fecha</th>
+            <th class="py-1 px-2 lg:py-2 lg:px-4 border-b text-sm 2xl:text-md font-thin">Estado</th>
+            <th class="py-1 px-2 lg:py-2 lg:px-4 border-b actions text-sm 2xl:text-md font-thin">Acciones</th>
           </tr>
         </thead>
         <tbody>
@@ -62,29 +65,29 @@
           <ng-container *ngIf="tieneFacturas">
 
             <tr *ngIf="listFacturas?.length == 0" class="animate-pulse">
-              <td class="py-1 px-2 lg:py-2 lg:px-4 border-b text-sm lg:text-md"></td>
-              <td class="py-1 px-2 lg:py-2 lg:px-4 border-b text-sm hidden lg:table-cell lg:text-md">Cargando...</td>
-              <td class="py-1 px-2 lg:py-2 lg:px-4 border-b text-sm hidden lg:table-cell lg:text-md">Cargando...</td>
-              <td class="py-1 px-2 lg:py-2 lg:px-4 border-b text-sm hidden lg:table-cell lg:text-md">Cargando...</td>
-              <td class="py-1 px-2 lg:py-2 lg:px-4 border-b text-sm hidden lg:table-cell lg:text-md">Cargando...</td>
-              <td class="py-1 px-2 lg:py-2 lg:px-4 border-b text-sm lg:text-md">Cargando...</td>
-              <td class="py-1 px-2 lg:py-2 lg:px-4 border-b text-sm lg:text-md">Cargando...</td>
-              <td class="py-1 px-2 lg:py-2 lg:px-4 border-b text-sm lg:text-md">Cargando...</td>
+              <td class="py-1 px-2 lg:py-2 lg:px-4 border-b text-sm 2xl:text-md"></td>
+              <td class="py-1 px-2 lg:py-2 lg:px-4 border-b hidden lg:table-cell text-sm 2xl:text-md">Cargando...</td>
+              <td class="py-1 px-2 lg:py-2 lg:px-4 border-b hidden lg:table-cell text-sm 2xl:text-md">Cargando...</td>
+              <td class="py-1 px-2 lg:py-2 lg:px-4 border-b hidden lg:table-cell text-sm 2xl:text-md">Cargando...</td>
+              <td class="py-1 px-2 lg:py-2 lg:px-4 border-b hidden lg:table-cell text-sm 2xl:text-md">Cargando...</td>
+              <td class="py-1 px-2 lg:py-2 lg:px-4 border-b text-sm 2xl:text-md">Cargando...</td>
+              <td class="py-1 px-2 lg:py-2 lg:px-4 border-b text-sm 2xl:text-md">Cargando...</td>
+              <td class="py-1 px-2 lg:py-2 lg:px-4 border-b text-sm 2xl:text-md">Cargando...</td>
             </tr>
             
             <tr *ngFor="let item of obtenerElementosDePagina()" class="hover:bg-gray-50">
-              <td style="text-shadow: 2px 2px #000000ce;"
-                class="py-1 px-2 lg:py-2 lg:px-4 border-b bg-gray-600 font-bold text-white text-sm lg:text-md">{{item?.id}}</td>
-              <td class="py-1 px-2 lg:py-2 lg:px-4 border-b hidden lg:table-cell text-xs md:text-sm lg:text-md">{{item?.name}}</td>
-              <td class="py-1 px-2 lg:py-2 lg:px-4 border-b hidden lg:table-cell text-xs md:text-sm lg:text-md">{{item?.address}}</td>
-              <td class="py-1 px-2 lg:py-2 lg:px-4 border-b hidden lg:table-cell text-xs md:text-sm lg:text-md">{{item?.cp}}</td>
-              <td style="text-shadow: 2px 2px #000000ce;"
-                class="py-1 px-2 lg:py-2 lg:px-4 border-b font-bold text-green-400 bg-gray-600 hidden lg:table-cell text-xs md:text-sm lg:text-md">
-                $ {{item?.total}}
+              <td
+                class="py-1 px-2 lg:py-2 lg:px-4 border-b bg-gray-600 text-white text-sm 2xl:text-md">{{item?.id}}</td>
+              <td class="py-1 px-2 lg:py-2 lg:px-4 border-b hidden lg:table-cell text-sm 2xl:text-md capitalize">{{item?.name}}</td>
+              <td class="py-1 px-2 lg:py-2 lg:px-4 border-b hidden lg:table-cell text-sm 2xl:text-md">{{item?.address}}</td>
+              <td class="py-1 px-2 lg:py-2 lg:px-4 border-b hidden lg:table-cell text-sm 2xl:text-md">{{item?.cp}}</td>
+              <td
+                class="py-1 px-2 lg:py-2 lg:px-4 border-b text-green-400 bg-gray-600 hidden lg:table-cell text-sm 2xl:text-md">
+                $ {{(item?.total).toLocaleString('es-ES')}}
               </td>
-              <td class="py-1 px-2 lg:py-2 lg:px-4 border-b text-xs md:text-sm lg:text-md">{{item?.date}}</td>
-              <td style="text-shadow: 2px 2px #000000ce;"
-                class="py-1 px-2 lg:py-2 lg:px-4 border-b font-semibold bg-gray-600 text-xs md:text-sm lg:text-md">
+              <td class="py-1 px-2 lg:py-2 lg:px-4 border-b text-sm 2xl:text-md">{{item?.date}}</td>
+              <td
+                class="py-1 px-2 lg:py-2 lg:px-4 border-b bg-gray-600 text-sm 2xl:text-md lowercase tracking-widest	">
                 <span *ngIf="item?.state == 'PENDIENTE'" class="text-orange-400">
                   {{item?.state}}
                 </span>
@@ -101,7 +104,7 @@
                   {{item?.state}}
                 </span>
               </td>
-              <td class="border-b actions bg-white text-center text-sm lg:text-md space-x-2">
+              <td class="border-b actions bg-white text-center text-sm 2xl:text-lg space-x-2">
                 <button class="text-blue-500 hover:text-blue-900 focus:outline-none"
                   (click)="showModal(action.VIEW, item)">
                   <i class="fa-solid fa-eye"></i>
@@ -118,148 +121,36 @@
       </table>
     </div>
 
-    <div *ngIf="listFacturas" class="flex justify-center mt-4">
-      <div class="flex">
-        <a class="py-2 px-4 border border-gray-300 rounded-l cursor-pointer"
-          [style.pointer-events]="paginationView === 1 ? 'none' : 'auto'"
-          (click)="cambiarPagina(paginationView - 1)">Anterior</a>
+    <div class="flex justify-center mt-4">
+      <div class="flex space-x-1">
+
+        <a class="py-2 px-4 border border-gray-300 rounded-l-lg cursor-pointer text-sm 2xl::text-md bg-white text-gray-800 hover:bg-blue-500 hover:text-gray-100 transition"
+           [style.pointer-events]="paginationView === 1 ? 'none' : 'auto'"
+           [ngClass]="{'bg-gray-200 cursor-not-allowed': paginationView === 1}"
+           (click)="cambiarPagina(paginationView - 1)">
+          Anterior
+        </a>
+        
         <ng-container *ngFor="let pagina of obtenerRangoDePaginas()">
-          <a class="py-2 px-4 border-t border-b border-gray-300 cursor-pointer"
-            [ngClass]="{'bg-blue-500 text-white': pagina === paginationView}" (click)="cambiarPagina(pagina)">{{ pagina
-            }}</a>
+          <a class="py-2 px-4 border-t border-b border-gray-300 cursor-pointer text-sm md:text-md bg-white text-gray-600 hover:bg-blue-500 hover:text-white transition"
+             [ngClass]="{'text-black bg-blue-300': pagina === paginationView, 'rounded-none': true}"
+             (click)="cambiarPagina(pagina)">
+            {{ pagina }}
+          </a>
         </ng-container>
-        <a class="py-2 px-4 border border-gray-300 cursor-pointer"
-          [style.pointer-events]="paginationView === obtenerRangoDePaginas().length ? 'none' : 'auto'"
-          (click)="cambiarPagina(paginationView + 1)">Siguiente</a>
+        
+        <a class="py-2 px-4 border border-gray-300 rounded-r-lg cursor-pointer text-sm 2xl::text-md bg-white text-gray-800 hover:bg-blue-500 hover:text-gray-100 transition"
+           [style.pointer-events]="paginationView === obtenerRangoDePaginas().length ? 'none' : 'auto'"
+           [ngClass]="{'bg-gray-200 cursor-not-allowed': paginationView === obtenerRangoDePaginas().length}"
+           (click)="cambiarPagina(paginationView + 1)">
+          Siguiente
+        </a>
       </div>
     </div>
 
   </div>
 
   <app-form-shop-history #modalDetailFactura (refreshList)="refreshListFacturas($event)"></app-form-shop-history>
+  </div>
 </body>
 
-<!-- <body class="bg-gray-300 p-8">
-  <div class="container mx-auto p-4 bg-white shadow-md rounded-md">
-
-    <h2 class="text-2xl font-semibold mb-4">Administrador de Artículos</h2>
-
-    <div class="flex items-center justify-between mb-4">
-
-      <div class="flex items-center space-x-4">
-        <label for="showProducts" class="text-gray-700 font-semibold">Cantidad de Facturas:</label>
-        <select [(ngModel)]="cantElementPagination" id="showProducts" class="border border-gray-300 rounded-md p-1">
-          <option value="10">10</option>
-          <option value="20">20</option>
-          <option value="50">50</option>
-        </select>
-      </div>
-
-      <div class="flex items-center space-x-4">
-        <div class="mb-4 flex items-center space-x-4">
-          <div class="relative">
-            <input type="text" placeholder="Direccion"
-              class="font-semibold py-2 px-3 rounded-md border focus:outline-none focus:ring focus:border-blue-100"
-              [(ngModel)]='filterDireccion'>
-            <span class="absolute right-3 top-1/2 transform -translate-y-1/2">
-              <i class="fa-solid fa-map-location-dot text-gray-600"></i>
-            </span>
-          </div>
-          <button (click)="clearFilters()"
-            class="font-semibold bg-blue-500 text-white py-2 px-8 rounded-md focus:outline-none hover:bg-blue-600">
-            <i class="fa-solid fa-filter text-white-600 pr-2"></i>
-            Limpiar
-          </button>
-        </div>
-      </div>
-
-    </div>
-
-    <table class="min-w-full bg-gray-300 border border-gray-300 rounded-md overflow-hidden text-left">
-      <thead class="bg-gray-400">
-        <tr>
-
-          <th class="py-2 px-4 border-b">ID</th>
-          <th class="py-2 px-4 border-b">Nombre</th>
-          <th class="py-2 px-4 border-b">Dirección</th>
-          <th class="py-2 px-4 border-b">CP</th>
-          <th class="py-2 px-4 border-b actions">Total pagado</th>
-          <th class="py-2 px-4 border-b actions">Fecha</th>
-          <th class="py-2 px-4 border-b">Estado</th>
-          <th class="py-2 px-4 border-b actions">Acciones</th>
-        </tr>
-      </thead>
-
-      <tbody>
-        <tr>
-          <td></td>
-          <td><span *ngIf="!tieneFacturas" class="pl-4 text-red-500">
-              No se registran ninguna compra...
-            </span></td>
-        </tr>
-      </tbody>
-
-      <tbody *ngIf="tieneFacturas">
-        <tr *ngFor="let item of obtenerElementosDePagina()" class="hover:bg-gray-50">
-          <td style="text-shadow: 2px 2px #000000ce;"class="py-2 px-4 border-b bg-gray-600 font-bold text-white">{{item?.id}}</td>
-          <td class="py-2 px-4 border-b">{{item?.name}}</td>
-          <td class="py-2 px-4 border-b">{{item?.address}}</td>
-          <td class="py-2 px-4 border-b">{{item?.cp}}</td>
-
-          <td style="text-shadow: 2px 2px #000000ce;" class="py-2 px-4 border-b font-bold text-green-400 bg-gray-600">
-            $ {{item.total}}
-          </td>
-          <td class="py-2 px-4 border-b">{{item?.date}}</td>
-          <td style="text-shadow: 2px 2px #000000ce;" class="py-2 px-4 border-b font-semibold bg-gray-600">
-            <span *ngIf="item?.state == 'PENDIENTE'" class="text-orange-400">
-              {{item?.state}}
-            </span>
-            <span *ngIf="item?.state == 'DESPACHADO'" class="text-yellow-400">
-              {{item?.state}}
-            </span>
-            <span *ngIf="item?.state == 'ENVIADO'" class="text-green-400">
-              {{item?.state}}
-            </span>
-            <span *ngIf="item?.state == 'RECIBIDO'" class="text-blue-400">
-              {{item?.state}}
-            </span>
-            <span *ngIf="item?.state == 'CANCELADO'" class="text-red-500">
-              {{item?.state}}
-            </span>
-          </td>
-          <td class="border-b actions bg-white text-center">
-            <button class="text-blue-500 hover:text-blue-900 focus:outline-none mr-3"
-              (click)="showModal(action.VIEW, item)">
-              <i class="fa-solid fa-eye"></i>
-            </button>
-
-            <button *ngIf="item.state != 'CANCELADO'"
-              class="text-red-500 hover:text-red-700 focus:outline-none  text-lg" (click)="showModal(action.DEL,item)">
-              <i class="fas fa-trash"></i>
-            </button>
-          </td>
-        </tr>
-
-      </tbody>
-    </table>
-
-    <div *ngIf="listFacturas" class="flex justify-center mt-4">
-      <div class="flex">
-        <a class="py-2 px-4 border border-gray-300 rounded-l cursor-pointer"
-          [style.pointer-events]="paginationView === 1 ? 'none' : 'auto'"
-          (click)="cambiarPagina(paginationView - 1)">Anterior</a>
-        <ng-container *ngFor="let pagina of obtenerRangoDePaginas()">
-          <a class="py-2 px-4 border-t border-b border-gray-300 cursor-pointer"
-            [ngClass]="{'bg-blue-500 text-white': pagina === paginationView}" (click)="cambiarPagina(pagina)">{{ pagina
-            }}</a>
-        </ng-container>
-        <a class="py-2 px-4 border border-gray-300 cursor-pointer"
-          [style.pointer-events]="paginationView === obtenerRangoDePaginas().length ? 'none' : 'auto'"
-          (click)="cambiarPagina(paginationView + 1)">Siguiente</a>
-      </div>
-    </div>
-
-  </div>
-
-  <app-form-shop-history #modalDetailFactura (refreshList)="refreshListFacturas($event)"></app-form-shop-history>
-</body> -->

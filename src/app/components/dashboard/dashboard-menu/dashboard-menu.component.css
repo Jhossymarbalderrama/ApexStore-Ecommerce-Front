@@ -1,10 +1,22 @@
 
- .mb-4>a:hover {
-     color: #6875F5;
+div a {
+    border-radius: 0.2rem;
+}
+a:hover {
+     color: white !important;
+     fill: white !important;
  }
 
  .menu-view {
      color: #6875F5;
+ }
+
+ .bg-activate{
+    background-color: #228BE6 !important;
+ }
+
+ .bg-hover-activate:hover{
+    background-color: #228be6d2 !important;
  }
 
  /* Estilos para la línea horizontal */
@@ -32,8 +44,9 @@
 
  .bg-menu {
 
-     background: #000000;
-    background: -webkit-linear-gradient(to top, #161616, #383838);
-    background: linear-gradient(to top, #161616, #383838);
+     background: #0e1014;
+    /* background: -webkit-linear-gradient(to top, #161616, #383838);
+    background: linear-gradient(to top, #161616, #383838); */
 
+    /* background: linear-gradient(to bottom, #0e1014c2, #0e1014); */
  }

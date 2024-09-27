@@ -115,7 +115,7 @@ export class ProductService {
   svListProducts(): Observable<Product[]> {
     return this.http.get<Product[]>(environment.urlApiProduct + "list")
       .pipe(
-        tap((productsList) => {
+        tap((productsList) => {          
           this.svSaveListLocal(productsList);
         }),
         catchError(

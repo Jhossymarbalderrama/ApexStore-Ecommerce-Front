@@ -21,8 +21,8 @@ export class LoginComponent implements OnInit {
   showOverlay: boolean = false; // ? Spinner Loading
 
   formLogin: FormGroup = this.FormBuilder.group({
-    'username': ['jhossy@gmail.com',[ Validators.required, Validators.email]],
-    'password': ['jhossy', Validators.required]
+    'username': ['',[ Validators.required, Validators.email]],
+    'password': ['', Validators.required]
   });
 
   // * GETTERs and SETTERs
@@ -76,6 +76,27 @@ export class LoginComponent implements OnInit {
       });      
     } else {
       this.formLogin.markAllAsTouched();
+    }
+  }
+
+
+  /**
+   * Auto Login
+   * @param usr 
+   */
+  onAutoLogin(value: number){
+    switch (value) {
+      case 1:      
+        this.formLogin.setValue({"username": "jhossy@gmail.com", "password": "jhossy"});    
+        break;
+        case 2:        
+          this.formLogin.setValue({"username": "josemaria@gmail.com", "password": "josemaria"});  
+        break;
+        case 3:
+          this.formLogin.setValue({"username": "testQA@gmail.com", "password": "testQA"});  
+        break;
+      default:
+        break;
     }
   }
   //#endregion

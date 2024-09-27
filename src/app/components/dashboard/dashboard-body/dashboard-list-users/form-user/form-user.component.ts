@@ -13,7 +13,7 @@ import { ToastService } from 'src/app/services/toast.service';
   templateUrl: './form-user.component.html',
   styleUrls: ['./form-user.component.css']
 })
-export class FormUserComponent implements OnInit {
+export class FormUserComponent  {
 
   // * ATRIBUTOS
   //#region 

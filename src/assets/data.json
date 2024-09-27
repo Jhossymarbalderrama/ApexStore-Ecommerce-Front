@@ -1,0 +1,132 @@
+{
+    "home": {
+        "slider_imgs": [
+            "/assets/img/banners/1.webp",
+            "/assets/img/banners/2.webp",
+            "/assets/img/banners/3.webp",
+            "/assets/img/banners/4.webp",
+            "/assets/img/banners/5.webp",
+            "/assets/img/banners/6.webp"
+        ],        
+        "shippingMethods": [
+            {
+                "icon": "https://img.icons8.com/ios-glyphs/40/marker--v1.png",
+                "title": "¡Retira y Compra!",
+                "description": "Consultá con un vendedor"
+            },
+            {
+                "icon": "https://img.icons8.com/ios-glyphs/40/in-transit.png",
+                "title": "Envíos a todo el pais",
+                "description": "¡Rápido, sin vueltas!"
+            },
+            {
+                "icon": "https://img.icons8.com/ios-filled/40/bank-card-dollar.png",
+                "title": "¡Pagá en cuotas!",
+                "description": "Ver medios de pago"
+            },
+            {
+                "icon": "https://img.icons8.com/ios-glyphs/40/approval.png",
+                "title": "Compra 100% segura",
+                "description": "Garantias Oficiales"
+            }
+        ],
+        "categories":[
+            {
+                "icon": "https://img.icons8.com/ios-filled/60/video-card.png",
+                "name": "Graficas",
+                "category": "Placa de Video"
+              },
+              {
+                "icon": "https://img.icons8.com/ios-filled/60/monitor--v1.png",
+                "name": "Monitores",
+                "category": "Monitores"
+              },
+              {
+                "icon": "https://img.icons8.com/ios-glyphs/60/processor.png",
+                "name": "Procesadores",
+                "category": "Procesadores"
+              },
+              {
+                "icon": "https://img.icons8.com/ios-glyphs/60/hdd.png",
+                "name": "Discos",
+                "category": "Almacenamiento"
+              },
+              {
+                "icon": "https://img.icons8.com/ios-glyphs/60/memory-slot.png",
+                "name": "Memorias Ram",
+                "category": "Ram"
+              }
+        ]
+    },
+    "store": {
+        "title": "Nuestros Productos",
+        "banner": "../assets/img/banners/sections/store.webp"
+    },
+    "about":{
+        "title": "Sobre nosotros",
+        "section_1":{
+            "title": "Descubre lo último en tecnología <br class='hidden lg:inline-block' />Productos de Computación de Alta Calidad",
+            "description": "Explora nuestra amplia gama de productos de computación, desde potentes laptops hasta periféricos de última generación. Ofrecemos soluciones tecnológicas innovadoras para satisfacer tus necesidades.",
+            "img": "../assets/img/about/1.webp"
+        },
+        "section_2":{
+            "title": "Impulsando tu Éxito Digital",
+            "description": "Descubre cómo nuestros productos de computación están impulsando el éxito de empresas en todo el mundo. Desde ventas exitosas hasta clientes satisfechos y una creciente base de productos, estamos aquí para llevar tu negocio al siguiente nivel.",
+            "icons": [
+                {
+                    "title": "+3.500v",
+                    "description": "Ventas anuales",
+                    "icon": "fas fa-shopping-cart"
+                },
+                {
+                    "title": "+2.500c",
+                    "description": "Clientes Satisfechos",
+                    "icon": "fas fa-users"
+                },
+                {
+                    "title": "+200p",
+                    "description": "Productos Innovadores",
+                    "icon": "fas fa-laptop"
+                },
+                {
+                    "title": "+1.000",
+                    "description": "Visitas Mensuales",
+                    "icon": "fa-solid fa-chart-pie"
+                }
+            ]
+        },
+        "section_3":{
+            "title": "Clientes satisfechos",
+            "comments": [
+                {
+                    "name": "Maria Gomez",
+                    "state": "Cliente Feliz",
+                    "img": "https://flowbite.com/docs/images/people/profile-picture-4.jpg",
+                    "description": "¡Me encanta esta tienda de productos gaming! Compré mi nueva computadora y silla gamer aquí, y la calidad es impresionante. Además, el servicio al cliente fue excepcional. Definitivamente volveré por más."
+                },
+                {
+                    "name": "Leandro Rodriguez",
+                    "state": "Gamer Enthusiast",
+                    "img": "https://flowbite.com/docs/images/people/profile-picture-5.jpg",
+                    "description": "¡La tienda tiene los mejores productos gaming! Compré un teclado mecánico y una silla gamer, y estoy muy satisfecho. La entrega fue rápida y los productos son de alta calidad. Recomiendo esta tienda a todos los gamers."
+                }
+            ]
+        },
+        "banner": "../assets/img/banners/sections/about.webp"
+    },
+    "contact":{
+        "title": "Contactanos",
+        "location": {
+            "title": "Ubicación",
+            "description": "Nos encontramos en el corazón de la ciudad, en Av. Gamer 123, Ciudad Virtual."
+        },
+        "email": "infoweb@apexstore.com",
+        "phone": "+123 456 7890",
+        "form": {
+            "title": "Contactanos",
+            "description": "Completa el formulario a continuación y te responderemos lo antes posible. Estamos aquí para ayudarte con cualquier consulta sobre nuestros productos gaming.",
+            "info": "formulario de consultas."
+        },
+        "banner": "../assets/img/banners/sections/contact.webp"
+    }
+}

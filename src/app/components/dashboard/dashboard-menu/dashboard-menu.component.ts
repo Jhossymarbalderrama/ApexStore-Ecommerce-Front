@@ -14,10 +14,11 @@ export class DashboardMenuComponent {
   dashboardUser: boolean = false;
   userIMG: string = '../../../../assets/img/dashboard/user.jpg'; // ! Sacar esto y poner la imagen que tiene el Usuario
   estaEnPerfil: boolean = false;
+  logo_site: string = '../../../../assets/logo-bcd.png';
 
   // * CONSTRUCTOR
   constructor(
-    private router: Router, 
+    public router: Router, 
     public AuthService: AuthService,
     public UrlService: UrlService
   ) {

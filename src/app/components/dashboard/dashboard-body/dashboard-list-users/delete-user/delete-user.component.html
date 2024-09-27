@@ -1,11 +1,13 @@
-<!-- Main modal -->
+ 
 <div id="delete-modal-user"
     class="modal h-screen w-full fixed left-0 top-0 flex justify-center items-center bg-black bg-opacity-50 hidden z-30"
     (click)="closeModal()">
-    <div class="relative p-4 w-full max-w-md max-h-full"  (click)="$event.stopPropagation()">
-        <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
-            <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600">
-                <h2 class="text-2xl font-semibold">Eliminar Usuario</h2>
+    <div class="relative p-4 w-full max-w-lg max-h-full"  (click)="$event.stopPropagation()">
+        <div class="relative bg-gray-200 rounded shadow">
+            <div class="flex items-center justify-between p-4 md:p-5 border-b border-gray-300 rounded-t dark:border-gray-600">
+                <h2 class="text-2xl gap-2">
+                    <i class="fa-solid fa-user-xmark"></i>
+                    Eliminar Usuario</h2>
                 <button type="button" title="close" (click)="closeModal()"
                     class="text-black-400 bg-red-400 hover:bg-red-300 hover:text-red-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-red-700 dark:hover:text-white"
                     >
@@ -13,20 +15,23 @@
                     <span class="sr-only">Close</span>
                 </button>
             </div>
-            <!-- Modal body -->
             <div class="min-w-md mx-auto bg-white rounded py-6 px-2 shadow-md">
-                <div class="flex justify-center">
-                    <h1 class="text-black-400 text-center" style="font-size: 18px;">¿Esta seguro que quiere <a class="text-red-400 font-bold">eliminar al Usuario</a>?</h1>
+                <div class="flex flex-col justify-center gap-4 text-center">
+                    <h4 class="text-lg">¿Está seguro de que desea<a class="text-red-500 font-bold"> eliminar al Usuario</a> seleccionado?</h4>
+                    <h5 class="text-xs text-blue-900">
+                        <i class="fa-solid fa-circle-info"></i>
+                        Esta accion eliminara al Usuario de la base de datos permanentemente.
+                    </h5>
                 </div>
-                <div class="flex justify-center mt-5">
+                <div class="flex justify-around mt-5">
                     <button type="submit" (click)="deleteUser()"
-                        class="text-white inline-flex items-center bg-red-500 hover:bg-red-600 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-8 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-                        <i class="fa-solid fa-floppy-disk mr-2"></i>
-                        Delete
+                    class="text-white inline-flex items-center bg-red-500 hover:bg-red-600 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded text-sm px-8 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                    <i class="fa-solid fa-floppy-disk mr-2"></i>
+                        Eliminar Usuario
                     </button>
                     <button (click)="closeModal()"
-                        class="text-white inline-flex items-center bg-blue-500 hover:bg-blue-600 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 ml-3">
-                        Cancel
+                        class="text-white inline-flex items-center bg-blue-500 hover:bg-blue-600 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 ml-3">
+                        Cancelar Acción
                     </button>
                 </div>
             </div>

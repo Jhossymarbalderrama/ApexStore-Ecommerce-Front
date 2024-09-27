@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild, ElementRef, OnDestroy, AfterViewInit } from '@angular/core';
 import { LoginService } from 'src/app/services/login.service';
-import * as ApexCharts from 'apexcharts';
+import ApexCharts from 'apexcharts';
 import { ChartService } from 'src/app/services/chart.service';
 
 @Component({

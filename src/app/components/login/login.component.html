@@ -1,13 +1,28 @@
 <section class="py-20 flex items-center justify-center">
 
-    <div class="bg-white p-8 rounded-xl shadow-xl w-5/6 sm:w-3/4 md:w-3/4 lg:w-1/2 xl:w-1/4">
+    <div class="bg-white p-8 rounded shadow-xl w-5/6 sm:w-3/4 md:w-3/4 lg:w-1/2 xl:w-1/4">
       <h2 class="text-2xl font-semibold mb-4 text-center">Iniciar Sesión</h2>
   
+      <div class="w-full flex justify-start gap-1 2xl:gap-4 pb-4">        
+        <button class="btn bg-gray-600 hover:bg-gray-900 text-white rounded text-sm 2xl:text-md" (click)="onAutoLogin(1)">
+          <i class="fa-solid fa-user-tie mr-2"></i>
+          <span>Administrador</span>
+        </button>
+        <button class="btn bg-gray-600 hover:bg-gray-900 text-white rounded text-sm 2xl:text-md" (click)="onAutoLogin(2)">
+          <i class="fa-solid fa-user mr-2"></i>
+          <span>invitado</span>
+        </button>
+        <button class="btn bg-gray-600 hover:bg-gray-900 text-white rounded text-sm 2xl:text-md" (click)="onAutoLogin(3)">
+          <i class="fa-solid fa-user mr-2"></i>
+          <span>invitado</span>
+        </button>
+      </div>
+
       <form [formGroup]="formLogin" id="formLogin" (ngSubmit)="onLogin()">
         <div class="mb-4">
           <label for="email" class="block text-sm font-medium text-gray-600">Correo Electrónico</label>
           <div class="relative">
-            <input class="form-control mt-1 p-2 w-full border rounded-md focus:outline-none focus:border-blue-500"
+            <input class="form-control p-2 w-full border rounded-md focus:outline-none focus:border-blue-500"
               formControlName="username" type="email" id="username" name="username">
             <i class="absolute top-4 right-3 text-gray-500 fas fa-envelope"></i>
   
@@ -21,7 +36,7 @@
         <div class="mb-4">
           <label for="password" class="block text-sm font-medium text-gray-600">Contraseña</label>
           <div class="relative">
-            <input class="form-control mt-1 p-2 w-full border rounded-md focus:outline-none focus:border-blue-500"
+            <input class="form-control p-2 w-full border rounded-md focus:outline-none focus:border-blue-500"
               formControlName="password" type="password" id="password" name="password">
             <i class="absolute top-4 right-3 text-gray-500 fas fa-lock"></i>
   

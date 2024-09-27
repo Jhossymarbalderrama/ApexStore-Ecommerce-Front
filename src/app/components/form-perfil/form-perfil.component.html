@@ -1,11 +1,11 @@
-<!-- Main modal -->
+
 <div id="crud-modal"
-    class="modal h-screen w-full fixed left-0 top-0 flex justify-center items-center bg-black bg-opacity-50 hidden"
+    class="modal h-screen w-full fixed left-0 top-0 flex justify-center items-center bg-black bg-opacity-50 hidden  z-30"
     (click)="closeModal()">
     <div class="relative p-4 w-full max-w-md max-h-full"  (click)="$event.stopPropagation()">
-        <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
-            <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600">
-                <h2 class="text-2xl font-semibold">Profile edit</h2>
+        <div class="relative bg-gray-200 rounded shadow dark:bg-gray-700">
+            <div class="flex items-center justify-between p-4 border-b border-gray-300 dark:border-gray-600">
+                <h2 class="text-2xl">Editar Perfil</h2>
                 <button type="button" title="close"
                     class="text-black-400 bg-red-400 hover:bg-red-300 hover:text-red-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-red-700 dark:hover:text-white"
                     (click)="closeModal()">
@@ -13,8 +13,8 @@
                     <span class="sr-only">Close</span>
                 </button>
             </div>
-            <form [formGroup]="formPerfil" class="p-4 md:p-5">
-                <div class="grid gap-4 mb-4 grid-cols-2">            
+            <form [formGroup]="formPerfil" class="p-6">
+                <div class="grid gap-2 mb-4 grid-cols-2">            
                     <div class="col-span-2 flex flex-col justify-center items-center">
                         <div class="relative">
                             <label for="imageInput" class="cursor-pointer">
@@ -57,12 +57,12 @@
                 </div>
                 <div class="flex justify-end">
                     <button type="submit" (click)="updateDataUser()"
-                        class="text-white inline-flex items-center bg-green-500 hover:bg-green-600 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-8 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                        class="text-white inline-flex items-center bg-green-500 hover:bg-green-600 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded text-sm px-8 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                         <i class="fa-solid fa-floppy-disk mr-2"></i>
                         Guardar
                     </button>
                     <button (click)="closeModal()"
-                        class="text-white inline-flex items-center bg-red-500 hover:bg-red-600 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 ml-3">
+                        class="text-white inline-flex items-center bg-red-500 hover:bg-red-600 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 ml-3">
                         Cancel
                     </button>
                 </div>               

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { UrlService } from 'src/app/services/url.service';
+import { DataService } from 'src/app/services/data.service';
 
 @Component({
   selector: 'app-about',
@@ -8,7 +8,11 @@ import { UrlService } from 'src/app/services/url.service';
 })
 export class AboutComponent {
 
-  constructor(public UrlService: UrlService){
+  data_about:any;
 
+  constructor(
+    public data: DataService
+  ){
+    this.data_about = data.getDataAbout;
   }
 }

@@ -1,142 +1,159 @@
-<body class="bg-white md:bg-gray-400 p-0 pt-14 md:p-4 lg:pt-5 lg:p-4">
-  <div class="container mx-auto p-4 bg-white md:shadow-md md:rounded-md">
-    <h2 class="text-2xl font-semibold mb-4">Administrador de Productos</h2>
+<body class="overflow-hidden py-2 px-2 sm:px-4 lg:px-4 lg:py-2 2xl:px-6 2xl:py-4">
+  <div class="p-3 sm:p-4 lg:p-8 2xl:mt-10 2xl:m-6 flex flex-col gap-4 sm:gap-6 bg-gray-200 bg-opacity-80 rounded-lg">
+    <div class="container mx-auto px-3 md:px-6 py-3 mt-12 lg:mt-0 bg-gray-100 bg-opacity-80 md:shadow-md rounded-md">
+      <h2 class="w-full sm:w-auto text-center sm:text-left text-xl lg:text-2xl 2xl:text-3xl p-2">Administrador de Productos</h2>
 
-    <div class="flex justify-end my-3">
-      <button class="bg-green-500 text-white px-4 py-2 rounded-md flex items-center" (click)="showModal(action.ADD)">
-        <i class="fas fa-plus-circle mr-2"></i>
-        Agregar Producto
-      </button>
-    </div>
-
-    <div class="flex flex-col lg:flex-row lg:justify-between mb-2">
-      <div class="w-2/5 flex items-center space-y-4 space-x-4 lg:space-y-0 lg:space-x-4 order-2 lg:order-1">
-        <label for="showProducts" class="text-gray-700 font-semibold text-sm">Cantidad de Productos:</label>
-        <select [(ngModel)]="cantElementPagination" id="showProducts"
-          class="border border-gray-300 rounded-md p-1 w-24">
-          <option value="10">10</option>
-          <option value="20">20</option>
-          <option value="50">50</option>
-        </select>
-      </div>
-
-      <div class="w-3/5 lg:w-auto flex flex-col lg:flex-row items-start lg:items-end lg:space-x-4  order-1 lg:order-2">
-        <div class="mb-4 lg:mb-0 flex flex-col lg:flex-row items-center lg:space-x-4 space-y-3 lg:space-y-0">
-          <div class="relative">
-            <input type="text" placeholder="Nombre"
-              class="w-80 lg:w-48 font-semibold text-xs py-2  px-3 rounded-md border focus:outline-none focus:ring focus:border-blue-100"
-              [(ngModel)]='filterName'>
-            <span class="absolute right-3 top-1/2 transform -translate-y-1/2">
-              <i class="fa-solid fa-box-archive text-gray-600"></i>
-            </span>
-          </div>
-
-          <div class="relative">
-            <input type="text" placeholder="Categoría"
-              class="w-80 lg:w-48 font-semibold text-xs py-2 px-3 rounded-md border focus:outline-none focus:ring focus:border-blue-100"
-              [(ngModel)]='filterCategory'>
-            <span class="absolute right-3 top-1/2 transform -translate-y-1/2">
-              <i class="fa-solid fa-layer-group text-gray-600"></i>
-            </span>
-          </div>
-        </div>
-
-        <button (click)="clearFilters()"
-          class="font-semibold bg-blue-500 text-xs text-white py-3 px-2 xl:px-8 rounded-md focus:outline-none hover:bg-blue-600">
-          <i class="fa-solid fa-filter text-white-600 pr-1 lg:pr-2"></i>
-          Limpiar
+      <div class="flex justify-end my-4">
+        <button class="w-full md:w-auto flex justify-center bg-green-500 hover:bg-green-600 text-sm 2xl:text-md text-white px-4 py-2 rounded-md flex items-center" (click)="showModal(action.ADD)">
+          <i class="fas fa-plus-circle mr-2"></i>
+          Agregar Producto
         </button>
       </div>
-    </div>
 
-    <table class="min-w-full bg-gray-300 border border-gray-300 rounded-md overflow-hidden text-left">
-      <thead class="bg-gray-400 text-left">
-        <tr>
-          <th class="py-1 px-2 lg:py-2 lg:px-4 border-b text-sm lg:text-md">ID</th>
-          <th class="py-1 px-2 lg:py-2 lg:px-4 border-b hidden lg:table-cell text-sm lg:text-md">Imagen</th>
-          <th class="py-1 px-2 lg:py-2 lg:px-4 border-b text-sm lg:text-md">Producto</th>
-          <th class="py-1 px-2 lg:py-2 lg:px-4 border-b hidden md:table-cell text-sm lg:text-md">Categoría</th>
-          <th class="py-1 px-2 lg:py-2 lg:px-4 border-b hidden md:table-cell text-sm lg:text-md">Precio</th>
-          <th class="py-1 px-2 lg:py-2 lg:px-4 border-b hidden md:table-cell text-sm lg:text-md">Fecha Publicación</th>
-          <th class="py-1 px-2 lg:py-2 lg:px-4 border-b lg:table-cell text-sm lg:text-md">Stock</th>
-          <th class="py-1 px-2 lg:py-2 lg:px-4 border-b actions text-sm lg:text-md">Acciones</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngIf="!obtenerElementosDePagina()" class="animate-pulse">
-          <td class="py-1 px-2 lg:py-2 lg:px-4 border-b text-sm lg:text-md"></td>
-          <td class="py-1 px-2 lg:py-2 lg:px-4 border-b hidden lg:table-cell text-sm lg:text-md">Cargando...</td>
-          <td class="py-1 px-2 lg:py-2 lg:px-4 border-b text-sm lg:text-md">Cargando...</td>
-          <td class="py-1 px-2 lg:py-2 lg:px-4 border-b hidden md:table-cell text-sm lg:text-md">Cargando...</td>
-          <td class="py-1 px-2 lg:py-2 lg:px-4 border-b hidden md:table-cell text-sm lg:text-md">Cargando...</td>
-          <td class="py-1 px-2 lg:py-2 lg:px-4 border-b hidden md:table-cell text-sm lg:text-md">Cargando...</td>
-          <td class="py-1 px-2 lg:py-2 lg:px-4 border-b lg:table-cell text-sm lg:text-md">Cargando...</td>
-          <td class="py-1 px-2 lg:py-2 lg:px-4 border-b actions text-sm lg:text-md">Cargando...</td>
-        </tr>
+      <div class="flex flex-col lg:flex-row lg:justify-between justify-center items-center">
+        <div class="w-full lg:w-/5 flex items-center space-y-4 space-x-4 lg:space-y-0 lg:space-x-4 order-2 lg:order-1">
+          <label for="showProducts" class="text-gray-700  text-sm 2xl:text-md">Cantidad de Productos:</label>
+          <select [(ngModel)]="cantElementPagination" id="showProducts"
+            class="border border-gray-300 rounded-md p-1 w-full lg:w-24">
+            <option value="10">10</option>
+            <option value="20">20</option>
+            <option value="50">50</option>
+          </select>
+        </div>
 
-        <tr *ngFor="let item of obtenerElementosDePagina()" class="hover:bg-gray-50" style="cursor: pointer;">
-          <td style="text-shadow: 2px 2px #000000ce;"
-            class="py-1 px-2 lg:py-2 lg:px-4 border-b bg-gray-600 font-bold text-white text-sm lg:text-md">{{item?.id}}</td>
-          <!-- <td class="flex justify-center border-b hidden lg:table-cell bg-white" align="center">
-            <img [src]="item.img[0] != '' ? item.img : 'https://via.placeholder.com/150'" alt="product"
-              class="object-center aspect-square w-12">
-          </td> -->
-          <td class="flex justify-center border-b hidden lg:table-cell bg-white" align="center">
-            <img [src]="item.img[0] !== '' ? item.img : 'https://via.placeholder.com/150'"
-                alt="product" class="object-cover max-w-full max-h-full w-12 h-12">
-        </td>
-        
-          <td class="py-1 px-2 lg:py-2 lg:px-4 border-b text-xs md:text-sm lg:text-md">{{item.name}}</td>
-          <td class="py-1 px-2 lg:py-2 lg:px-4 border-b hidden md:table-cell text-sm lg:text-md">{{item.category}}</td>
-          <td style="text-shadow: 2px 2px #000000ce;"
-            class="py-1 px-2 lg:py-2 lg:px-4 border-b font-bold text-green-400 bg-gray-600 hidden md:table-cell text-sm lg:text-md">
-            $ {{item.price}}
-          </td>
-          <td class="py-1 px-2 lg:py-2 lg:px-4 border-b hidden md:table-cell text-sm lg:text-md">{{item.discharge_date}}</td>
-          <td style="text-shadow: 2px 2px #000000ce;"
-            class="py-1 px-2 lg:py-2 lg:px-4 border-b font-bold text-green-400 bg-gray-600 md:table-cell text-sm lg:text-md">
-            <span [ngClass]="item.stock < 30 ? 'text-red-400' : 'text-green-400'">
-              <i *ngIf="item.stock > 30" class="fa-solid fa-angles-up"></i>
-              <i *ngIf="item.stock <= 30" class="fa-solid fa-angles-down"></i>
-              {{item.stock}}
+        <div class="w-full  lg:w-3/5 flex flex-col lg:flex-row items-center lg:space-x-4  order-1 lg:order-2">
+          <div class="w-full lg:w-auto mb-4 lg:mb-0 flex flex-col lg:flex-row items-center lg:space-x-4 space-y-3 lg:space-y-0">
+            <div class="relative w-full lg:w-auto">
+              <input type="text" placeholder="Nombre"
+                class="w-full lg:w-52 2xl:w-48  text-sm 2xl:text-md py-2  px-3 rounded-md border focus:outline-none focus:ring focus:border-blue-100"
+                [(ngModel)]='filterName'>
+              <span class="absolute right-3 top-1/2 transform -translate-y-1/2 hidden lg:block">
+                <i class="fa-solid fa-box-archive text-gray-600"></i>
+              </span>
+            </div>
+
+            <div class="relative w-full lg:w-auto">
+              <input type="text" placeholder="Categoría"
+              class="w-full lg:w-52 2xl:w-48  text-sm 2xl:text-md py-2  px-3 rounded-md border focus:outline-none focus:ring focus:border-blue-100"
+              [(ngModel)]='filterCategory'>
+                <span class="absolute right-3 top-1/2 transform -translate-y-1/2 hidden lg:block">
+                  <i class="fa-solid fa-layer-group text-gray-600"></i>
+              </span>
+            </div>
+          </div>
+
+          <button (click)="clearFilters()"
+            class="w-full lg:w-auto mb-3 lg:mb-0 bg-blue-500 text-sm 2xl:text-md text-white py-2 rounded-md focus:outline-none hover:bg-blue-600">
+            <span class="mx-8 flex flex-row justify-center items-center gap-2">
+              <i class="fa-solid fa-filter text-white-600"></i>
+            Limpiar
             </span>
-          </td>
-          <td class="border-b actions bg-white text-center text-sm lg:text-md space-x-2">
-            <button (click)="showModal(action.VIEW,item)"
-              class="text-blue-500 hover:text-blue-900 focus:outline-none">
-              <i class="fa-solid fa-eye"></i>
-            </button>
-            <button class="text-yellow-500 hover:text-yellow-700 focus:outline-none"
-              (click)="showModal(action.PUT,item)">
-              <i class="fas fa-pencil-alt"></i>
-            </button>
-            <button class="text-red-500 hover:text-red-700 focus:outline-none"
-              (click)="showModal(action.DEL,item)">
-              <i class="fas fa-trash"></i>
-            </button>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-
-    <div class="flex justify-center mt-4">
-      <div class="flex">
-        <a class="py-1 px-2 border border-gray-300 cursor-pointer text-md lg:text-md"
-          [style.pointer-events]="paginationView === 1 ? 'none' : 'auto'"
-          (click)="cambiarPagina(paginationView - 1)">Anterior</a>
-        <ng-container *ngFor="let pagina of obtenerRangoDePaginas()">
-          <a class="py-1 px-3 border-t border-b border-gray-300 cursor-pointer text-xs md:text-sm"
-            [ngClass]="{'bg-blue-500 text-white': pagina === paginationView}" (click)="cambiarPagina(pagina)">{{ pagina
-            }}</a>
-        </ng-container>
-        <a class="py-1 px-2 border border-gray-300 cursor-pointer text-xs md:text-sm"
-          [style.pointer-events]="paginationView === obtenerRangoDePaginas().length ? 'none' : 'auto'"
-          (click)="cambiarPagina(paginationView + 1)">Siguiente</a>
+          </button>
+        </div>
       </div>
-    </div>
 
-    <app-form-product #crudFormProduct (refreshListProducts)="refreshList($event)"
-      (idProductDelete)="eliminarProductList($event)" (refreshProductUpdate)="refreshProductUpdate($event)">
-    </app-form-product>
+      <table class="min-w-full bg-gray-300 border border-gray-300 rounded-md overflow-hidden text-left mt-4">
+        <thead class="bg-gray-800 text-white text-left">
+          <tr>
+            <th class="py-1 px-2 lg:py-2 lg:px-4 border-b text-sm 2xl:text-md font-thin">ID</th>
+            <th class="py-1 px-2 lg:py-2 lg:px-4 border-b hidden lg:table-cell text-sm 2xl:text-md font-thin">Imagen</th>
+            <th class="py-1 px-2 lg:py-2 lg:px-4 border-b text-sm 2xl:text-md font-thin">Producto</th>
+            <th class="py-1 px-2 lg:py-2 lg:px-4 border-b hidden md:table-cell text-sm 2xl:text-md font-thin">Categoría</th>
+            <th class="w-24 py-1 px-2 lg:py-2 lg:px-4 border-b hidden md:table-cell text-sm 2xl:text-md font-thin">Precio</th>
+            <th class="py-1 px-2 lg:py-2 lg:px-4 border-b hidden md:table-cell text-sm 2xl:text-md font-thin">Fecha Publicación</th>
+            <th class="w-18 py-1 px-2 lg:py-2 lg:px-4 border-b lg:table-cell text-sm 2xl:text-md font-thin">Stock</th>
+            <th class="py-1 px-2 lg:py-2 lg:px-4 border-b actions text-sm 2xl:text-md font-thin">Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngIf="!obtenerElementosDePagina()" class="animate-pulse">
+            <td class="py-1 px-2 lg:py-2 lg:px-4 border-b text-sm lg:text-md"></td>
+            <td class="py-1 px-2 lg:py-2 lg:px-4 border-b hidden lg:table-cell text-sm lg:text-md">Cargando...</td>
+            <td class="py-1 px-2 lg:py-2 lg:px-4 border-b text-sm lg:text-md">Cargando...</td>
+            <td class="py-1 px-2 lg:py-2 lg:px-4 border-b hidden md:table-cell text-sm lg:text-md">Cargando...</td>
+            <td class="py-1 px-2 lg:py-2 lg:px-4 border-b hidden md:table-cell text-sm lg:text-md">Cargando...</td>
+            <td class="py-1 px-2 lg:py-2 lg:px-4 border-b hidden md:table-cell text-sm lg:text-md">Cargando...</td>
+            <td class="py-1 px-2 lg:py-2 lg:px-4 border-b lg:table-cell text-sm lg:text-md">Cargando...</td>
+            <td class="py-1 px-2 lg:py-2 lg:px-4 border-b actions text-sm lg:text-md">Cargando...</td>
+          </tr>
+
+          <tr *ngFor="let item of obtenerElementosDePagina()" class="hover:bg-gray-100" style="cursor: pointer;">
+            <td class="py-1 px-2 lg:py-2 lg:px-4 border-b bg-gray-600 text-white text-sm 2xl:text-md">
+              {{item?.id}}</td>
+            <!-- <td class="flex justify-center border-b hidden lg:table-cell bg-white" align="center">
+              <img [src]="item.img[0] != '' ? item.img : 'https://via.placeholder.com/150'" alt="product"
+                class="object-center aspect-square w-12">
+            </td> -->
+            <td class="flex justify-center border-b hidden lg:table-cell bg-white" align="center">
+              <img [src]="item.img[0] !== '' ? item.img : 'https://via.placeholder.com/150'" alt="product"
+                class="object-contain max-w-full max-h-full w-12 ">
+            </td>
+
+            <td class="py-1 px-2 lg:py-2 lg:px-4 border-b text-xs md:text-sm 2xl:text-md">{{item.name}}</td>
+            <td class="py-1 px-2 lg:py-2 lg:px-4 border-b hidden md:table-cell text-sm 2xl:text-md">{{item.category}}
+            </td>
+            <td
+              class="py-1 px-2 lg:py-2 lg:px-2 border-b font-medium text-green-400 bg-gray-600 hidden md:table-cell text-sm 2xl:text-md">
+              $ {{(item.price).toLocaleString('es-ES')}}
+            </td>
+            <td class="py-1 px-2 lg:py-2 lg:px-4 border-b hidden md:table-cell text-sm 2xl:text-md">
+              {{item.discharge_date}}</td>
+            <td
+              class="py-1 px-2 lg:py-2 lg:px-2 border-b font-medium text-green-400 bg-gray-600 md:table-cell text-sm 2xl:text-md">
+              <span [ngClass]="item.stock < 30 ? 'text-red-500' : 'text-green-400'">
+                <i *ngIf="item.stock > 30" class="fa-solid fa-angles-up"></i>
+                <i *ngIf="item.stock <= 30" class="fa-solid fa-angles-down"></i>
+                {{item.stock}}
+              </span>
+            </td>
+            <td class="border-b actions bg-white text-center text-sm 2xl:text-lg space-x-2">
+              <button (click)="showModal(action.VIEW,item)"
+                class="text-blue-500 hover:text-blue-900 focus:outline-none">
+                <i class="fa-solid fa-eye"></i>
+              </button>
+              <button class="text-yellow-500 hover:text-yellow-700 focus:outline-none"
+                (click)="showModal(action.PUT,item)">
+                <i class="fas fa-pencil-alt"></i>
+              </button>
+              <button class="text-red-500 hover:text-red-700 focus:outline-none" (click)="showModal(action.DEL,item)">
+                <i class="fas fa-trash"></i>
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="flex justify-center mt-4">
+        <div class="flex space-x-1">
+
+          <a class="py-2 px-4 border border-gray-300 rounded-l-lg cursor-pointer text-sm 2xl::text-md bg-white text-gray-800 hover:bg-blue-500 hover:text-gray-100 transition"
+             [style.pointer-events]="paginationView === 1 ? 'none' : 'auto'"
+             [ngClass]="{'bg-gray-200 cursor-not-allowed': paginationView === 1}"
+             (click)="cambiarPagina(paginationView - 1)">
+            Anterior
+          </a>
+          
+          <ng-container *ngFor="let pagina of obtenerRangoDePaginas()">
+            <a class="py-2 px-4 border-t border-b border-gray-300 cursor-pointer text-sm md:text-md bg-white text-gray-600 hover:bg-blue-500 hover:text-white transition"
+               [ngClass]="{'text-black bg-blue-300': pagina === paginationView, 'rounded-none': true}"
+               (click)="cambiarPagina(pagina)">
+              {{ pagina }}
+            </a>
+          </ng-container>
+          
+          <a class="py-2 px-4 border border-gray-300 rounded-r-lg cursor-pointer text-sm 2xl::text-md bg-white text-gray-800 hover:bg-blue-500 hover:text-gray-100 transition"
+             [style.pointer-events]="paginationView === obtenerRangoDePaginas().length ? 'none' : 'auto'"
+             [ngClass]="{'bg-gray-200 cursor-not-allowed': paginationView === obtenerRangoDePaginas().length}"
+             (click)="cambiarPagina(paginationView + 1)">
+            Siguiente
+          </a>
+        </div>
+      </div>
+      
+
+      <app-form-product #crudFormProduct (refreshListProducts)="refreshList($event)"
+        (idProductDelete)="eliminarProductList($event)" (refreshProductUpdate)="refreshProductUpdate($event)">
+      </app-form-product>
+    </div>
   </div>
 </body>

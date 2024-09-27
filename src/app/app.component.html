@@ -17,14 +17,15 @@
 
 <div id="icon-up" class="icon-up cursor-pointer">
   <a (click)="toUpHeader()" class="back-to-top
-  fixed inline-flex items-center justify-center	rounded	decoration-0 w-9 h-10 md:w-8 md:h-9 z-40">
+  fixed inline-flex items-center justify-center	decoration-0 w-10 h-10 md:w-8 md:h-9 z-40">
     <span>
-      <i class="fa-solid fa-arrow-up" width="2rem" height="3rem"></i>
+      <!-- <i class="fa-solid fa-angles-up"></i> -->
+      <i class="fa-solid fa-angles-up w-6 h-6"></i>
     </span>
   </a>
 </div>
 
-<div *ngIf="ToastService.showOverlay" class="spinner-container">
-  <div class="spinner"></div>
-  <div class="loading-text font-bold">Cargando...</div>
+<div *ngIf="ToastService.showOverlay" class="spinner-container">  
+  <div class="loader"></div>
+  <div class="loading-text font-bold pt-6 text-white tracking-widest">Cargando</div>
 </div>

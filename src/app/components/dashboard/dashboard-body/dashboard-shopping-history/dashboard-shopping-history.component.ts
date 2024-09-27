@@ -68,9 +68,10 @@ export class DashboardShoppingHistoryComponent {
     data ? this.loadListFacturas() : data;
   }
 
-  loadListFacturas() {
+  loadListFacturas() {  
+    this.AuthService.getIdUser();
     this.FacturacionService.svListFacturasUser(this.AuthService.svIdUserLogin).subscribe(data => {
-      this.listFacturas = data;
+      this.listFacturas = data;      
       if (data.length != 0) {
         this.tieneFacturas = true;
       } else {

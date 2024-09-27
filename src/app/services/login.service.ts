@@ -43,8 +43,7 @@ export class LoginService {
     private ToastService: ToastService
   ) {
     this._svCurrentUserLoginOn = new BehaviorSubject<boolean>(sessionStorage.getItem("token") != null);
-    this._svCurretUserData = new BehaviorSubject<String>(sessionStorage.getItem("token") || "");
-    
+    this._svCurretUserData = new BehaviorSubject<String>(sessionStorage.getItem("token") || "");    
   }
 
   // * METHODs
@@ -57,14 +56,11 @@ export class LoginService {
   public svLogin(credentials: LoginRequest): Observable<User> {
     return this.http.post<any>(environment.urlApiAuth + "login", credentials).pipe(
       tap((userData) => {     
-        console.log(userData);
-        
-        localStorage.setItem('userLogin', credentials.username);        
-        
+        localStorage.setItem('userLogin', credentials.username);                
         sessionStorage.setItem("token", userData.token);
         this._svCurretUserData.next(userData.token);
         this._svCurrentUserLoginOn.next(true);  
-        this.ToastService.Info('¡Bienvenido '+ credentials.username + '!');      
+        this.ToastService.Info('¡Bienvenido '+ credentials.username + '!');              
       }),
       map((userData) => userData.token),
       catchError(this.svHandleError)
@@ -75,13 +71,19 @@ export class LoginService {
    * Metodo Logout de usuarios
    */
   public svLogout(): void {
+    this._svCurrentUserLoginOn.next(false);
+    this._svCurretUserData.next("");
+    this.ToastService.Info(' 👋¡Hasta pronto '+ this.AuthService?.userData?.username + '!');         
+    this.clearLocalStorage();
+  }
+
+
+  private clearLocalStorage():void{
     sessionStorage.removeItem('token');
     localStorage.removeItem('userLogin');
     localStorage.removeItem('userData');
     localStorage.removeItem('idUser');
-    this._svCurrentUserLoginOn.next(false);
-    this._svCurretUserData.next("");
-    this.ToastService.Info(' 👋¡Hasta pronto '+ this.AuthService?.userData?.username + '!');      
+    this.AuthService.userData = null;
   }
 
   /**
@@ -130,7 +132,7 @@ export class LoginService {
         this.svLogout();
         this.router.navigateByUrl('home');
       }else{        
-        if(!this.AuthService.userData){
+        if(this.AuthService.userData == undefined){
           this.AuthService.svDetailsUser(localStorage.getItem('userLogin') as string).subscribe();
         }
       }

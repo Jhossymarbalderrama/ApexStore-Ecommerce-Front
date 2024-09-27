@@ -1,20 +1,30 @@
 <ul
-    class="font-medium flex flex-col justify-center lg:justify-start p-4 md:p-0 mt-4 border border-gray-100 rounded-lg  md:flex-row md:space-x-2 rtl:space-x-reverse md:mt-0 md:border-0  dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
+    class="
+    flex
+    flex-col lg:flex-row
+    justify-center lg:justify-start
+    gap-5
+    md:space-x-2
+
+    text-center    
+    text-gray-200
+    text-xl lg:text-base
+
+    mr-0 lg:mr-5
+    mt-4 lg:mt-1
+    my-4 lg:my-0
+
+    p-4 lg:p-0">
     <li>
-        <a class="mr-5 hover:text-gray-900 font-semibold cursor-pointer" (click)="ngHiddenNavbar()" routerLink="/home"
-            routerLinkActive="menu-view">
-            Home</a>
+        <a (click)="ngHiddenNavbar()" [routerLink]="'/store'"
+            routerLinkActive="menu-view" class="hover:text-blue-500">Tienda</a>
     </li>
     <li>
-        <a class="mr-5 hover:text-gray-900 font-semibold cursor-pointer" (click)="ngHiddenNavbar()" routerLink="/store"
-            routerLinkActive="menu-view">Tienda</a>
+        <a (click)="ngHiddenNavbar()" [routerLink]="'/about'"
+            routerLinkActive="menu-view" class="hover:text-blue-500">Nosotros</a>
     </li>
     <li>
-        <a class="mr-5 hover:text-gray-900 font-semibold cursor-pointer" (click)="ngHiddenNavbar()" routerLink="/about"
-            routerLinkActive="menu-view">Nosotros</a>
-    </li>
-    <li>
-        <a class="mr-5 hover:text-gray-900 font-semibold cursor-pointer" (click)="ngHiddenNavbar()" routerLink="/contact"
-            routerLinkActive="menu-view">Contacto</a>
+        <a (click)="ngHiddenNavbar()" [routerLink]="'/contact'"
+            routerLinkActive="menu-view" class="hover:text-blue-500">Contacto</a>
     </li>
 </ul>

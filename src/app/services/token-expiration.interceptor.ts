@@ -27,7 +27,7 @@ export class TokenExpirationInterceptor implements HttpInterceptor {
     next: HttpHandler
   ): Observable<HttpEvent<any>> {
     // Verificar la expiración del token antes de cada solicitud
-    this.LoginService.checkTokenExpiration();
+    // this.LoginService.checkTokenExpiration();
 
     // Continuar con la solicitud
     return next.handle(request);

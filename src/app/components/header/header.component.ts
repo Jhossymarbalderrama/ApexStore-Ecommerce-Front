@@ -21,7 +21,7 @@ export class HeaderComponent implements OnInit {
     public authServ: AuthService,
     public cartServ: CartService,
     public loginServ: LoginService,
-    private router: Router,
+    public router: Router,
     public UrlService: UrlService
   ) { }
 
@@ -32,7 +32,7 @@ export class HeaderComponent implements OnInit {
   navigateURL(): void {    
     if (this.loginServ._svCurrentUserLoginOn.value) {
       this.loginServ.svLogout();
-      this.router.navigateByUrl('/home');
+      this.router.navigateByUrl('/home');      
     } else {
       this.router.navigateByUrl('/login');
     }

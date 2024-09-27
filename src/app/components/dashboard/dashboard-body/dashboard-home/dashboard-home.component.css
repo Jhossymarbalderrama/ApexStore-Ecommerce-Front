@@ -1,16 +1,22 @@
-@keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-  }
-  .gear {
-    border-top: 8px solid #6c60f0;
-    border-right: 8px solid transparent;
-    border-radius: 50%;
-    width: 50px;
-    height: 50px;
-    animation: spin 2s linear infinite;
-  }
+
 
   body{
-    min-height: 83vh;
+    /* min-height: 89vh;     */
+    min-height: 80vh;
+    /* background: var(--bg-gray-site); */
+    /* background-color: rgba(255, 255, 255, 0.329); */
+    /* background-color: var(--text-color-site);     */
+  }
+
+  h1{
+    /* color: var(--text-color-site); */   
+  }
+
+
+  .loader{
+    color: white;
+  }
+
+  .loader:after{
+    color: black;
   }

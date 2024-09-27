@@ -108,6 +108,8 @@ export class FormProductComponent implements OnInit {
     this.dataForm = data;
     this.loadDataFormProduct();
 
+    console.log(this.dataForm?.action);
+    
     if (this.dataForm) {
       switch (this.dataForm.action) {
         case 0:

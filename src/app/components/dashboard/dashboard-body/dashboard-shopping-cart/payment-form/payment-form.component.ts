@@ -17,10 +17,10 @@ import { UrlService } from 'src/app/services/url.service';
   templateUrl: './payment-form.component.html',
   styleUrls: ['./payment-form.component.css']
 })
-export class PaymentFormComponent implements OnInit {
+export class PaymentFormComponent{
 
   // * ATRIBUTOS
-  // #region
+  //#region
   public cartProduct!: Product[] | []; // Productos para Endpoint Backend
   public cartProductView: any; // Productos Filtrados repetidos
   public cart_cant_product!: number;

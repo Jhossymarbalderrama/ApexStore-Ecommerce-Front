@@ -1,201 +1,245 @@
-<div class="flex flex-col items-center border-b bg-white py-4 sm:flex-row sm:px-10 lg:px-20 xl:px-32">
-  <a href="#" class="text-2xl lg:text-3xl font-bold text-gray-800">Datos de Envio</a>
-  <div class="mt-4 py-2 text-xs sm:mt-0 sm:ml-auto sm:text-base">
-    <div class="relative">
-      <ul class="relative flex w-full items-center justify-between lg:space-x-3">
-        <li class="flex items-center space-x-3 text-left hover:cursor-pointer"
-          [routerLink]="'/dashboard/shopping-cart'">
-          <a class="flex h-5 w-5 items-center justify-center rounded-full bg-emerald-200 text-xs font-semibold text-emerald-700"
-            href="#"><svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24"
-              stroke="currentColor" stroke-width="2">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
-            </svg></a>
-          <span class="font-semibold text-gray-900">Carrito de compra</span>
-        </li>
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-gray-400" fill="none" viewBox="0 0 24 24"
-          stroke="currentColor" stroke-width="2">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
-        </svg>
-        <li class="flex items-center space-x-3 text-left hover:cursor-pointer">          
-          <a routerLink="/dashboard/payment-form" class="flex flex-row space-x-2 px-1">
-            <span
-                class="text-xs flex h-5 w-5 lg:h-6 lg:w-6 items-center justify-center rounded-full bg-emerald-400 font-semibold text-white ring ring-emerald-500 ring-offset-2">2</span>
-            <span class="font-semibold text-emerald-600">Datos de Envio</span>
-        </a>
-        </li>
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-gray-400" fill="none" viewBox="0 0 24 24"
-          stroke="currentColor" stroke-width="2">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
-        </svg>
-        <li class="flex items-center space-x-3 text-left">
-          <a class="flex flex-row space-x-2 cursor-default">
-            <span
-              class="text-xs flex h-5 w-5 lg:h-6 lg:w-6 items-center justify-center rounded-full bg-gray-400 font-semibold text-white">3</span>
-            <span class="font-semibold text-gray-500">Pago</span>
-          </a>
-        </li>
-      </ul>
+<body class="overflow-hidden px-4 py-2">
+  <div class="p-3 sm:p-4 lg:p-8 2xl:mt-10 2xl:m-6 flex flex-col gap-4 sm:gap-6 bg-gray-200 bg-opacity-80 rounded-lg">
+    <!-- Navegation Buy -->
+    <div class="flex flex-col bg-gray-100 bg-opacity-60 rounded-md mt-12 lg:mt-0 py-1 sm:py-2 lg:py-4 sm:flex-row px-2 sm:px-4 lg:px-10">
+      <a href="#"
+        class="py-1 pt-4 md:pt-2 text-xl sm:text-lg lg:text-xl 2xl:text-2xl w-full text-center sm:w-auto">Preparación de
+        Pedido</a>
+      <div class="mt-4 py-2 text-xs sm:mt-0 sm:ml-auto sm:text-base">
+        <div class="relative">
+          <ul class="relative flex w-full items-center justify-around sm:justify-between sm:space-x-2 lg:space-x-3">
+
+            <li class="flex items-center hover:cursor-pointer" [routerLink]="'/dashboard/shopping-cart'">
+              <a class="text-xs flex h-5 w-5 lg:h-6 lg:w-6 items-center justify-center rounded-full bg-emerald-200 text-emerald-700"
+                href="#"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 lg:h-6 lg:w-6" fill="none"
+                  viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                </svg>
+              </a>
+              <span class="text-xs lg:text-base text-green-700">Carrito de compra</span>
+            </li>
+
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-gray-400 hidden sm:inline-block" fill="none"
+              viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+            </svg>
+
+            <li class="flex items-center hover:cursor-pointer">
+              <a routerLink="/dashboard/payment-form" class="flex flex-row justify-center items-center text-center gap-2 sm:gap-4">
+                <span
+                  class="text-xs flex h-4 w-4 lg:h-6 lg:w-6 items-center justify-center rounded-full bg-emerald-500 font-semibold text-white ring ring-emerald-500 ring-offset-2">
+                  2
+                </span>                
+                <span class="text-xs lg:text-base text-emerald-600 font-semibold">Datos de Envio</span>
+              </a>
+            </li>
+
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-gray-400 hidden sm:inline-block" fill="none"
+              viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+            </svg>
+            
+
+            <li class="flex items-center text-left">
+              <a class="flex flex-row space-x-2 cursor-default">
+                <span
+                  class="text-xs flex h-4 w-4 lg:h-6 lg:w-6 items-center justify-center rounded-full bg-gray-400 font-semibold text-white">3</span>
+                <span class="text-xs lg:text-base">Pago</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
     </div>
-  </div>
-</div>
 
-
-<div class="grid pb-8 sm:px-10 lg:grid-cols-2 lg:px-20 xl:px-32">
-  <div class="mt-10 bg-gray-200 px-4 pt-6 lg:mt-5 rounded-md">
-    <p class="text-2xl font-bold">Formulario de Pago</p>
-    <p class="text-gray-400">Complete su pedido proporcionando sus datos de pago.</p>    
-    <form [formGroup]="formPayment" id="formPayment" (submit)="sendForm()">
-      <label for="email" class="mt-4 mb-2 block text-sm font-semibold">Email</label>
-      <div class="relative">
-        <input type="text" id="email" name="email" formControlName="email"
-          class="form-control w-full rounded-md border border-gray-200 px-4 py-3 pl-11 text-sm shadow-sm outline-none focus:z-10 focus:border-blue-500 focus:ring-blue-500"
-          placeholder="ejemplo@gmail.com" />
-        <div class="pointer-events-none absolute inset-y-0 left-0 inline-flex items-center px-3">
-          <i class="fa-solid fa-at h-4 w-4 text-gray-400"></i>
-        </div>
-      </div>
-      <div *ngIf="email.invalid && (email.dirty || email.touched)" class="text-danger text-sm">
-        <span *ngIf="email.errors?.['required']">*El email es requerido</span>
-      </div>
-
-      <label for="card-full-name" class="mt-4 mb-2 block text-sm font-semibold">Nombre del Titular de la Tarjeta</label>
-      <div class="relative">
-        <input type="text" id="card-full-name" name="card-full-name" formControlName="card-full-name"
-          class="form-control w-full rounded-md border border-gray-200 px-4 py-3 pl-11 text-sm  shadow-sm outline-none focus:z-10 focus:border-blue-500 focus:ring-blue-500"
-          placeholder="Nombre completo" />
-        <div class="pointer-events-none absolute inset-y-0 left-0 inline-flex items-center px-3">
-          <i class="fa-solid fa-id-card h-4 w-4 text-gray-400"></i>
-        </div>
-      </div>
-      <div *ngIf="cardFullName.invalid && (cardFullName.dirty || cardFullName.touched)" class="text-danger text-sm">
-        <span *ngIf="cardFullName.errors?.['required']">*El nombre es requerido</span>
-      </div>
-
-      <label for="cardNro" class="mt-4 mb-2 block text-sm font-semibold">Datos de la Tarjeta</label>
-      <div class="flex">
-        <div class="relative w-7/12 flex-shrink-0">
-          <div>
-            <input type="number" id="cardNro" name="card-no" max="9999999999999999" formControlName="cardNro"
-              class="w-full rounded-md border border-gray-200 px-2 py-3 pl-11 text-sm shadow-sm outline-none focus:z-10 focus:border-blue-500 focus:ring-blue-500"
-              placeholder="xxxx-xxxx-xxxx-xxxx" />
+    <div class="grid lg:grid-cols-[60%_40%] gap-2 2xl:gap-4">
+      <div class="bg-gray-100 bg-opacity-60 px-4 sm:px-8 pt-8 rounded-md">
+        <p class="text-xl 2xl:text-2xl">Formulario de Pago</p>
+        <p class="text-md 2xl:text-lg text-blue-700">
+          <i class="fa-solid fa-circle-info"></i>
+          Completa el formulario con tus datos de pago para finalizar su pedido.
+        </p>
+        <form [formGroup]="formPayment" id="formPayment" (submit)="sendForm()">
+          <label for="email" class="pt-3 pb-1 px-1 block text-xs 2xl:text-md text-gray-700">Email:</label>
+          <div class="relative">
+            <input type="text" id="email" name="email" formControlName="email"
+              class="form-control w-full rounded-md bg-gray-100 bg-opacity-80 border border-gray-200 px-4 py-3 pl-11 text-xs 2xl:text-md shadow-sm outline-none focus:z-10 focus:border-blue-500 focus:ring-blue-500"
+              placeholder="ejemplo@gmail.com" />
             <div class="pointer-events-none absolute inset-y-0 left-0 inline-flex items-center px-3">
-              <i class="fa-solid fa-credit-card h-4 w-4 text-gray-400"></i>
+              <i class="fa-solid fa-at h-4 w-4 text-gray-400"></i>
             </div>
           </div>
-
-
-        </div>
-        <input type="text" name="creditExpiry" formControlName="creditExpiry"
-          class="w-full rounded-md border border-gray-200 px-2 py-3 text-sm shadow-sm outline-none focus:z-10 focus:border-blue-500 focus:ring-blue-500"
-          placeholder="MM/YY" />
-        <input type="text" name="creditCvc" formControlName="creditCvc"
-          class="w-1/6 flex-shrink-0 rounded-md border border-gray-200 px-2 py-3 text-sm shadow-sm outline-none focus:z-10 focus:border-blue-500 focus:ring-blue-500"
-          placeholder="CVC" />
-      </div>
-
-      <div *ngIf="cardNro.invalid && (cardNro.dirty || cardNro.touched)" class="text-danger text-sm">
-        <span *ngIf="cardNro.errors?.['required']">*El numero de la tarjeta es requerido</span>
-        <span *ngIf="cardNro.errors?.['pattern']">*El formato no es correcto</span>
-      </div>
-
-      <div *ngIf="creditExpiry.invalid && (creditExpiry.dirty || creditExpiry.touched)" class="text-danger text-sm">
-        <span *ngIf="creditExpiry.errors?.['required']">*El campo MM/YY es requerido</span>
-        <span *ngIf="creditExpiry.errors?.['pattern']">*El formato debe ser MM/YY</span>
-      </div>
-
-      <div *ngIf="creditCvc.invalid && (creditCvc.dirty || creditCvc.touched)" class="text-danger text-sm">
-        <span *ngIf="creditCvc.errors?.['required']">*El campo CVC es requerido</span>
-        <span *ngIf="creditCvc.errors?.['pattern']">*El formato no es correcto</span>
-      </div>
-
-      <label for="address" class="mt-4 mb-2 block text-sm font-semibold">Direccion de Envio</label>
-      <div class="flex flex-col sm:flex-row">
-
-        <div class="relative flex-shrink-0 sm:w-7/12">
-          <input type="text" id="address" name="address" formControlName="address"
-            class="form-control w-full rounded-md border border-gray-200 px-4 py-3 pl-11 text-sm shadow-sm outline-none focus:z-10 focus:border-blue-500 focus:ring-blue-500"
-            placeholder="Dirección" />
-          <div class="pointer-events-none absolute inset-y-0 left-0 inline-flex items-center px-3">
-            <img class="h-4 w-4 object-contain" src="https://flagpack.xyz/_nuxt/fb2ecacab7ac7d12e740ac8eac3a0fe7.svg"
-              alt="" />
+          <div *ngIf="email.invalid && (email.dirty || email.touched)" class="text-danger text-xs 2xl:text-md">
+            <span *ngIf="email.errors?.['required']">*El email es requerido</span>
           </div>
-        </div>
 
-
-        <input type="text" name="`cp" formControlName="cp"
-          class="form-control flex-shrink-0 rounded-md border border-gray-200 ml-1  text-sm shadow-sm outline-none sm:w-2/6 focus:z-10 focus:border-blue-500 focus:ring-blue-500"
-          placeholder="Codigo Postal" />
-      </div>
-
-      <div *ngIf="address.invalid && (address.dirty || address.touched)" class="text-danger text-sm">
-        <span *ngIf="address.errors?.['required']">*El campo dirección es requerido</span>
-        <span *ngIf="address.errors?.['pattern']">*El formato no es correcto</span>
-      </div>
-      <div *ngIf="codigoPostal.invalid && (codigoPostal.dirty || codigoPostal.touched)" class="text-danger text-sm">
-        <span *ngIf="codigoPostal.errors?.['required']">*El campo codigo postal es requerido</span>
-        <span *ngIf="codigoPostal.errors?.['pattern']">*El formato no es correcto</span>
-      </div>
-
-      <p class="mt-8 mb-2 text-lg font-medium">Metodos de Envio</p>      
-        <div *ngFor="let item of shippingMethod" class="relative bg-white my-2">
-          <input formControlName="method" class="peer hidden" id="{{item?.id}}" type="radio" name="method"
-            [value]="item.id" [checked]="item.id === shippingSelect?.id" (click)="selectShipping(item)" />
-          <span
-            class="peer-checked:border-gray-700 absolute right-4 top-1/2 box-content block h-3 w-3 -translate-y-1/2 rounded-full border-8 border-gray-300 bg-white"></span>
-          <label
-            class="peer-checked:border-2 peer-checked:border-gray-700 peer-checked:bg-gray-50 flex cursor-pointer select-none  p-4"
-            for="{{item?.id}}">
-            <img class="w-14 object-contain" [src]="item.img" alt="" />
-            <div class="ml-5">
-              <span class="mt-2 font-semibold">{{item?.name}}</span>
-              <p class="text-slate-500 text-sm leading-6">Demora: {{item?.description}}</p>
+          <label for="card-full-name" class="pt-3 pb-1 px-1 block text-xs 2xl:text-md text-gray-700">Nombre del Titular
+            de la Tarjeta:</label>
+          <div class="relative">
+            <input type="text" id="card-full-name" name="card-full-name" formControlName="card-full-name"
+              class="form-control w-full rounded-md bg-gray-100 bg-opacity-80 border border-gray-200 px-4 py-3 pl-11 text-xs 2xl:text-md shadow-sm outline-none focus:z-10 focus:border-blue-500 focus:ring-blue-500"
+              placeholder="Nombre completo" />
+            <div class="pointer-events-none absolute inset-y-0 left-0 inline-flex items-center px-3">
+              <i class="fa-solid fa-id-card h-4 w-4 text-gray-400"></i>
             </div>
-          </label>
-        </div>
-  
-        <div *ngIf="method.invalid && (method.dirty || method.touched)" class="text-danger text-sm">
-          <span *ngIf="method.errors?.['required']">*El metodo de envio es requerido</span>
-        </div>
+          </div>
+          <div *ngIf="
+              cardFullName.invalid &&
+              (cardFullName.dirty || cardFullName.touched)
+            " class="text-danger text-xs 2xl:text-md">
+            <span *ngIf="cardFullName.errors?.['required']">*El nombre es requerido</span>
+          </div>
 
-      <div class="mt-6 border-t border-b py-2">
-        <div class="flex items-center justify-between">
-          <p class="text-base font-semibold text-gray-900">Subtotal</p>
-          <p class="font-semibold text-gray-900">${{subTotal}}</p>
-        </div>
-        <div class="flex items-center justify-between">
-          <p class="text-base font-semibold text-gray-900">Envio</p>
-          <p class="font-semibold text-gray-900">${{shippingSelect?.price}}</p>
-        </div>
+          <label for="cardNro" class="pt-3 pb-1 px-1 block text-xs 2xl:text-md text-gray-700">Datos de la
+            Tarjeta:</label>
+          <div class="flex gap-3">
+            <div class="relative w-7/12 flex-shrink-0">
+              <div>
+                <input type="number" id="cardNro" name="card-no" max="9999999999999999" formControlName="cardNro"
+                  class="w-full rounded-md border border-gray-200 bg-gray-100 bg-opacity-80 px-2 py-3 pl-11 text-xs 2xl:text-md shadow-sm outline-none focus:z-10 focus:border-blue-500 focus:ring-blue-500"
+                  placeholder="xxxx-xxxx-xxxx-xxxx" />
+                <div class="pointer-events-none absolute inset-y-0 left-0 inline-flex items-center px-3">
+                  <i class="fa-solid fa-credit-card h-4 w-4 text-gray-400"></i>
+                </div>
+              </div>
+            </div>
+            <input type="text" name="creditExpiry" formControlName="creditExpiry"
+              class="w-full rounded-md border border-gray-200 bg-gray-100 bg-opacity-80 px-2 py-3 text-xs 2xl:text-md shadow-sm outline-none focus:z-10 focus:border-blue-500 focus:ring-blue-500"
+              placeholder="MM/YY" />
+            <input type="text" name="creditCvc" formControlName="creditCvc"
+              class="w-1/6 flex-shrink-0 rounded-md bg-gray-100 bg-opacity-80 border border-gray-200 px-2 py-3 text-xs 2xl:text-md shadow-sm outline-none focus:z-10 focus:border-blue-500 focus:ring-blue-500"
+              placeholder="CVC" />
+          </div>
+
+          <div *ngIf="cardNro.invalid && (cardNro.dirty || cardNro.touched)" class="text-danger text-xs 2xl:text-md">
+            <span *ngIf="cardNro.errors?.['required']">*El numero de la tarjeta es requerido</span>
+            <span *ngIf="cardNro.errors?.['pattern']">*El formato no es correcto</span>
+          </div>
+
+          <div *ngIf="
+              creditExpiry.invalid &&
+              (creditExpiry.dirty || creditExpiry.touched)
+            " class="text-danger text-xs 2xl:text-md">
+            <span *ngIf="creditExpiry.errors?.['required']">*El campo MM/YY es requerido</span>
+            <span *ngIf="creditExpiry.errors?.['pattern']">*El formato debe ser MM/YY</span>
+          </div>
+
+          <div *ngIf="creditCvc.invalid && (creditCvc.dirty || creditCvc.touched)"
+            class="text-danger text-xs 2xl:text-md">
+            <span *ngIf="creditCvc.errors?.['required']">*El campo CVC es requerido</span>
+            <span *ngIf="creditCvc.errors?.['pattern']">*El formato no es correcto</span>
+          </div>
+
+          <label for="address" class="pt-3 pb-1 px-1 block text-xs 2xl:text-md text-gray-700">Direccion de
+            Envio:</label>
+          <div class="flex flex-col sm:flex-row gap-2">
+            <div class="relative flex-shrink-0 sm:w-7/12">
+              <input type="text" id="address" name="address" formControlName="address"
+                class="form-control w-full rounded-md bg-gray-100 bg-opacity-80 border border-gray-200 px-4 py-3 pl-11 text-xs 2xl:text-md shadow-sm outline-none focus:z-10 focus:border-blue-500 focus:ring-blue-500"
+                placeholder="Dirección" />
+              <div class="pointer-events-none absolute inset-y-0 left-0 inline-flex items-center px-3">
+                <img class="h-4 w-4 object-contain"
+                  src="https://flagpack.xyz/_nuxt/fb2ecacab7ac7d12e740ac8eac3a0fe7.svg" alt="" />
+              </div>
+            </div>
+
+            <input type="text" name="`cp" formControlName="cp"
+              class="w-full md:w-auto form-control flex-shrink-0 rounded-md bg-gray-100 bg-opacity-80 border border-gray-200 ml-1 text-xs 2xl:text-md shadow-sm outline-none sm:w-2/6 focus:z-10 focus:border-blue-500 focus:ring-blue-500"
+              placeholder="Codigo Postal" />
+          </div>
+
+          <div *ngIf="address.invalid && (address.dirty || address.touched)" class="text-danger text-xs 2xl:text-md">
+            <span *ngIf="address.errors?.['required']">*El campo dirección es requerido</span>
+            <span *ngIf="address.errors?.['pattern']">*El formato no es correcto</span>
+          </div>
+          <div *ngIf="
+              codigoPostal.invalid &&
+              (codigoPostal.dirty || codigoPostal.touched)
+            " class="text-danger text-xs 2xl:text-md">
+            <span *ngIf="codigoPostal.errors?.['required']">*El campo codigo postal es requerido</span>
+            <span *ngIf="codigoPostal.errors?.['pattern']">*El formato no es correcto</span>
+          </div>
+
+          <p class="mt-8 mb-2 text-lg 2xl:text-xl font-medium border-t border-gray-400 border-dashed pt-4">
+            Metodos de Envio
+          </p>
+          <div *ngFor="let item of shippingMethod" class="relative bg-gray-100 bg-opacity-80 rounded my-2">
+            <input formControlName="method" class="peer hidden" id="{{ item?.id }}" type="radio" name="method"
+              [value]="item.id" [checked]="item.id === shippingSelect?.id" (click)="selectShipping(item)" />
+            <span
+              class="peer-checked:border-gray-700 absolute right-4 top-1/2 box-content block h-3 w-3 -translate-y-1/2 rounded-full border-8 border-gray-300 bg-white"></span>
+            <label
+              class="peer-checked:border-2 peer-checked:border-gray-700 peer-checked:bg-gray-50 flex cursor-pointer select-none p-4"
+              for="{{ item?.id }}">
+              <img class="w-14 object-contain" [src]="item.img" alt="" />
+              <div class="ml-5">
+                <span class="text-gray-800 text-md 2xl:text-lg mt-2">{{
+                  item?.name
+                  }}</span>
+                <p class="text-gray-600 text-xs 2xl:text-md leading-6">
+                  Demora: {{ item?.description }}
+                </p>
+              </div>
+            </label>
+          </div>
+
+          <div *ngIf="method.invalid && (method.dirty || method.touched)" class="text-danger text-xs 2xl:text-md">
+            <span *ngIf="method.errors?.['required']">*El metodo de envio es requerido</span>
+          </div>
+
+          <div class="mt-4">
+            <div class="flex items-center justify-between border-b border-solid border-gray-300 py-2">
+              <p class="text-sm 2xl:text-md text-gray-900">Subtotal</p>
+              <p class="text-md 2xl:text-lg text-gray-900">
+                ${{ subTotal.toLocaleString("es-ES") }}
+              </p>
+            </div>
+            <div class="flex items-center justify-between border-b border-solid border-gray-300 py-2">
+              <p class="text-sm 2xl:text-md text-gray-900">Envio</p>
+              <p class="text-md 2xl:text-lg text-gray-900">
+                ${{ shippingSelect?.price?.toLocaleString("es-ES") }}
+              </p>
+            </div>
+          </div>
+          <div class="mt-6 flex items-center justify-between">
+            <p class="text-lg 2xl:text-xl text-gray-900">Total</p>
+            <p class="text-xl 2xl:text-2xl text-green-600">
+              ${{ (total || undefined)?.toLocaleString("es-ES") }}
+            </p>
+          </div>
+
+          <button type="submit"
+            class="mt-6 mb-8 w-full rounded-md bg-green-500 hover:bg-green-600 px-6 py-3 text-md 2xl:text-lg font-medium text-white">
+            Completar Pedido
+          </button>
+        </form>
       </div>
-      <div class="mt-6 flex items-center justify-between">
-        <p class="text-2xl font-semibold text-gray-900">Total</p>
-        <p class="text-2xl font-bold text-green-600">${{total}}</p>
-      </div>
 
-      <button type="submit" class="mt-6 mb-8 w-full rounded-md bg-blue-700 px-6 py-3  text-lg font-medium text-white">
-        <i class="fa-solid fa-bag-shopping text-lg"></i>
-        Hacer Pedido
-      </button>
-    </form>
-  </div>
-
-  <div class="px-4 mt-10">   
-    <p class="text-2xl font-bold">Productos</p>
-    <p class="text-gray-400">Revisa tus artículos.</p>
-    <div class="mt-4 space-y-3 rounded-lg border bg-white px-2 py-4 sm:px-6">
-
-      <div *ngFor='let pd of cartProductView'>
-        <div class="flex flex-col rounded-lg bg-white sm:flex-row justify-center items-center">
-          <img class="h-full w-28 rounded-md border object-cover object-center" [src]=pd.img[0] alt="" />
-          <div class="flex w-full flex-col px-4 py-4">
-            <span class="text-xs font-semibold text-green-600">Cantidad: {{pd.cant}}</span>
-            <span class="font-semibold">{{pd.name}}</span>
-            <span class="float-right text-gray-400">{{pd.category}}</span>
-            <p class="text-lg font-semibold text-green-600">${{pd.price * pd.cant}}</p>
+      <div class="px-4 mt-6 hidden lg:block">
+        <p class="text-xl 2xl:text-2xl">Carrito de productos:</p>
+        <p class="text-md 2xl:text-lg text-gray-700">
+          <i class="fa-solid fa-circle-info"></i> Verifica tus productos antes
+          de completar la compra.
+        </p>
+        <div class="mt-4 space-y-3 rounded-md border bg-gray-100 bg-opacity-60 py-4 px-4">
+          <div *ngFor="let pd of cartProductView">
+            <div
+              class="flex flex-col rounded-lg bg-gray-100 bg-opacity-80 px-2 sm:flex-row justify-center items-center">
+              <img class="h-full w-20 2xl:w-28 rounded-md border object-cover object-center" [src]="pd.img[0]" alt="" />
+              <div class="flex w-full flex-col px-4 py-4">
+                <span class="text-xs 2xl:text-sm text-gray-600">Cantidad: {{ pd.cant }}</span>
+                <span class="text-sm 2xl:text-md">{{ pd.name }}</span>
+                <span class="text-xs 2xl:text-sm float-right text-gray-500">{{
+                  pd.category
+                  }}</span>
+                <p class="text-md 2xl:text-lg text-green-600">
+                  ${{ (pd.price * pd.cant).toLocaleString("es-ES") }}
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-
     </div>
   </div>
-</div>
+</body>

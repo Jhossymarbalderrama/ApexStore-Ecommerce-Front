@@ -1,57 +1,70 @@
-
-<section class="text-gray-800 body-font overflow-hidden bg-gray-100">
-  <div class="container px-5 pt-12 pb-12 mx-auto">
-    <div class="lg:w-4/5 mx-auto flex flex-wrap"> 
-      <img alt="ecommerce" class="bg-white lg:w-1/2 w-100 lg:h-auto h-64 object-center object-center rounded-lg shadow-md p-3"
+<section class="text-gray-800 body-font overflow-hidden bg-gray-100 pt-20">
+  <div class="container px-5 py-12 mx-auto">
+    <div class="lg:w-6/6 mx-auto flex flex-wrap">
+      <!-- Imagen principal del producto -->
+      <img alt="ecommerce" class="bg-white md:w-3/6 w-full h-96 object-contain shadow-lg rounded-lg p-3"
         [src]="_currentImg ? _currentImg : 'https://dummyimage.com/400x400'" [alt]="_product?.name">
 
-      <div class="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">
+      <!-- Detalles del producto -->
+      <div class="md:w-3/6 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0 px-6">
         <h2 class="text-lg text-gray-600 tracking-wider mb-2">{{_product?.category}}</h2>
-        <h1 class="text-gray-900 text-3xl font-semibold mb-4">{{_product?.name?.substring(0,20)}}
-          {{_product && _product.name[21] ? "..." : null}}</h1>
+        <h1 class="text-gray-900 text-3xl font-semibold mb-4">
+          {{_product?.name?.substring(0,20)}}{{_product && _product.name.length > 20 ? "..." : null}}
+        </h1>
         <div class="flex mb-4 items-center" [ngClass]="_product?.stock > 0 ? 'text-blue-600' : 'text-red-600'">
           <i class="fa-solid fa-boxes-stacked mr-2"></i>
           <span [ngClass]="_product?.stock > 0 ? '' : 'sin-stock'">Stock: {{_product?.stock}}</span>
         </div>
         <p class="leading-relaxed text-gray-700 mb-4">{{_product?.description}}</p>
 
+        <!-- Descuento -->
         <div class="flex mb-4" *ngIf="_product?.discount != 0">
           <span class="text-xl text-red-600">
-            <del class="mr-2">${{ _product?.price}}</del>
+            <del class="mr-2">${{ _product?.price.toLocaleString('es-ES') }}</del>
             <span class="font-semibold">{{_product?.discount}}% off</span>
           </span>
         </div>
 
+        <!-- Precio con descuento -->
         <div class="flex mb-8">
           <span class="text-4xl text-green-600 font-semibold">
-            ${{ _price_discound}}
+            ${{ _price_discound.toLocaleString('es-ES') }}
           </span>
         </div>
 
+        <!-- Selección de cantidad -->
         <div class="flex justify-start mb-8 box-cantProduct">
           <label for="cantProduct" class="pr-2 pt-2">Cantidad: </label>
-          <input class="rounded-md" type="number" name="cantProduct" id="cantProduct" [(ngModel)]='cantProduct'> 
-        </div>        
-        
+          <input class="rounded-md border border-gray-300 focus:ring focus:border-blue-300 w-16"
+            type="number" name="cantProduct" id="cantProduct" [(ngModel)]='cantProduct' min="1"
+            [max]="_product?.stock" />
+        </div>
+
+        <!-- Botón agregar al carrito -->
         <div class="flex mb-4">
           <button (click)="addCart()"
-            class="flex  text-white bg-blue-600 border-0 py-3 px-8 focus:outline-none hover:bg-blue-700 rounded-lg flex items-center"
+            class="flex text-white bg-blue-600 border-0 py-3 px-8 focus:outline-none hover:bg-blue-700 rounded-lg flex items-center"
             [disabled]="_product?.stock <= 0"
-            [ngClass]="_product?.stock <= 0 ? 'bg-red-600 hover:bg-red-700':''"
-            >{{_product?.stock <= 0 ? 'Producto Sin Stock' : 'Agregar al carrito'}} <i class="fa-solid fa-shopping-cart ml-2"         
-            ></i></button>
+            [ngClass]="_product?.stock <= 0 ? 'bg-red-600 hover:bg-red-700':''">
+            {{_product?.stock <= 0 ? 'Producto Sin Stock' : 'Agregar al carrito'}} 
+            <i class="fa-solid fa-shopping-cart ml-2"></i>
+          </button>
         </div>
       </div>
 
-      <div class="lg:w-7/6 flex flex-wrap mt-5" *ngFor="let itemImg of _product?.img">
-        <img 
-          class="bg-white h-24 w-auto object-cover object-center border border-gray-300 hover:border-gray-500 rounded-lg mr-4 mb-4 p-2 cursor-pointer"
-          [src]="itemImg ? itemImg : 'https://dummyimage.com/400x400'"
-          (click)="handleChangeImg(itemImg)">
+      <!-- Imágenes adicionales del producto -->
+      <div class="lg:w-7/6 flex flex-wrap mt-2">
+        <div *ngFor="let itemImg of _product?.img" class="p-2">
+          <img class="bg-white h-24 w-auto object-cover object-center border border-gray-300 hover:border-gray-500 rounded-lg cursor-pointer p-3"
+            [src]="itemImg ? itemImg : 'https://dummyimage.com/400x400'"
+            [alt]="_product?.name"
+            (click)="handleChangeImg(itemImg)" />
+        </div>
       </div>
     </div>
   </div>
 </section>
+
 
 <app-item-comments *ngIf="!dashboard"></app-item-comments>
 

@@ -1,0 +1,13 @@
+
+img, .img-content{
+    background-color: transparent;
+    mix-blend-mode: multiply;
+}
+
+button{
+    background-color: #228BE6;
+}
+
+button:hover{
+    background-color: #17568d;
+}

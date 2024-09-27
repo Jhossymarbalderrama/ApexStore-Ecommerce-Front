@@ -1,10 +1,10 @@
-import { Component, Input, OnDestroy, OnInit } from '@angular/core';
-import { ProductRequest } from 'src/app/interfaces/productRequest';
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Product } from 'src/app/models/product';
 import { FilterCategoryProductPipe } from 'src/app/pipes/filter-category-product.pipe';
 import { FilterNameProductPipe } from 'src/app/pipes/filter-name-product.pipe';
-import { AuthService } from 'src/app/services/auth.service';
 import { ProductService } from 'src/app/services/product.service';
+import  productsJSON  from '../../../assets/products.json'; // ? Products hardcodeados desde JSON
 
 @Component({
   selector: 'app-store',
@@ -15,8 +15,8 @@ export class StoreComponent implements OnInit {
 
   // * ATRIBUTOS
   // ? Products
-  products: Product[] | any;
-  lenListProducts: number = 0;
+  products: Product[] | any = productsJSON;
+  lenListProducts: number = productsJSON.length;
 
   // ? Filters
   filterName: string = '';
@@ -31,19 +31,23 @@ export class StoreComponent implements OnInit {
 
   // * CONSTRUCTOR
   constructor(
-    private productServ: ProductService
-  ) {
+    private productServ: ProductService,
+    private router: Router
+  ) {      
     if (this.productServ.listProducts?.length > 0) {
+
       this.products = this.productServ.listProducts;
       this.loading = false;
     } else {
       this.productServ.svListProducts().subscribe(
         (products) => {
-          this.products = products;
-          this.lenListProducts = this.products?.length;
-          setTimeout(() => {
-            this.loading = false;
-          }, 500);
+          if(products.length != 0){
+            this.products = products;
+            this.lenListProducts = this.products?.length;
+            setTimeout(() => {
+              this.loading = false;
+            }, 500);
+          }
         }
       )
       this.productServ.listProducts = this.products;
@@ -54,6 +58,23 @@ export class StoreComponent implements OnInit {
 
   }
 
+  public get rutaActual(): string {
+    return this.router.url;
+  }
+
+  public get isStore(): boolean {
+    let res = false;
+
+    if( this.rutaActual == '/store' || this.rutaActual == '/dashboard/store'){
+      res = true;
+    }
+
+    return res;
+  }
+
+  public get showBanner(): boolean{    
+    return this.rutaActual == '/store';
+  }
 
   // * METHODs
   //#region 
@@ -108,6 +129,10 @@ export class StoreComponent implements OnInit {
     this.cantElementPagination = this.cantElementPaginationDefult;
     this.filterName = this.filterCategory = '';
     this.lenListProducts = this.products.length;
+  }
+
+  filterCategoryExplorer(category: string){
+    this.filterCategory = category;
   }
   //#endregion
 }

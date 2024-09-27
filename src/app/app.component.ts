@@ -11,7 +11,7 @@ import { ToastService } from './services/toast.service';
 })
 export class AppComponent implements OnInit {
 
-  public dashboardUser: boolean = false;
+  public dashboardUser: boolean = true;
 
   constructor(
     private router: Router, 
@@ -23,6 +23,10 @@ export class AppComponent implements OnInit {
     initFlowbite(); // * Flowbite components https://flowbite.com/
 
     this.LoginService.checkTokenExpiration();
+
+    /**
+     * ? View/Hidden Header && Footer si no esta en el dashboard administrador
+     */
     this.router.events.subscribe((event) => {      
       if (event instanceof NavigationEnd) {       
         let ruta= this.router.url.split('/');

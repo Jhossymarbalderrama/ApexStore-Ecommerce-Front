@@ -19,10 +19,16 @@ export class DashboardComponent implements OnInit {
   menuOpen: boolean = true;
 
   // * CONSTRUCTOR
+  // constructor(
+  //   public AuthService: AuthService,
+  //   private LoginService: LoginService
+  // ) { }
   constructor(
-    public AuthService: AuthService,
-    private LoginService: LoginService
-  ) { }
+    private auth: AuthService
+  ){    
+    // this.auth.userData = null;
+    this.auth.svGetUserData();
+  }
 
   ngOnInit(): void { }
 
@@ -34,19 +40,19 @@ export class DashboardComponent implements OnInit {
    */
   saveUserDetailsData() {
     //FormValidoUserDetails
-    if (true) {
-      //Envio el valor del Formulario {}
-      this.AuthService.svUpdateUser({} as User).subscribe(
-        {
-          next: () => {
-            this.editMode = false;
-          },
-          error: (error) => {
-            console.error(error);
-          }
-        }
-      );
-    }
+    // if (true) {
+    //   //Envio el valor del Formulario {}
+    //   this.AuthService.svUpdateUser({} as User).subscribe(
+    //     {
+    //       next: () => {
+    //         this.editMode = false;
+    //       },
+    //       error: (error) => {
+    //         console.error(error);
+    //       }
+    //     }
+    //   );
+    // }
   }
 
   toggleMenu(): void {

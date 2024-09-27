@@ -17,6 +17,7 @@ export class AuthService {
   private svUserData?: User; // ? Datos del Usuario Logeado
   public svADM?: boolean = false;
   public svIdUserLogin: number = 0;
+
   // * CONSTRUCTOR
   constructor(
     private http: HttpClient,
@@ -24,8 +25,7 @@ export class AuthService {
     private ToastService:ToastService
   ) {
 
-    let id = localStorage.getItem('idUser');
-    id ? this.svIdUserLogin = Number.parseInt(id) : 0;    
+      this.getIdUser();
   }
 
   // * GETTERs
@@ -38,6 +38,12 @@ export class AuthService {
   }
 
   // * METHODs
+
+  getIdUser(){
+    let id = localStorage.getItem('idUser');
+    id ? this.svIdUserLogin = Number.parseInt(id) : 0;  
+  }
+
   //#region 
   /**
    * Obtengo los datos del usuario logeado
@@ -63,7 +69,7 @@ export class AuthService {
    */
   svUpdateUser(credentials: UserRequest): Observable<User> {
     return this.http.put<any>(environment.urlApiUser + "update", credentials).pipe(
-      tap((response) => {        
+      tap((res) => {        
         this.ToastService.Success('¡Datos de usuario actualizados!.');
       }),
       catchError(this.errorHandlerService.handleError<any>())
@@ -94,10 +100,11 @@ export class AuthService {
    */
   svDetailsUser(usrName: string): Observable<User> {
     return this.http.get<User>(environment.urlApiUser + "get/detail/" + usrName).pipe(
-      tap((response) => {
-        this.userData = response;
-        localStorage.setItem('idUser', response.id);
-        if(response.role == Role[0]){
+      tap((res) => { 
+        this.userData = res;
+        
+        localStorage.setItem('idUser', res.id); // ! SET ID LOCAL 
+        if(res.role == Role[0]){
           this.svADM = true;
         } else{
           this.svADM = false;
@@ -113,7 +120,7 @@ export class AuthService {
    * @returns 
    */
   svListUsers(): Observable<User[]> {
-    return this.http.get<User[]>(environment.urlApiUser + "list").pipe(
+    return this.http.get<User[]>(environment.urlApiUser + "list").pipe(      
       catchError(this.errorHandlerService.handleError<any>())
     );
   }

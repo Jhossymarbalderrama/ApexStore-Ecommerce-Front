@@ -1,59 +1,68 @@
-<div class="container mx-auto mt-8">
-    <h1 class="text-2xl font-semibold mb-4">Carrito de Compra</h1>
+<div class="container mx-auto container px-4 sm:px-8 2xl:pt-4 mx-auto">
+    <h1 class="text-2xl sm:text-xl 2xl:text-2xl pt-8 px-1">Carrito de Compra</h1>
+    <p class="text-md 2xl:text-lg text-blue-700 mt-2"> <i class="fa-solid fa-circle-info"></i> Verifica tus productos antes continuar al formulario de pago.</p>
 
     <div *ngIf="!tieneProductCart">
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-        <!-- Producto en el carrito -->
-            <div *ngFor="let product of productsView" class="bg-white p-4 shadow-md" >
-                <p class="text-green-600 font-semibold">Cantidad: {{product.cant}}</p>
-               <div class="flex justify-center">
-                <img [src]="product.img[0]  ? product.img[0]: 'https://dummyimage.com/400x400'" alt="Producto 1"
-                class="object-center aspect-square h-48 lg:h-auto lg:w-1/2 ">
-                <!-- class="lg:w-1/2 w-full lg:h-auto h-64 object-cover object-center aspect-square mb-4" -->
-               </div>
-                <h2 class="text-lg font-semibold mb-2">{{product.name}}</h2>
-                <h4 class="mb-2">{{product.description}}</h4>
-                <p class="text-gray-700 mb-2">
-                    <span class="text-green-600 font-semibold">
-                        ${{product.price - ((product.price * product.discount) / 100)}}
-                    </span>
-                    <span *ngIf="product.discount != 0" class="text-red-600">
-                        <span class="ml-2">
-                            <del>
-                                ${{ product?.price}}
-                            </del>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 pt-8">
+            <!-- Producto en el carrito -->
+            <div *ngFor="let product of productsView"
+                class="bg-white p-4 shadow-md rounded flex flex-col justify-between">
+                <p class="text-sm 2xl:text-md text-blue-800 mb-1">Cantidad del producto: {{ product.cant }}</p>
+                <div class="flex justify-center">
+                    <img [src]="
+              product.img[0] ? product.img[0] : 'https://dummyimage.com/400x400'
+            " alt="Producto 1" class="object-center aspect-square h-48 lg:h-auto lg:w-1/2" />
+                    <!-- class="lg:w-1/2 w-full lg:h-auto h-64 object-cover object-center aspect-square mb-4" -->
+                </div>
+                <div class="py-4">
+                    <h4 class="text-sm 2xl:text-md text-gray-500">{{ product.category }}</h4>
+                    <h2 class="text-md 2xl:text-lg capitalize">{{ product.name }}</h2>
+                </div>
+                <div class="pb-2 capitalize">
+                    <p>
+                        <span *ngIf="product.discount != 0" class="text-red-600 text-sm 2xl:text-md">
+                            <span>
+                                <del> ${{ product?.price.toLocaleString('es-ES') }} </del>
+                            </span>
+                            <span class="ml-1"> {{ product?.discount }}% </span>
                         </span>
-                        <span class="ml-1 font-semibold">
-                            {{product?.discount}}%
+                    </p>
+
+                    <p>
+                        <span class="text-green-600 text-lg 2xl:text-xl">
+                            ${{ (product.price - (product.price * product.discount) / 100).toLocaleString('es-ES') }}
                         </span>
-                    </span>
-                </p>                
-                <button class="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600"
-                    (click)="deleteProduct(product)">Eliminar</button>
+                    </p>
+                </div>
+                <button class="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600 w-full tracking-wide"
+                    (click)="deleteProduct(product)">
+                    Eliminar
+                </button>
             </div>
         </div>
-        </div>
-        
+    </div>
+
     <span *ngIf="tieneProductCart">
         <p>No tiene agregado ningun producto a su carrito.</p>
         <p>
-            <a (click)="onTienda()" class="text-blue-500 font-semibold" style="cursor: pointer;">
+            <a (click)="onTienda()" class="text-blue-500 font-semibold" style="cursor: pointer">
                 <i class="text-lg fa-solid fa-store mr-1"></i>click para ir a la tienda.
             </a>
         </p>
     </span>
     <div class="my-8">
-        <h2 class="text-xl font-semibold mb-4">Resumen de la Compra</h2>
-        <div class="flex justify-between items-center border-t border-b py-2">
-            <span class="font-semibold">Subtotal:</span>
-            <span>${{subtotal}}</span>
+        <h2 class="text-2xl sm:text-xl 2xl:text-2xl mb-4">Resumen de la Compra</h2>
+        <div class="flex justify-between items-center border-t border-b border-gray-400 py-3 sm:py-2 text-lg 2xl:text-xl">
+            <span>Subtotal carrito</span>
+            <span class="text-green-600">${{ subtotal.toLocaleString('es-ES') }}</span>
         </div>
-        <div class="flex justify-between items-center py-2">
-            <span class="font-semibold">Total:</span>
-            <span>${{total}}</span>
+        <div class="flex justify-between items-center py-3 sm:py-2 text-xl sm:text-xl">
+            <span>Total carrito</span>
+            <span class="text-green-600">${{ total.toLocaleString('es-ES') }}</span>
         </div>
         <div class="flex justify-end">
-            <button (click)="buyProducts()" [disabled]="tieneProductCart" class="bg-green-500 text-white py-2 px-11 font-semibold rounded mt-4 cursor-pointer hover:bg-green-600">
+            <button (click)="buyProducts()" [disabled]="tieneProductCart"
+                class="w-full sm:w-auto bg-green-500 text-white py-2 px-16 rounded mt-4 cursor-pointer hover:bg-green-600">
                 <i class="fa-solid fa-credit-card mr-2"></i>
                 Pagar
             </button>
