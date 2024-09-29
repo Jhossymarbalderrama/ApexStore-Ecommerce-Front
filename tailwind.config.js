@@ -6,7 +6,6 @@ module.exports = {
     ".components/**/*.{html,ts}",
     "./node_modules/flowbite/**/*.js"
   ],
-  darkMode: false,
   theme: {
     extend: {},
   },
