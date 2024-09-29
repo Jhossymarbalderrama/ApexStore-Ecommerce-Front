@@ -100,6 +100,11 @@ $ ng server -o
   <img src='https://github.com/user-attachments/assets/7e1ccac4-041e-4b99-8962-76ab8e0212db'/>
 </p>
 
+## 🧑‍💼 Dashboard Administrador de Web
+<p align="center">
+  <img src='https://github.com/user-attachments/assets/dff770fe-c65c-4d9e-8880-fc9c7e69063c'>
+</p>
+
 ##  🖥️ Responsive Página Web 📱
 
 | Macbooks y Tablets  | Smartphones |
