@@ -10,7 +10,7 @@ html {
     scroll-behavior: smooth;
 }
 
-:root, .dark-mode {
+:root {
     --color-site: #228BE6;
     --color-site-1: #6875F5;
     --color-site-hover: #4f5abe;
