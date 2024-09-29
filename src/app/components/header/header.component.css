@@ -71,8 +71,8 @@ header {
 @media screen and (min-width: 768px) and (max-width: 1023px) {}
 
 @media screen and (max-width: 390px) {
-    .box-logo img {
+    /* .box-logo img {
         height: 4vh;
         width: 35vw;    
-    }
+    } */
 }

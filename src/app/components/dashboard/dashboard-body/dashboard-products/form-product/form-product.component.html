@@ -21,7 +21,7 @@
                             </label>
                             <input
                                 class="form-control w-full px-3 py-2 border rounded focus:outline-none focus:border-blue-500"
-                                formControlName="name" type="text" id="name" name="name" placeholder="product name"
+                                formControlName="name" type="text" id="name" name="name" placeholder="nombre producto"
                                 [value]="dataForm?.item?.name" [readOnly]="dataForm?.action == 2"
                                 [ngClass]="disableBtnAction ? 'bg-gray-300' : 'bg-white' " required>
                             <div *ngIf="name.invalid && (name.dirty || name.touched)" class="text-danger text-xs">
@@ -36,7 +36,7 @@
                             <input
                                 class="form-control w-full px-3 py-2 border rounded focus:outline-none focus:border-blue-500"
                                 formControlName="category" type="text" id="category" name="category"
-                                placeholder="category" [value]="dataForm?.item?.category"
+                                placeholder="categoría" [value]="dataForm?.item?.category"
                                 [readOnly]="dataForm?.action == 2"
                                 [ngClass]="disableBtnAction ? 'bg-gray-300' : 'bg-white' " required>
                             <div *ngIf="category.invalid && (category.dirty || category.touched)"
@@ -51,7 +51,7 @@
                             </label>
                             <select
                                 class="form-control w-full px-3 py-2 border rounded focus:outline-none focus:border-blue-500 "
-                                formControlName="state" id="state" name="state" 
+                                formControlName="state" id="state" name="state"
                                 [ngClass]="disableBtnAction ? 'bg-gray-300' : 'bg-white' " required>
                                 <option value="Nuevo" [selected]="dataForm?.item?.state === 'Nuevo'">Nuevo</option>
                                 <option value="Usado" [selected]="dataForm?.item?.state === 'Usado'">Usado</option>
@@ -70,7 +70,7 @@
                             </label>
                             <input
                                 class="form-control w-full px-3 py-2 border rounded focus:outline-none focus:border-blue-500"
-                                formControlName="price" type="number" id="price" name="price" placeholder="price"
+                                formControlName="price" type="number" id="price" name="price" placeholder="precio"
                                 [value]="dataForm?.item?.price" [readOnly]="dataForm?.action == 2"
                                 [ngClass]="disableBtnAction ? 'bg-gray-300' : 'bg-white' " required>
                             <div *ngIf="price.invalid && (price.dirty || price.touched)" class="text-danger text-xs">
@@ -85,7 +85,7 @@
                             <input
                                 class="form-control w-full px-3 py-2 border rounded focus:outline-none focus:border-blue-500"
                                 formControlName="discount" type="number" id="discount" name="discount"
-                                placeholder="discount" [value]="dataForm?.item?.discount"
+                                placeholder="descuento" [value]="dataForm?.item?.discount"
                                 [readOnly]="dataForm?.action == 2"
                                 [ngClass]="disableBtnAction ? 'bg-gray-300' : 'bg-white' ">
                             <div *ngIf="discount.invalid && (discount.dirty || discount.touched)"
@@ -100,7 +100,7 @@
                             </label>
                             <input
                                 class="form-control w-full px-3 py-2 border rounded focus:outline-none focus:border-blue-500"
-                                formControlName="stock" type="number" id="stock" name="stock" placeholder="stock"
+                                formControlName="stock" type="number" id="stock" name="stock" placeholder="cantidad stock"
                                 [value]="dataForm?.item?.stock" [readOnly]="dataForm?.action == 2"
                                 [ngClass]="disableBtnAction ? 'bg-gray-300' : 'bg-white' " required>
                             <div *ngIf="stock.invalid && (stock.dirty || stock.touched)" class="text-danger text-xs">
@@ -144,7 +144,7 @@
                         </label>
                         <textarea
                             class="form-control w-full px-3 py-2 border rounded focus:outline-none focus:border-blue-500"
-                            formControlName="description" id="description" name="description" placeholder="descriptión"
+                            formControlName="description" id="description" name="description" placeholder="descripción"
                             [value]="dataForm?.item?.description" [readOnly]="dataForm?.action == 2"
                             [ngClass]="disableBtnAction ? 'bg-gray-300' : 'bg-white' " required></textarea>
                         <div *ngIf="description.invalid && (description.dirty || description.touched)"

@@ -1,7 +1,7 @@
 
 
 section div{
-    letter-spacing: 14px;
+    letter-spacing: 8px;
     text-shadow: -1px -1px 15px black;
 }
 
@@ -14,11 +14,11 @@ section div{
 }
 
 
-.box-content{
+/* .box-content{
     height: 170px;
     padding: 1em 6em;
     color: white;    
-}
+} */
 
 h4{
     text-shadow: 2px 2px 2px #272727
@@ -40,5 +40,9 @@ span > h4{
         background-size: cover;
         background-repeat: no-repeat;    
         background-position: center;
+    }
+
+    section div{
+        letter-spacing: 6px;
     }
 }
