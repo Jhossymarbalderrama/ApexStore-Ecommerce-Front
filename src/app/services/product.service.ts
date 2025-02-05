@@ -116,6 +116,7 @@ export class ProductService {
     return this.http.get<Product[]>(environment.urlApiProduct + "list")
       .pipe(
         tap((productsList) => {          
+          console.log(productsList);
           this.svSaveListLocal(productsList);
         }),
         catchError(
